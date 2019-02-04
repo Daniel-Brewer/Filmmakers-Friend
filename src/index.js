@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Filmmaker from './Filmmaker';
+import Filmmaker from './components/Filmmaker';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Filmmaker />, document.getElementById('root'));

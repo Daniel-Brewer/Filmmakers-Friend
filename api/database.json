@@ -67,7 +67,6 @@
         "character": "Ellie Love",
         "phone": "1234567898",
         "email": "jethurmond@gmail.com",
-        "user": 1,
         "projectId": 1,
         "id": 2
       },
@@ -76,7 +75,6 @@
         "character": "SS",
         "phone": "1477411255",
         "email": "franciscolindor@gmail.com",
-        "user": 3,
         "projectId": 2,
         "id": 4
       },
@@ -85,7 +83,7 @@
         "character": "LF",
         "phone": "6544789875",
         "email": "michaelbrantley@gmail.com",
-        "user": 3,
+        "projectId": 2,
         "id": 5
       },
       {
@@ -93,7 +91,7 @@
         "character": "2b",
         "phone": "3211253694",
         "email": "jasonkipnis@gmail.com",
-        "user": 3,
+        "projectId": 2,
         "id": 6
       },
       {
@@ -101,7 +99,7 @@
         "characterName": "Technotron",
         "phone": "7898754231",
         "email": "jerryrice@gmail.com",
-        "user": 2,
+        "projectId": 2,
         "id": 7
       },
       {
@@ -109,8 +107,7 @@
         "characterName": "Mayor Finchley",
         "phone": "7419635262",
         "email": "rogerstaubach@gmail.com",
-        "user": 2,
-        "isChecked": false,
+        "projectId": 2,
         "id": 8
       }
     ],
@@ -120,8 +117,7 @@
         "job": "Tarp",
         "phone": "4566544521",
         "email": "johnjackson@gmail.com",
-        "user": 3,
-        "isChecked": false,
+        "projectId": 1,
         "id": 2
       },
       {
@@ -129,8 +125,7 @@
         "job": "boom mic",
         "phone": "2587413691",
         "email": "justice@gmail.com",
-        "user": 1,
-        "isChecked": false,
+        "projectId": 2,
         "id": 3
       },
       {
@@ -138,29 +133,8 @@
         "job": "Manager",
         "phone": "9877896532",
         "email": "terryfrancona@gmail.com",
-        "user": 3,
-        "isChecked": false,
-        "id": 5,
-        "crewMemberId": 2
-      }
-    ],
-    "sceneProps": [
-      {
-        "scenePropName": "Clipboard and pen",
-        "details": "Book Signing Scene",
-        "user": 1,
-        "isChecked": false,
-        "id": 1,
-        "scenePropId": 1
-      }
-    ],
-    "locations": [
-      {
-        "locationName": "Library",
-        "details": "Book signing scene",
-        "user": 1,
-        "isChecked": false,
-        "id": 1
+        "projectId": 2,
+        "id": 5
       }
     ]
   }
