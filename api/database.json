@@ -1,0 +1,166 @@
+{
+    "users": [
+      {
+        "username": "Aaron Brewer",
+        "password": "123",
+        "id": 1
+      },
+      {
+        "username": "ryan brewer",
+        "password": "123",
+        "id": 2
+      },
+      {
+        "username": "daniel brewer",
+        "password": "123",
+        "id": 3
+      }
+    ],
+    "projects": [
+      {
+        "title": "About the Author!",
+        "userId": 1,
+        "id": 1
+      },
+      {
+        "title": "Synchronicity",
+        "userId": 1,
+        "id": 2
+      },
+      {
+        "title": "Technotron",
+        "userId": 2,
+        "id": 3
+      },
+      {
+        "title": "Tribe Time",
+        "userId": 3,
+        "id": 4
+      },
+      {
+        "title": "Forgotten 7",
+        "userId": 2,
+        "id": 5
+      },
+      {
+        "title": "Redeemers",
+        "userId": 1,
+        "id": 6
+      },
+      {
+        "title": "Charge!",
+        "userId": 1,
+        "id": 7
+      }
+    ],
+    "castMembers": [
+      {
+        "name": "Chris Carson",
+        "character": "Al Dunn",
+        "phone": "9876543212",
+        "email": "chriscarson@gmail.com",
+        "projectId": 1,
+        "id": 1
+      },
+      {
+        "name": "Jet Thurmond",
+        "character": "Ellie Love",
+        "phone": "1234567898",
+        "email": "jethurmond@gmail.com",
+        "user": 1,
+        "projectId": 1,
+        "id": 2
+      },
+      {
+        "name": "Frankie Lindor",
+        "character": "SS",
+        "phone": "1477411255",
+        "email": "franciscolindor@gmail.com",
+        "user": 3,
+        "projectId": 2,
+        "id": 4
+      },
+      {
+        "name": "Michael Brantley",
+        "character": "LF",
+        "phone": "6544789875",
+        "email": "michaelbrantley@gmail.com",
+        "user": 3,
+        "id": 5
+      },
+      {
+        "name": "Jason Kipnis",
+        "character": "2b",
+        "phone": "3211253694",
+        "email": "jasonkipnis@gmail.com",
+        "user": 3,
+        "id": 6
+      },
+      {
+        "castMemberName": "Jerry Rice",
+        "characterName": "Technotron",
+        "phone": "7898754231",
+        "email": "jerryrice@gmail.com",
+        "user": 2,
+        "id": 7
+      },
+      {
+        "castMemberName": "Roger Staubach",
+        "characterName": "Mayor Finchley",
+        "phone": "7419635262",
+        "email": "rogerstaubach@gmail.com",
+        "user": 2,
+        "isChecked": false,
+        "id": 8
+      }
+    ],
+    "crewMembers": [
+      {
+        "name": "John Jackson",
+        "job": "Tarp",
+        "phone": "4566544521",
+        "email": "johnjackson@gmail.com",
+        "user": 3,
+        "isChecked": false,
+        "id": 2
+      },
+      {
+        "name": "Justice Dudley",
+        "job": "boom mic",
+        "phone": "2587413691",
+        "email": "justice@gmail.com",
+        "user": 1,
+        "isChecked": false,
+        "id": 3
+      },
+      {
+        "name": "Terry Francona",
+        "job": "Manager",
+        "phone": "9877896532",
+        "email": "terryfrancona@gmail.com",
+        "user": 3,
+        "isChecked": false,
+        "id": 5,
+        "crewMemberId": 2
+      }
+    ],
+    "sceneProps": [
+      {
+        "scenePropName": "Clipboard and pen",
+        "details": "Book Signing Scene",
+        "user": 1,
+        "isChecked": false,
+        "id": 1,
+        "scenePropId": 1
+      }
+    ],
+    "locations": [
+      {
+        "locationName": "Library",
+        "details": "Book signing scene",
+        "user": 1,
+        "isChecked": false,
+        "id": 1
+      }
+    ]
+  }
