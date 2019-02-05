@@ -43,33 +43,33 @@ export default class CastMemberForm extends Component {
             <React.Fragment>
                 <form className="castMemberForm">
                     <div className="form-group">
-                        <label htmlFor="name">CastMember Name</label>
+                        {/* <label htmlFor="name">CastMember Name</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="name"
-                               placeholder="castMember name" />
+                               placeholder="CastMember name" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="character">Character</label>
+                        {/* <label htmlFor="character">Character</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="character" placeholder="character" />
+                               id="character" placeholder="Character" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="phone">Phone</label>
+                        {/* <label htmlFor="phone">Phone</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="phone" placeholder="Phone" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
+                        {/* <label htmlFor="email">Email</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="email" placeholder="email" />
+                               id="email" placeholder="Email" />
                     </div>
                     <button type="submit" onClick={this.constructNewCastMember} className="btn btn-primary">Submit</button>
                 </form>

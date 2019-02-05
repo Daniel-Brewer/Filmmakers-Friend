@@ -41,15 +41,15 @@ export default class ProjectForm extends Component {
             <React.Fragment>
                 <form className="projectForm">
                     <div className="form-group">
-                        <label htmlFor="title">Project Title</label>
+                        {/* <label htmlFor="title">Project Title</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="title"
-                               placeholder="project title" />
+                               placeholder="Project title" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="description">Description</label>
+                        {/* <label htmlFor="description">Description</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

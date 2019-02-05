@@ -19,17 +19,15 @@ export default class RegistrationForm extends Component {
     }
 
     handleButtonClick = () => {
-        document.location.href = 'http://localhost:3000/projects?_expand=user&userId'
-        // document.location.href = 'http://localhost:3000/projects?_expand=user&userId=${id}'
-
-        const users = {
+        document.location.href = 'http://localhost:3000/'
+        
+        const user = {
             username: this.state.username,
             password: this.state.password,
         }
-
-        this.props.addUser(users)
-            .then(() => this.props.history.push("/users"))
-
+        this.props.addUser(user)
+        .then(() => this.props.history.push("/users"))
+        
     }
 
     render() {

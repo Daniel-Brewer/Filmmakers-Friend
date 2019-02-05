@@ -30,14 +30,12 @@ class ApplicationViews
   // Check if credentials are in local storage
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
-  addUser = user =>
-    UserManager.post(user)
-      .then(() => UserManager.getAll())
-      .then(users =>
-        this.setState({
-          users: users
-        })
-      );
+  addUser = user => UserManager.post(user)
+    .then(() => UserManager.getAll())
+    .then(users => this.setState({
+      users: users
+    })
+    );
 
   addProject = project =>
     ProjectManager.post(project)
@@ -153,17 +151,7 @@ class ApplicationViews
             addUser={this.state.addUser}
             users={this.state.users} />
         }} />
-        {/* <Route
-          exact
-          path="/"
-          render={props => {
-            return <ProjectList {...props}
-              activeUser={this.state.activeUser}
-              addProject={this.addProject}
-              deleteProject={this.deleteProject}
-              projects={this.state.projects} />;
-          }}
-        /> */}
+
         {/* this is the list of projects */}
         <Route
           exact

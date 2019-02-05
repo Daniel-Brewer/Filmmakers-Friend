@@ -11,6 +11,9 @@ export default class CrewMemberCard extends Component {
                         {this.props.crewMember.name}
                         <Link className="nav-link" to={`/crewMembers/${this.props.crewMember.id}`}>Details</Link>
                         <button
+                            onClick={() => this.props.editCrewMember(this.props.crewMember.id)}
+                            className="card-link">Edit</button>
+                        <button
                             onClick={() => this.props.deleteCrewMember(this.props.crewMember.id)}
                             className="card-link">Delete</button>
                     </h5>

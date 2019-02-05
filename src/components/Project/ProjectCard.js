@@ -19,6 +19,9 @@ export default class ProjectCard extends Component {
                             {this.props.project.description}</p>
                         <Link className="nav-link" to={`/projects/${this.props.project.id}`}>Enter Project</Link>
                         <button
+                            onClick={() => this.props.editProject(this.props.project.id)}
+                            className="card-link">Edit</button>
+                        <button
                             onClick={() => this.props.deleteProject(this.props.project.id)}
                             className="card-link">Delete</button>
                     </h5>
