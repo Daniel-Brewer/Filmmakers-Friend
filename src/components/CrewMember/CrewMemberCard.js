@@ -10,9 +10,9 @@ export default class CrewMemberCard extends Component {
                     <h5 className="card-title">
                         {this.props.crewMember.name}
                         <Link className="nav-link" to={`/crewMembers/${this.props.crewMember.id}`}>Details</Link>
-                        <a href="#"
+                        <button
                             onClick={() => this.props.deleteCrewMember(this.props.crewMember.id)}
-                            className="card-link">Discharge</a>
+                            className="card-link">Delete</button>
                     </h5>
                 </div>
             </div>

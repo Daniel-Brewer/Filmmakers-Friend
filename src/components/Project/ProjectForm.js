@@ -6,7 +6,7 @@ import "./Project.css"
 export default class ProjectForm extends Component {
     // Set initial state
     state = {
-      name: "",
+        title: "",
         description: "",
         userId: ""
     }
@@ -26,9 +26,9 @@ export default class ProjectForm extends Component {
         evt.preventDefault()
 
             const project = {
-                name: this.state.name,
+                title: this.state.title,
                 description: this.state.description,
-                userId: this.props.users.find(e => e.name === this.state.user).id
+                userId: this.props.users.find(p => p.title === this.state.user).id
             }
 
             // Create the project and redirect user to project list
@@ -40,12 +40,12 @@ export default class ProjectForm extends Component {
             <React.Fragment>
                 <form className="projectForm">
                     <div className="form-group">
-                        <label htmlFor="projectName">Project Name</label>
+                        <label htmlFor="projecttitle">Project Title</label>
                         <input type="text" required
-                               className="form-control"
+                               classTitle="form-control"
                                onChange={this.handleFieldChange}
-                               id="projectName"
-                               placeholder="project name" />
+                               id="projecttitle"
+                               placeholder="project title" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
