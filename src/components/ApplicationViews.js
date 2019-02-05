@@ -97,6 +97,7 @@ class ApplicationViews
 
     componentDidMount() {
       // Example code. Make this fit into how you have written yours.
+      sessionStorage.setItem("userId",2)
       ProjectManager.getAll().then(allProjects => {
         this.setState({
           projects: allProjects
@@ -127,6 +128,8 @@ class ApplicationViews
             path="/"
             render={props => {
               return <ProjectList {...props}
+                addProject={this.addProject}
+                deleteProject={this.deleteProject}
                 projects={this.state.projects} />;
             }}
           />
@@ -139,6 +142,7 @@ class ApplicationViews
                 return (
                   <ProjectList
                     {...props}
+                    addProject={this.addProject}
                     deleteProject={this.deleteProject}
                     projects={this.state.projects}
                   />
@@ -168,7 +172,9 @@ class ApplicationViews
               return (
                 <ProjectForm
                   {...props}
-                  addProject={this.addProject}/>
+                  addProject={this.addProject}
+                  title={this.state.title}
+                  description={this.state.description}/>
               );
             }}
           />
@@ -218,13 +224,22 @@ class ApplicationViews
               );
             }}
           />
-          <Route exact path="/crewMembers" render={(props) => {
-            if (this.isAuthenticated()) {
-              return <CrewMemberList {...props} crewMembers={this.state.crewMembers} />
-            } else {
-              return <Redirect to="/login" />
-            }
-          }} />
+          <Route
+            exact
+            path="/crewMembers"
+            render={props => {
+              if (this.isAuthenticated()) {
+                return (
+                  <CrewMemberList {...props}
+                    deleteCrewMember={this.deleteCrewMember}
+                    crewMembers={this.state.crewMembers}
+                  />
+                );
+              } else {
+                return <Redirect to="/login" />;
+              }
+            }}
+          />
           <Route path="/crewMembers/:crewMemberId(\d+)" render={(props) => {
             return <CrewMemberDetail {...props} deleteCrewMember={this.deleteCrewMember} crewMembers={this.state.crewMembers} />
           }} />
