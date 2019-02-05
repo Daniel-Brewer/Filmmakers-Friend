@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Filmmaker from './Filmmaker';
+import Filmmaker from './components/Filmmaker';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

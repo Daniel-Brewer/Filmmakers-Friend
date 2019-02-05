@@ -1,0 +1,26 @@
+import React, { Component } from "react"
+import "./Project.css"
+import ProjectCard from "./ProjectCard"
+
+export default class ProjectList extends Component {
+    render () {
+        return (
+            <React.Fragment>
+                <div className="projectButton">
+                    <button type="button"
+                            onClick={()=> this.props.history.push("/projects/new")}
+                            className="btn btn-success">
+                        Add Project
+                    </button>
+                </div>
+                <section className="projects">
+                {
+                    this.props.projects.map(project =>
+                        <ProjectCard key={project.id} project={project} {...this.props} />
+                    )
+                }
+                </section>
+            </React.Fragment>
+        )
+    }
+}

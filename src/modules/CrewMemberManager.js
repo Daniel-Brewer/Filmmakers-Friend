@@ -7,7 +7,7 @@ export default {
   getAll() {
     return fetch(`${remoteURL}/crewMembers`).then(e => e.json())
   },
-  post(newAnimal) {
+  post(newCrewMember) {
     return fetch(`${remoteURL}/crewMembers`, {
       method: "POST",
       headers: {
