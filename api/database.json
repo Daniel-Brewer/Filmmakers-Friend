@@ -24,10 +24,22 @@
       "id": 1
     },
     {
-      "title": "Technotron",
-      "description": "Thriller",
+      "title": "Saving Grace",
+      "description": "Distopian drama",
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "title": "Man-o-War",
+      "description": "Super Hero action",
       "userId": 2,
       "id": 3
+    },
+    {
+      "title": "Michael's Exit",
+      "description": "Cop Movie",
+      "userId": 1,
+      "id": 4
     }
   ],
   "castMembers": [
@@ -49,8 +61,8 @@
     },
     {
       "name": "Frankie Lindor",
-      "character": "SS",
-      "phone": "9876543219",
+      "character": "ss",
+      "phone": "1234567891",
       "email": "frankielindor@gmail.com",
       "projectId": 1,
       "id": 3
@@ -75,11 +87,19 @@
     },
     {
       "name": "Ryan Gabriel",
-      "job": "Director of Photography",
-      "phone": "1234569874",
+      "job": "boom mic",
+      "phone": "1234567891",
       "email": "ryangabriel@gmail.com",
       "projectId": 1,
       "id": 7
+    },
+    {
+      "name": "Carly Lancaster",
+      "job": "Audio",
+      "phone": "7896541234",
+      "email": "carlylancaster@gmail.com",
+      "projectId": 1,
+      "id": 8
     }
   ]
 }

@@ -28,7 +28,8 @@ export default class ProjectForm extends Component {
             const project = {
                 title: this.state.title,
                 description: this.state.description,
-                userId: this.props.users.find(p => p.title === this.state.user).id
+                userId: 1
+                // userId: this.props.users.find(p => p.title === this.state.user).id
             }
 
             // Create the project and redirect user to project list
@@ -40,11 +41,11 @@ export default class ProjectForm extends Component {
             <React.Fragment>
                 <form className="projectForm">
                     <div className="form-group">
-                        <label htmlFor="projecttitle">Project Title</label>
+                        <label htmlFor="title">Project Title</label>
                         <input type="text" required
-                               classTitle="form-control"
+                               className="form-control"
                                onChange={this.handleFieldChange}
-                               id="projecttitle"
+                               id="title"
                                placeholder="project title" />
                     </div>
                     <div className="form-group">

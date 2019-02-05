@@ -3,7 +3,7 @@
 import React, { Component } from "react"
 import "./CrewMember.css"
 
-export default class crewMemberForm extends Component {
+export default class CrewMemberForm extends Component {
     // Set initial state
     state = {
         name: "",
