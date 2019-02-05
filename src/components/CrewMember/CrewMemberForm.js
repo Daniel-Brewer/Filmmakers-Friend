@@ -43,33 +43,33 @@ export default class CrewMemberForm extends Component {
             <React.Fragment>
                 <form className="crewMemberForm">
                     <div className="form-group">
-                        <label htmlFor="name">CrewMember Name</label>
+                        {/* <label htmlFor="name">CrewMember Name</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="name"
-                               placeholder="crewMember name" />
+                               placeholder="CrewMember name" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="job">Job</label>
+                        {/* <label htmlFor="job">Job</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="job" placeholder="job" />
+                               id="job" placeholder="Job" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="phone">Phone</label>
+                        {/* <label htmlFor="phone">Phone</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="phone" placeholder="Phone" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
+                        {/* <label htmlFor="email">Email</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="email" placeholder="email" />
+                               id="email" placeholder="Email" />
                     </div>
                     <button type="submit" onClick={this.constructNewCrewMember} className="btn btn-primary">Submit</button>
                 </form>

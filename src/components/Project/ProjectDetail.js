@@ -1,5 +1,6 @@
 // This component renders the specific details of each Project
 import React, { Component } from "react"
+import { Link } from "react-router-dom"
 import "./Project.css"
 
 
@@ -20,7 +21,10 @@ export default class ProjectDetail extends Component {
                         <h4 className="card-title">
                             {project.title}
                         </h4>
-                        <p className="card-title">{project.description}</p>
+                        <Link className="nav-link" to={`/castMembers?_expand=project&project.id`}>CastMembers</Link>
+                        <br></br>
+                        <Link className="nav-link" to={`/crewMembers?_expand=project&projectId`}>CrewMembers</Link>
+                        <br></br>
                         <button
                             onClick={() => this.props.deleteProject(project.id)
                                             .then(() => this.props.history.push("/projects"))}
