@@ -3,6 +3,12 @@ import { Link } from "react-router-dom"
 import "./Project.css"
 
 export default class ProjectCard extends Component {
+
+    state = {
+        title: "",
+        description: "",
+        user: this.props.activeUser.id,
+    }
     render() {
         return (
             <div key={this.props.project.id} className="card">
@@ -10,7 +16,7 @@ export default class ProjectCard extends Component {
                     <h5 className="card-title">
                         {this.props.project.title}
                         <p>
-                        {this.props.project.description}</p>
+                            {this.props.project.description}</p>
                         <Link className="nav-link" to={`/projects/${this.props.project.id}`}>Enter Project</Link>
                         <button
                             onClick={() => this.props.deleteProject(this.props.project.id)}

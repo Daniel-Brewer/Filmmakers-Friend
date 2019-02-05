@@ -13,19 +13,31 @@ import CrewMemberList from "./crewMember/CrewMemberList";
 import CrewMemberDetail from "./crewMember/CrewMemberDetail";
 import CrewMemberForm from "./crewMember/CrewMemberForm";
 import CrewMemberManager from "../modules/CrewMemberManager";
-import Login from "./authentication/Login";
+import UserManager from "../modules/UserManager";
+import LoginForm from "./authentication/LoginForm";
+import RegistrationForm from "./authentication/RegistrationForm";
 
 class ApplicationViews
- extends Component {
+  extends Component {
   state = {
     users: [],
     projects: [],
     castMembers: [],
-    crewMembers: []
+    crewMembers: [],
+    activeUser: [],
   };
 
   // Check if credentials are in local storage
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+
+  addUser = user =>
+    UserManager.post(user)
+      .then(() => UserManager.getAll())
+      .then(users =>
+        this.setState({
+          users: users
+        })
+      );
 
   addProject = project =>
     ProjectManager.post(project)
@@ -50,6 +62,12 @@ class ApplicationViews
       );
   };
 
+  editProject = (id, projects) => ProjectManager.edit("projects", id, projects)
+    .then(() => ProjectManager.getAll("projects", this.state.activeUser.id))
+    .then(projects => this.setState({
+      projects: projects
+    }))
+
 
   addCastMember = castMember =>
     CastMemberManager.post(castMember)
@@ -71,192 +89,207 @@ class ApplicationViews
         castMembers: castMembers
       })
       )
-    }
+  }
 
 
-    addCrewMember = crewMember =>
-      CrewMemberManager.post(crewMember)
-        .then(() => CrewMemberManager.getAll())
-        .then(crewMembers =>
-          this.setState({
-            crewMembers: crewMembers
-          })
-        );
-    deleteCrewMember = id => {
-      return fetch(`http://localhost:5002/crewMembers/${id}`, {
-        method: "DELETE"
-      })
-        .then(response => response.json())
-        .then(() => fetch(`http://localhost:5002/crewMembers`))
-        .then(response => response.json())
-        .then(crewMembers => this.setState({
+  addCrewMember = crewMember =>
+    CrewMemberManager.post(crewMember)
+      .then(() => CrewMemberManager.getAll())
+      .then(crewMembers =>
+        this.setState({
           crewMembers: crewMembers
         })
-        );
-    }
+      );
+  deleteCrewMember = id => {
+    return fetch(`http://localhost:5002/crewMembers/${id}`, {
+      method: "DELETE"
+    })
+      .then(response => response.json())
+      .then(() => fetch(`http://localhost:5002/crewMembers`))
+      .then(response => response.json())
+      .then(crewMembers => this.setState({
+        crewMembers: crewMembers
+      })
+      );
+  }
 
-    componentDidMount() {
-      // Example code. Make this fit into how you have written yours.
-      sessionStorage.setItem("userId",2)
-      ProjectManager.getAll().then(allProjects => {
-        this.setState({
-          projects: allProjects
-        });
+  componentDidMount() {
+    // Example code. Make this fit into how you have written yours.
+    const newState = {}
+    let localUser = JSON.parse(sessionStorage.getItem("credentials"));
+    newState.activeUser = localUser;
+    UserManager.getAll("users")
+      .then(allUsers => {
+        newState.users = allUsers
+      })
+
+    // sessionStorage.setItem("userId",2)
+    ProjectManager.getAll().then(allProjects => {
+      this.setState({
+        projects: allProjects
       });
+    });
 
-      CastMemberManager.getAll().then(allCastMembers => {
-        this.setState({
-          castMembers: allCastMembers
-        });
+    CastMemberManager.getAll().then(allCastMembers => {
+      this.setState({
+        castMembers: allCastMembers
       });
+    });
 
-      CrewMemberManager.getAll().then(allCrewMembers => {
-        this.setState({
-          crewMembers: allCrewMembers
-        });
+    CrewMemberManager.getAll().then(allCrewMembers => {
+      this.setState({
+        crewMembers: allCrewMembers
       });
+    });
 
-    }
+  }
 
-    render() {
-      return (
-        <React.Fragment>
-          <Route path="/login" component={Login} />
-
-          <Route
-            exact
-            path="/"
-            render={props => {
-              return <ProjectList {...props}
-                addProject={this.addProject}
-                deleteProject={this.deleteProject}
-                projects={this.state.projects} />;
-            }}
-          />
-          {/* this is the list of projects */}
-          <Route
-            exact
-            path="/projects"
-            render={props => {
-              if (this.isAuthenticated()) {
-                return (
-                  <ProjectList
-                    {...props}
-                    addProject={this.addProject}
-                    deleteProject={this.deleteProject}
-                    projects={this.state.projects}
-                  />
-                );
-              } else {
-                return <Redirect to="/login" />;
-              }
-            }}
-          />
-          {/* this is the detail for individual project */}
-          <Route
-            path="/projects/:projectId(\d+)"
-            render={props => {
+  render() {
+    return (
+      <React.Fragment>
+        <Route exact path="/" component={LoginForm} />
+        <Route exact path="/register" render={(props) => {
+          return <RegistrationForm {...props}
+            addUser={this.state.addUser}
+            users={this.state.users} />
+        }} />
+        {/* <Route
+          exact
+          path="/"
+          render={props => {
+            return <ProjectList {...props}
+              activeUser={this.state.activeUser}
+              addProject={this.addProject}
+              deleteProject={this.deleteProject}
+              projects={this.state.projects} />;
+          }}
+        /> */}
+        {/* this is the list of projects */}
+        <Route
+          exact
+          path="/projects"
+          render={props => {
+            if (this.isAuthenticated()) {
               return (
-                <ProjectDetail
+                <ProjectList
                   {...props}
+                  activeUser={this.state.activeUser}
+                  addProject={this.addProject}
                   deleteProject={this.deleteProject}
                   projects={this.state.projects}
                 />
               );
-            }}
-          />
-          {/* this is the project add form */}
-          <Route
-            path="/projects/new"
-            render={props => {
+            } else {
+              return <Redirect to="/login" />;
+            }
+          }}
+        />
+        {/* this is the detail for individual project */}
+        <Route
+          path="/projects/:projectId(\d+)"
+          render={props => {
+            return (
+              <ProjectDetail
+                {...props}
+                deleteProject={this.deleteProject}
+                editProject={this.editProject}
+                projects={this.state.projects}
+              />
+            );
+          }}
+        />
+        {/* this is the project add form */}
+        <Route
+          path="/projects/new"
+          render={props => {
+            return (
+              <ProjectForm
+                {...props}
+                activeUser={this.state.activeUser}
+                addProject={this.addProject}
+                title={this.state.title}
+                description={this.state.description} />
+            );
+          }}
+        />
+        <Route
+          exact
+          path="/castMembers"
+          render={props => {
+            if (this.isAuthenticated()) {
               return (
-                <ProjectForm
-                  {...props}
-                  addProject={this.addProject}
-                  title={this.state.title}
-                  description={this.state.description}/>
-              );
-            }}
-          />
-          <Route
-            exact
-            path="/castMembers"
-            render={props => {
-              if (this.isAuthenticated()) {
-                return (
-                  <CastMemberList {...props}
-                    deleteCastMember={this.deleteCastMember}
-                    castMembers={this.state.castMembers}
-                  />
-                );
-              } else {
-                return <Redirect to="/login" />;
-              }
-            }}
-          />
-          {/* this is the detail for individual castMember */}
-          <Route
-            path="/castMembers/:castMemberId(\d+)"
-            render={props => {
-              return (
-                <CastMemberDetail
-                  {...props}
+                <CastMemberList {...props}
                   deleteCastMember={this.deleteCastMember}
                   castMembers={this.state.castMembers}
                 />
               );
-            }}
-          />
-          {/* this is the castMember add form */}
-          <Route
-            path="/castMembers/new"
-            render={props => {
+            } else {
+              return <Redirect to="/login" />;
+            }
+          }}
+        />
+        {/* this is the detail for individual castMember */}
+        <Route
+          path="/castMembers/:castMemberId(\d+)"
+          render={props => {
+            return (
+              <CastMemberDetail
+                {...props}
+                deleteCastMember={this.deleteCastMember}
+                castMembers={this.state.castMembers}
+              />
+            );
+          }}
+        />
+        {/* this is the castMember add form */}
+        <Route
+          path="/castMembers/new"
+          render={props => {
+            return (
+              <CastMemberForm
+                {...props}
+                addCastMember={this.addCastMember}
+                name={this.state.name}
+                character={this.state.character}
+                phone={this.state.phone}
+                email={this.state.email}
+                projects={this.state.projects}
+              />
+            );
+          }}
+        />
+        <Route
+          exact
+          path="/crewMembers"
+          render={props => {
+            if (this.isAuthenticated()) {
               return (
-                <CastMemberForm
-                  {...props}
-                  addCastMember={this.addCastMember}
-                  name={this.state.name}
-                  character={this.state.character}
-                  phone={this.state.phone}
-                  email={this.state.email}
-                  projects={this.state.projects}
+                <CrewMemberList {...props}
+                  deleteCrewMember={this.deleteCrewMember}
+                  crewMembers={this.state.crewMembers}
                 />
               );
-            }}
+            } else {
+              return <Redirect to="/login" />;
+            }
+          }}
+        />
+        <Route path="/crewMembers/:crewMemberId(\d+)" render={(props) => {
+          return <CrewMemberDetail {...props} deleteCrewMember={this.deleteCrewMember} crewMembers={this.state.crewMembers} />
+        }} />
+        <Route path="/crewMembers/new" render={(props) => {
+          return <CrewMemberForm {...props}
+            addCrewMember={this.addCrewMember}
+            name={this.state.name}
+            job={this.state.job}
+            phone={this.state.phone}
+            email={this.state.email}
+            projects={this.state.projects}
           />
-          <Route
-            exact
-            path="/crewMembers"
-            render={props => {
-              if (this.isAuthenticated()) {
-                return (
-                  <CrewMemberList {...props}
-                    deleteCrewMember={this.deleteCrewMember}
-                    crewMembers={this.state.crewMembers}
-                  />
-                );
-              } else {
-                return <Redirect to="/login" />;
-              }
-            }}
-          />
-          <Route path="/crewMembers/:crewMemberId(\d+)" render={(props) => {
-            return <CrewMemberDetail {...props} deleteCrewMember={this.deleteCrewMember} crewMembers={this.state.crewMembers} />
-          }} />
-          <Route path="/crewMembers/new" render={(props) => {
-            return <CrewMemberForm {...props}
-              addCrewMember={this.addCrewMember}
-              name={this.state.name}
-              job={this.state.job} 
-              phone={this.state.phone} 
-              email={this.state.email} 
-              projects={this.state.projects} 
-              />
-          }} />
-        </React.Fragment>
-      );
-    }
+        }} />
+      </React.Fragment>
+    );
   }
+}
 
-  export default ApplicationViews
-  ;
+export default ApplicationViews
