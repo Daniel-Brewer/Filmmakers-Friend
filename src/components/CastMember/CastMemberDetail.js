@@ -23,10 +23,10 @@ export default class CastMemberDetail extends Component {
                         <h6 className="card-title">{castMember.character}</h6>
                         <h6 className="card-title">{castMember.phone}</h6>
                         <h6 className="card-title">{castMember.email}</h6>
-                        <a href="#"
+                        <button
                             onClick={() => this.props.deleteCastMember(castMember.id)
                                             .then(() => this.props.history.push("/castMembers"))}
-                            className="card-link">Delete</a>
+                            className="card-link">Delete</button>
                     </div>
                 </div>
             </section>

@@ -11,9 +11,9 @@ export default class CastMemberCard extends Component {
                     <h5 className="card-title">
                         {this.props.castMember.name}
                         <Link className="nav-link" to={`/castMembers/${this.props.castMember.id}`}>Details</Link>
-                        <a href="#"
+                        <button
                             onClick={() => this.props.deleteCastMember(this.props.castMember.id)}
-                            className="card-link">Discharge</a>
+                            className="card-link">Delete</button>
                     </h5>
                 </div>
             </div>

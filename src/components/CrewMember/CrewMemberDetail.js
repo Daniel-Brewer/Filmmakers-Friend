@@ -22,10 +22,10 @@ export default class CrewMemberDetail extends Component {
                         <h6 className="card-title">{crewMember.job}</h6>
                         <h6 className="card-title">{crewMember.phone}</h6>
                         <h6 className="card-title">{crewMember.email}</h6>
-                        <a href="#"
+                        <button
                             onClick={() => this.props.deleteCrewMember(crewMember.id)
                                             .then(() => this.props.history.push("/crewMembers"))}
-                            className="card-link">Delete</a>
+                            className="card-link">Delete</button>
                     </div>
                 </div>
             </section>
