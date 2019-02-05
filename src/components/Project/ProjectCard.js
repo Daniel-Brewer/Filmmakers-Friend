@@ -12,7 +12,7 @@ export default class ProjectCard extends Component {
                         <Link className="nav-link" to={`/projects/${this.props.project.id}`}>Enter Project</Link>
                         <a href="#"
                             onClick={() => this.props.deleteProject(this.props.project.id)}
-                            className="card-link">Discharge</a>
+                            className="card-link">Delete</a>
                     </h5>
                 </div>
             </div>
