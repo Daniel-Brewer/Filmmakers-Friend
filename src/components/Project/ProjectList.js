@@ -14,6 +14,7 @@ export default class ProjectList extends Component {
                     </button>
                 </div>
                 <section className="projects">
+                
                 {
                     this.props.projects.map(project =>
                         <ProjectCard key={project.id} project={project} {...this.props} />

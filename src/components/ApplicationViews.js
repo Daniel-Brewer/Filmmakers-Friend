@@ -4,6 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 import ProjectList from "./project/ProjectList";
 import ProjectDetail from "./project/ProjectDetail";
 import ProjectForm from "./project/ProjectForm";
+import ProjectEditForm from "./project/ProjectEditForm";
 import ProjectManager from "../modules/ProjectManager";
 import CastMemberList from "./castMember/CastMemberList";
 import CastMemberDetail from "./castMember/CastMemberDetail";
@@ -60,11 +61,14 @@ class ApplicationViews
       );
   };
 
-  editProject = (id, projects) => ProjectManager.edit("projects", id, projects)
-    .then(() => ProjectManager.getAll("projects", this.state.activeUser.id))
-    .then(projects => this.setState({
-      projects: projects
-    }))
+
+  editProject = (projectId, existingProject) =>
+    ProjectManager.put(projectId, existingProject)
+      .then(() => ProjectManager.get())
+      .then(projects => this.setState({
+        projects: projects
+      })
+      )
 
 
   addCastMember = castMember =>
@@ -163,6 +167,7 @@ class ApplicationViews
                   {...props}
                   activeUser={this.state.activeUser}
                   addProject={this.addProject}
+                  editProject={this.editProject}
                   deleteProject={this.deleteProject}
                   projects={this.state.projects}
                 />
@@ -194,12 +199,21 @@ class ApplicationViews
               <ProjectForm
                 {...props}
                 activeUser={this.state.activeUser}
+                projects={this.state.projects}
                 addProject={this.addProject}
                 title={this.state.title}
                 description={this.state.description} />
             );
           }}
         />
+        <Route path="/projects/edit" render={(props) => {
+          return <ProjectEditForm
+            {...props}
+            projects={this.state.projects}
+            title={this.state.title}
+            description={this.state.description}
+            editProject={this.editProject} />
+        }} />
         <Route
           exact
           path="/castMembers"

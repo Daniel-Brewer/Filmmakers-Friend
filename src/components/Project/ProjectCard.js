@@ -7,7 +7,7 @@ export default class ProjectCard extends Component {
     state = {
         title: "",
         description: "",
-        user: this.props.activeUser.id,
+        userId: this.props.activeUser.id
     }
     render() {
         return (
@@ -19,7 +19,7 @@ export default class ProjectCard extends Component {
                             {this.props.project.description}</p>
                         <Link className="nav-link" to={`/projects/${this.props.project.id}`}>Enter Project</Link>
                         <button
-                            onClick={() => this.props.editProject(this.props.project.id)}
+                            onClick={() => this.props.history.push(`/projects/edit/${this.props.project.id}`)}
                             className="card-link">Edit</button>
                         <button
                             onClick={() => this.props.deleteProject(this.props.project.id)}
