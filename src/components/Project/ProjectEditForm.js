@@ -22,13 +22,13 @@ export default class ProjectEditForm extends Component {
      */
     constructProjectToEdit = evt => {
         evt.preventDefault()
-
-            const project = {
-                title: this.state.title,
-                description: this.state.description,
-                userId: this.state.userId
-                // userId: this.props.users.find(p => p.title === this.state.user).id
-            }
+        const project = {
+            title: this.state.title,
+            description: this.state.description,
+            userId: this.state.userId
+            // userId: this.props.users.find(p => p.title === this.state.user).id
+        }
+        console.log("this.state.userId", this.state.userId)
 
             // Create the project and redirect user to project list
             this.props.editProject(project).then(() => this.props.history.push("/projects"))

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import './Register.css'
 
+
 export default class RegistrationForm extends Component {
 
     state = {
@@ -19,15 +20,16 @@ export default class RegistrationForm extends Component {
     }
 
     handleButtonClick = () => {
-        document.location.href = 'http://localhost:3000/'
         
         const user = {
             username: this.state.username,
             password: this.state.password,
         }
+        console.log("user", user)
         this.props.addUser(user)
         .then(() => this.props.history.push("/users"))
         
+        document.location.href = 'http://localhost:3000/'
     }
 
     render() {
