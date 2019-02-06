@@ -148,7 +148,7 @@ class ApplicationViews
         <Route exact path="/" component={LoginForm} />
         <Route exact path="/register" render={(props) => {
           return <RegistrationForm {...props}
-            addUser={this.state.addUser}
+            addUser={this.addUser}
             users={this.state.users} />
         }} />
 

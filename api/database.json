@@ -14,6 +14,11 @@
       "username": "daniel brewer",
       "password": "123",
       "id": 3
+    },
+    {
+      "username": "Calie Benke",
+      "password": "123",
+      "id": 4
     }
   ],
   "projects": [
@@ -34,12 +39,6 @@
       "description": "Super Hero action",
       "userId": 2,
       "id": 3
-    },
-    {
-      "title": "lllll",
-      "description": "bbbb",
-      "userId": "",
-      "id": 4
     }
   ],
   "castMembers": [
