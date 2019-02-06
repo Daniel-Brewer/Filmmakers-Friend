@@ -17,18 +17,14 @@ export default {
       body: JSON.stringify(newProject)
     }).then(data => data.json())
   },
-  edit: {
-    value: (projects, id, item) => {
-        console.log(item, "item")
-        console.log(`${remoteURL}/${projects}/${id}`)
-        return fetch(`${remoteURL}/${projects}/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(item)
-        })
-        .then(result => result.json())
-    }
-}
+
+  put(projectId, existingProject) {
+    return fetch(`${remoteURL}/projects/${projectId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/JSON"
+      },
+      body: JSON.stringify(existingProject)
+    }).then(data => data.json())
+  }
 }

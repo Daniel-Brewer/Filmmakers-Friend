@@ -30,11 +30,12 @@ export default class LoginForm extends Component {
         UserManager.getAll("users").then((user) => {
             console.log(user)
             const users = user.find(user => {
+                console.log(user.id)
                 return user.username === this.state.username && user.password === this.state.password //verifies account is in DB
             })
 // if user is in database go to project list page
             if (users) {
-                sessionStorage.setItem("credentials", JSON.stringify(users))
+                sessionStorage.setItem("credentials", JSON.stringify(users.id))
                 document.location.href = 'http://localhost:3000/projects?_expand=activeUser.id'
                 // if not register
             } else {

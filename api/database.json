@@ -19,6 +19,21 @@
       "username": "Calie Benke",
       "password": "123",
       "id": 4
+    },
+    {
+      "username": "Carly Lancaster",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "username": "Steve Morse",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "username": "Bob Feller",
+      "password": "123",
+      "id": 7
     }
   ],
   "projects": [
@@ -39,6 +54,24 @@
       "description": "Super Hero action",
       "userId": 2,
       "id": 3
+    },
+    {
+      "title": "Tribe TIme",
+      "description": "Baseball",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "title": "Another One",
+      "description": "ssss",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "title": "Yet Another",
+      "description": "llll",
+      "userId": 2,
+      "id": 6
     }
   ],
   "castMembers": [
@@ -65,6 +98,14 @@
       "email": "frankielindor@gmail.com",
       "projectId": 2,
       "id": 3
+    },
+    {
+      "name": "Jason Kipnis",
+      "character": "CF",
+      "phone": "7893214561",
+      "email": "jasonkipnis@gmail.com",
+      "projectId": 1,
+      "id": 4
     }
   ],
   "crewMembers": [

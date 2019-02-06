@@ -8,7 +8,6 @@ export default class ProjectForm extends Component {
     state = {
         title: "",
         description: "",
-        userId: ""
     }
 
     // Update state whenever an input field is edited
@@ -24,11 +23,15 @@ export default class ProjectForm extends Component {
      */
     constructNewProject = evt => {
         evt.preventDefault()
-
+        let currentUser = sessionStorage.getItem("credentials")
+        console.log("currentUser",currentUser)
+        let currentUserId = Number(currentUser)
             const project = {
                 title: this.state.title,
                 description: this.state.description,
-                userId: this.state.userId
+                userId: currentUserId,
+
+                // userId: this.state.userId
                 // userId: this.props.users.find(p => p.title === this.state.user).id
             }
 
@@ -37,6 +40,8 @@ export default class ProjectForm extends Component {
         }
 
     render() {
+        // let activeUser = sessionStorage.getItem("userId")
+        // let activeUserId = Number(activeUser)
         return (
             <React.Fragment>
                 <form className="projectForm">
