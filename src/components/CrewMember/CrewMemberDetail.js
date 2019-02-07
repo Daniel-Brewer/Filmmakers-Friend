@@ -1,3 +1,4 @@
+// This component renders the specific details of each CrewMember
 import React, { Component } from "react"
 import "./CrewMember.css"
 

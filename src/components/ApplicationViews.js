@@ -14,6 +14,7 @@ import CastMemberManager from "../modules/CastMemberManager";
 import CrewMemberList from "./crewMember/CrewMemberList";
 import CrewMemberDetail from "./crewMember/CrewMemberDetail";
 import CrewMemberForm from "./crewMember/CrewMemberForm";
+import CrewMemberEditForm from "./crewMember/CrewMemberEditForm";
 import CrewMemberManager from "../modules/CrewMemberManager";
 import UserManager from "../modules/UserManager";
 import LoginForm from "./authentication/LoginForm";
@@ -95,13 +96,20 @@ class ApplicationViews
   }
 
   editCastMember = (castMemberId, existingCastMember) =>
-  CastMemberManager.put(castMemberId, existingCastMember)
-    .then(() => CastMemberManager.getAll())
-    .then(castMembers => this.setState({
-      castMembers: castMembers
-    })
-    )
+    CastMemberManager.put(castMemberId, existingCastMember)
+      .then(() => CastMemberManager.getAll())
+      .then(castMembers => this.setState({
+        castMembers: castMembers
+      })
+      )
 
+      editCrewMember = (crewMemberId, existingCrewMember) =>
+        CrewMemberManager.put(crewMemberId, existingCrewMember)
+          .then(() => CrewMemberManager.getAll())
+          .then(crewMembers => this.setState({
+            crewMembers: crewMembers
+          })
+          )
 
   addCrewMember = crewMember =>
     CrewMemberManager.post(crewMember)
@@ -122,6 +130,7 @@ class ApplicationViews
         crewMembers: crewMembers
       })
       );
+
   }
 
   componentDidMount() {
@@ -268,7 +277,7 @@ class ApplicationViews
             );
           }}
         />
-                <Route path="/castMembers/edit/:castMemberId(\d+)/" render={(props) => {
+        <Route path="/castMembers/edit/:castMemberId(\d+)/" render={(props) => {
           return <CastMemberEditForm
             {...props}
             castMembers={this.state.castMembers}
@@ -307,6 +316,16 @@ class ApplicationViews
             email={this.state.email}
             projects={this.state.projects}
           />
+        }} />
+        <Route path="/crewMembers/edit/:crewMemberId(\d+)/" render={(props) => {
+          return <CrewMemberEditForm
+            {...props}
+            crewMembers={this.state.crewMembers}
+            name={this.state.name}
+            job={this.state.job}
+            phone={this.state.phone}
+            email={this.state.email}
+            editCrewMember={this.editCrewMember} />
         }} />
       </React.Fragment>
     );

@@ -15,5 +15,14 @@ export default {
       },
       body: JSON.stringify(newCrewMember)
     }).then(data => data.json())
+  },
+  put(crewMemberId, existingCrewMember) {
+    return fetch(`${remoteURL}/crewMembers/${crewMemberId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/JSON"
+      },
+      body: JSON.stringify(existingCrewMember)
+    }).then(p => p.json())
   }
 }
