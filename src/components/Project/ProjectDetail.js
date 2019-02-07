@@ -21,7 +21,7 @@ export default class ProjectDetail extends Component {
                         <h4 className="card-title">
                             {project.title}
                         </h4>
-                        <Link className="nav-link" to={`/castMembers?_expand=project&project.id`}>CastMembers</Link>
+                        <Link className="nav-link" to={`/castMembers?_expand=project&projectId=${project.id}`}>CastMembers</Link>
                         <br></br>
                         <Link className="nav-link" to={`/crewMembers?_expand=project&projectId`}>CrewMembers</Link>
                         <br></br>

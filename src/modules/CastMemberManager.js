@@ -15,5 +15,14 @@ export default {
       },
       body: JSON.stringify(newCastMember)
     }).then(data => data.json())
+  },
+  put(castMemberId, existingCastMember) {
+    return fetch(`${remoteURL}/castMembers/${castMemberId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/JSON"
+      },
+      body: JSON.stringify(existingCastMember)
+    }).then(p => p.json())
   }
 }

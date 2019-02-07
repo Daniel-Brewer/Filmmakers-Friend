@@ -30,8 +30,6 @@ export default class ProjectForm extends Component {
                 title: this.state.title,
                 description: this.state.description,
                 userId: currentUserId,
-
-                // userId: this.state.userId
                 // userId: this.props.users.find(p => p.title === this.state.user).id
             }
 

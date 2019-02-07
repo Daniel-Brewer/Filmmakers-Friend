@@ -50,13 +50,13 @@
       "id": 2
     },
     {
-      "title": "Test",
-      "description": "ssss",
+      "title": "Manowar",
+      "description": "Thriller",
       "id": 3
     },
     {
-      "title": "Tribe Time!",
-      "description": "Baseball",
+      "title": "Tribe Time",
+      "description": "Thriller",
       "id": 4
     }
   ],
@@ -79,7 +79,7 @@
     },
     {
       "name": "Frankie Lindor",
-      "character": "ss",
+      "character": "SS",
       "phone": "1234567891",
       "email": "frankielindor@gmail.com",
       "projectId": 2,
@@ -88,10 +88,26 @@
     {
       "name": "Jason Kipnis",
       "character": "CF",
-      "phone": "1234567891",
-      "email": "jasonkipnis@gmail.com",
+      "phone": "9517536548",
+      "email": "jkipnis@gmail.com",
       "projectId": 1,
       "id": 4
+    },
+    {
+      "name": "CoreyKluber",
+      "character": "P",
+      "phone": "1234569874",
+      "email": "ckluber@gmail.com",
+      "projectId": 1,
+      "id": 5
+    },
+    {
+      "name": "Michael Brantley",
+      "character": "LF",
+      "phone": "1236547896",
+      "email": "mbrantley@gmail.com",
+      "projectId": 1,
+      "id": 6
     }
   ],
   "crewMembers": [
