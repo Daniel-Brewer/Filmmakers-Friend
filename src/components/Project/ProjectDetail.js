@@ -15,6 +15,15 @@ export default class ProjectDetail extends Component {
         const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
 
         return (
+            <React.Fragment>
+            <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
+                <div className="logoutButton">
+                    <button onClick={() => {
+                        document.location.href = 'http://localhost:3000/projects'
+                    }}
+                        className="logoutButton">Project List</button>
+                </div>
+            </nav>
             <section className="project">
                 <div key={project.id} className="card">
                     <div className="card-body">
@@ -32,6 +41,7 @@ export default class ProjectDetail extends Component {
                     </div>
                 </div>
             </section>
+            </React.Fragment>
         )
     }
 }

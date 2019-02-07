@@ -6,7 +6,7 @@ export default {
     return fetch(`${remoteURL}/projects/?user=${id}`).then(e => e.json())
   },
   getAll() {
-    return fetch(`${remoteURL}/projects`).then(e => e.json())
+    return fetch(`${remoteURL}/projects/`).then(e => e.json())
   },
   post(newProject) {
     return fetch(`${remoteURL}/projects`, {
