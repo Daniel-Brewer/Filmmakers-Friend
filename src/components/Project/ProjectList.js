@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./Project.css"
 import ProjectCard from "./ProjectCard"
 
+
 export default class ProjectList extends Component {
     render () {
         return (
@@ -13,13 +14,12 @@ export default class ProjectList extends Component {
                         Add Project
                     </button>
                 </div>
-                <section className="projects">
-                
+                <section className="projects">               
                 {
                     this.props.projects.map(project =>
                         <ProjectCard key={project.id} project={project} {...this.props} />
-                    )
-                }
+                        )
+                    }
                 </section>
             </React.Fragment>
         )

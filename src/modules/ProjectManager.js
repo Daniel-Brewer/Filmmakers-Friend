@@ -3,7 +3,7 @@ const remoteURL = "http://localhost:5002"
 
 export default {
   get(id) {
-    return fetch(`${remoteURL}/projects/${id}`).then(e => e.json())
+    return fetch(`${remoteURL}/projects/?user=${id}`).then(e => e.json())
   },
   getAll() {
     return fetch(`${remoteURL}/projects`).then(e => e.json())
@@ -25,6 +25,6 @@ export default {
         "Content-Type": "application/JSON"
       },
       body: JSON.stringify(existingProject)
-    }).then(data => data.json())
+    }).then(p => p.json())
   }
 }
