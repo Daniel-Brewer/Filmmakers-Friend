@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import "./Project.css"
+import ProjectManager from "../../modules/ProjectManager";
 
 export default class ProjectEditForm extends Component {
     // Set initial state
     state = {
-        // title: this.props.location.title,
-        // description: this.props.location.description,
-        // userId: this.props.userId,
+        title: "",
+        description: "",
+        userId: ""
     }
     
     // Update state whenever an input field is edited
@@ -15,27 +16,25 @@ export default class ProjectEditForm extends Component {
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
-    
-    /*
-    Local method for validation, creating project object, and
-    invoking the function reference passed from parent component
-    */
-   updateExistingProject = evt => {
-       evt.preventDefault()
-       const projectId = this.props.location.id;
-       const existingProject = {
-           title: this.props.title,
-           description: this.props.description,
-           userId: this.props.userId,
-        //    id: this.state.id
-        //    userId: this.props.users.find(p => p.userId === this.state.user).id
-        }
-        console.log("this.state.userId", this.state.userId)
 
-            // Create the project and redirect user to project list
-            this.props.editProject(projectId, existingProject)
-            // console.log("projectId", projectId, "existingProject", existingProject)
-            .then(() => this.props.history.push("/projects"))
+    componentDidMount(){
+        ProjectManager.get(this.props.match.params.projectId).then(projects => {
+          this.setState({
+            title:projects.title,
+            description: projects.description,
+            userId: projects.userId
+          })
+        })
+      }
+      updateExistingProject = evt => {
+          evt.preventDefault()
+          const existingProject = {
+              title:this.state.title,
+              description: this.state.description,
+              userId: this.state.userId
+            }
+            this.props.editProject(this.props.match.params.projectId, existingProject)
+          .then(() => this.props.history.push("/projects"))
         }
 
     render() {

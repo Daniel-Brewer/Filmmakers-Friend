@@ -206,7 +206,7 @@ class ApplicationViews
             );
           }}
         />
-        <Route path="/projects/edit" render={(props) => {
+        <Route path="/projects/edit/:projectId(\d+)/" render={(props) => {
           return <ProjectEditForm
             {...props}
             projects={this.state.projects}

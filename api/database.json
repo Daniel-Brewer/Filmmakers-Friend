@@ -50,28 +50,14 @@
       "id": 2
     },
     {
-      "title": "Man-o-War",
-      "description": "Super Hero action",
-      "userId": 2,
+      "title": "Test",
+      "description": "ssss",
       "id": 3
     },
     {
-      "title": "Tribe TIme",
+      "title": "Tribe Time!",
       "description": "Baseball",
-      "userId": 1,
       "id": 4
-    },
-    {
-      "title": "Another One",
-      "description": "ssss",
-      "userId": 1,
-      "id": 5
-    },
-    {
-      "title": "Yet Another",
-      "description": "llll",
-      "userId": 2,
-      "id": 6
     }
   ],
   "castMembers": [
@@ -102,7 +88,7 @@
     {
       "name": "Jason Kipnis",
       "character": "CF",
-      "phone": "7893214561",
+      "phone": "1234567891",
       "email": "jasonkipnis@gmail.com",
       "projectId": 1,
       "id": 4
