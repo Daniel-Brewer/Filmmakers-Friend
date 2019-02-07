@@ -48,10 +48,10 @@ export default class CrewMemberForm extends Component {
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="name"
-                               placeholder="CrewMember name" />
+                               placeholder="CrewMember Name" />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="job">Job</label> */}
+                        {/* <label htmlFor="job">job</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

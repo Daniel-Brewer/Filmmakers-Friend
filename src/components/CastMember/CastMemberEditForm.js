@@ -37,7 +37,6 @@ export default class CastMemberEditForm extends Component {
         })
       }
       updateExistingCastMember = evt => {
-          debugger
           evt.preventDefault()
           const existingCastMember = {
               name:this.state.name,

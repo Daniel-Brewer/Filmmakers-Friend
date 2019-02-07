@@ -1,5 +1,7 @@
+// When edit CrewMember is clicked this component will be rendered to the user for input
 import React, { Component } from "react"
 import "./CrewMember.css"
+import CrewMemberManager from "../../modules/CrewMemberManager";
 
 export default class CrewMemberEditForm extends Component {
     // Set initial state
@@ -22,18 +24,29 @@ export default class CrewMemberEditForm extends Component {
         Local method for validation, creating crewMember object, and
         invoking the function reference passed from parent component
      */
-    constructCrewMemberToEdit = evt => {
-        evt.preventDefault()
-            const crewMember = {
-                name: this.state.name,
-                job: this.state.job,
-                phone: this.state.phone,
-                email: this.state.email,
-                projectId: this.props.projects.find(e => e.name === this.state.project).id
+    componentDidMount(){
+        CrewMemberManager.get(this.props.match.params.crewMemberId)
+        .then(crewMembers => {
+          this.setState({
+            name:crewMembers.name,
+            job: crewMembers.job,
+            phone: crewMembers.phone,
+            email: crewMembers.email,
+            projectId: crewMembers.projectId
+          })
+        })
+      }
+      updateExistingCrewMember = evt => {
+          evt.preventDefault()
+          const existingCrewMember = {
+              name:this.state.name,
+              job: this.state.job,
+              phone: this.state.phone,
+              email: this.state.email,
+              projectId: this.state.projectId
             }
-
-            // Create the crewMember and redirect user to crewMember list
-            this.props.editCrewMember(crewMember).then(() => this.props.history.push("/crewMembers"))
+            this.props.editCrewMember(this.props.match.params.crewMemberId, existingCrewMember)
+          .then(() => this.props.history.push("/crewMembers"))
         }
 
     render() {
@@ -46,10 +59,10 @@ export default class CrewMemberEditForm extends Component {
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="name"
-                               placeholder="CrewMember name" />
+                               placeholder="CrewMember Name" />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="job">Job</label> */}
+                        {/* <label htmlFor="job">job</label> */}
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -69,7 +82,7 @@ export default class CrewMemberEditForm extends Component {
                                onChange={this.handleFieldChange}
                                id="email" placeholder="Email" />
                     </div>
-                    <button type="submit" onClick={this.constructCrewMemberToEdit} className="btn btn-primary">Submit</button>
+                    <button type="submit" onClick={this.updateExistingCrewMember} className="btn btn-primary">Update</button>
                 </form>
             </React.Fragment>
         )
