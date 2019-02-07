@@ -36,7 +36,7 @@ export default class LoginForm extends Component {
 // if user is in database go to project list page
             if (users) {
                 sessionStorage.setItem("credentials", JSON.stringify(users.id))
-                document.location.href = 'http://localhost:3000/projects?_expand=activeUser.id'
+                document.location.href = 'http://localhost:3000/projects?_expand=user&userId=user.id'
                 // if not register
             } else {
                 alert("You need to register")

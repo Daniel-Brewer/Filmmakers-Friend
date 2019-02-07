@@ -9,6 +9,7 @@ import ProjectManager from "../modules/ProjectManager";
 import CastMemberList from "./castMember/CastMemberList";
 import CastMemberDetail from "./castMember/CastMemberDetail";
 import CastMemberForm from "./castMember/CastMemberForm";
+import CastMemberEditForm from "./castMember/CastMemberEditForm";
 import CastMemberManager from "../modules/CastMemberManager";
 import CrewMemberList from "./crewMember/CrewMemberList";
 import CrewMemberDetail from "./crewMember/CrewMemberDetail";
@@ -64,7 +65,7 @@ class ApplicationViews
 
   editProject = (projectId, existingProject) =>
     ProjectManager.put(projectId, existingProject)
-      .then(() => ProjectManager.get())
+      .then(() => ProjectManager.getAll())
       .then(projects => this.setState({
         projects: projects
       })
@@ -93,6 +94,14 @@ class ApplicationViews
       )
   }
 
+  editCastMember = (castMemberId, existingCastMember) =>
+  CastMemberManager.put(castMemberId, existingCastMember)
+    .then(() => CastMemberManager.getAll())
+    .then(castMembers => this.setState({
+      castMembers: castMembers
+    })
+    )
+
 
   addCrewMember = crewMember =>
     CrewMemberManager.post(crewMember)
@@ -116,7 +125,6 @@ class ApplicationViews
   }
 
   componentDidMount() {
-    // Example code. Make this fit into how you have written yours.
     const newState = {}
     let localUser = JSON.parse(sessionStorage.getItem("credentials"));
     newState.activeUser = localUser;
@@ -125,7 +133,6 @@ class ApplicationViews
         newState.users = allUsers
       })
 
-    // sessionStorage.setItem("userId",2)
     ProjectManager.getAll().then(allProjects => {
       this.setState({
         projects: allProjects
@@ -221,6 +228,7 @@ class ApplicationViews
             if (this.isAuthenticated()) {
               return (
                 <CastMemberList {...props}
+                  editCastMember={this.editCastMember}
                   deleteCastMember={this.deleteCastMember}
                   castMembers={this.state.castMembers}
                 />
@@ -260,6 +268,17 @@ class ApplicationViews
             );
           }}
         />
+                <Route path="/castMembers/edit/:castMemberId(\d+)/" render={(props) => {
+          return <CastMemberEditForm
+            {...props}
+            castMembers={this.state.castMembers}
+            name={this.state.name}
+            character={this.state.character}
+            phone={this.state.phone}
+            email={this.state.email}
+            editCastMember={this.editCastMember} />
+        }} />
+
         <Route
           exact
           path="/crewMembers"

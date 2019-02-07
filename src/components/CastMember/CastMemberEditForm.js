@@ -1,6 +1,7 @@
 // When edit CastMember is clicked this component will be rendered to the user for input
 import React, { Component } from "react"
 import "./CastMember.css"
+import CastMemberManager from "../../modules/CastMemberManager";
 
 export default class CastMemberEditForm extends Component {
     // Set initial state
@@ -23,18 +24,30 @@ export default class CastMemberEditForm extends Component {
         Local method for validation, creating castMember object, and
         invoking the function reference passed from parent component
      */
-    constructCastMemberToEdit = evt => {
-        evt.preventDefault()
-            const castMember = {
-                name: this.state.name,
-                character: this.state.character,
-                phone: this.state.phone,
-                email: this.state.email,
-                projectId: this.props.projects.find(e => e.name === this.state.project).id
+    componentDidMount(){
+        CastMemberManager.get(this.props.match.params.castMemberId)
+        .then(castMembers => {
+          this.setState({
+            name:castMembers.name,
+            character: castMembers.character,
+            phone: castMembers.phone,
+            email: castMembers.email,
+            projectId: castMembers.projectId
+          })
+        })
+      }
+      updateExistingCastMember = evt => {
+          debugger
+          evt.preventDefault()
+          const existingCastMember = {
+              name:this.state.name,
+              character: this.state.character,
+              phone: this.state.phone,
+              email: this.state.email,
+              projectId: this.state.projectId
             }
-
-            // Create the castMember and redirect user to castMember list
-            this.props.editCastMember(castMember).then(() => this.props.history.push("/castMembers"))
+            this.props.editCastMember(this.props.match.params.castMemberId, existingCastMember)
+          .then(() => this.props.history.push("/castMembers"))
         }
 
     render() {
@@ -47,7 +60,7 @@ export default class CastMemberEditForm extends Component {
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="name"
-                               placeholder="CastMember name" />
+                               placeholder="CastMember Name" />
                     </div>
                     <div className="form-group">
                         {/* <label htmlFor="character">Character</label> */}
@@ -70,7 +83,7 @@ export default class CastMemberEditForm extends Component {
                                onChange={this.handleFieldChange}
                                id="email" placeholder="Email" />
                     </div>
-                    <button type="submit" onClick={this.constructCastMemberToEdit} className="btn btn-primary">Update</button>
+                    <button type="submit" onClick={this.updateExistingCastMember} className="btn btn-primary">Update</button>
                 </form>
             </React.Fragment>
         )
