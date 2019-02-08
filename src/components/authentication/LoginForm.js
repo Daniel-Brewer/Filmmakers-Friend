@@ -35,10 +35,13 @@ export default class LoginForm extends Component {
             })
 // if user is in database go to project list page
             if (users) {
+                console.log("test")
                 sessionStorage.setItem("credentials", JSON.stringify(users.id))
-                document.location.href = 'http://localhost:3000/projects?_expand=user&userId=userId'
+                this.props.updateComponent()
+               this.props.history.push('/projects')
                 // if not register
             } else {
+                console.log("test")
                 alert("You need to register")
                 document.location.href = 'http://localhost:3000/register'
             }
