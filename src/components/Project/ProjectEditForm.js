@@ -28,11 +28,14 @@ export default class ProjectEditForm extends Component {
       }
       updateExistingProject = evt => {
           evt.preventDefault()
-          const existingProject = {
-              title:this.state.title,
-              description: this.state.description,
-              userId: this.state.userId
-            }
+          let currentUser = sessionStorage.getItem("credentials")
+          console.log("currentUser",currentUser)
+          let currentUserId = Number(currentUser)
+              const existingProject = {
+                  title: this.state.title,
+                  description: this.state.description,
+                  userId: currentUserId,
+              }
             this.props.editProject(this.props.match.params.projectId, existingProject)
           .then(() => this.props.history.push("/projects"))
         }

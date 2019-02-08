@@ -142,6 +142,7 @@ class ApplicationViews
         newState.users = allUsers
       })
 
+
     ProjectManager.getAll().then(allProjects => {
       this.setState({
         projects: allProjects
@@ -162,10 +163,24 @@ class ApplicationViews
 
   }
 
+  updateComponent = () => {
+    ProjectManager.getAll().then(allProjects => {
+      this.setState({
+        projects: allProjects
+      });
+    });
+
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Route exact path="/" component={LoginForm} />
+        <Route exact path="/" render={props => {
+              return <LoginForm {...props} 
+              activeUser={this.state.activeUser}
+              updateComponent={this.updateComponent} />
+        }}
+/>
         <Route exact path="/register" render={(props) => {
           return <RegistrationForm {...props}
             addUser={this.addUser}
@@ -181,6 +196,7 @@ class ApplicationViews
               return (
                 <ProjectList
                   {...props}
+                  updateComponent={this.state.updateComponent}
                   activeUser={this.state.activeUser}
                   addProject={this.addProject}
                   editProject={this.editProject}
