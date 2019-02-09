@@ -149,18 +149,28 @@ class ApplicationViews
       });
     });
 
-    CastMemberManager.getAll().then(allCastMembers => {
+    // CastMemberManager.getAll().then(allCastMembers => {
+    //   this.setState({
+    //     castMembers: allCastMembers
+    //   });
+    // });
+    CastMemberManager.getCastMembersInProject().then(castMembersInProject => {
       this.setState({
-        castMembers: allCastMembers
+        castMembers: castMembersInProject
       });
     });
 
-    CrewMemberManager.getAll().then(allCrewMembers => {
+    CrewMemberManager.getCrewMembersInProject().then(crewMembersInProject => {
       this.setState({
-        crewMembers: allCrewMembers
+        crewMembers: crewMembersInProject
       });
-    });
+    })
 
+    // CrewMemberManager.getAll().then(allCrewMembers => {
+    //   this.setState({
+    //     crewMembers: allCrewMembers
+    //   });
+    // })
   }
 
   updateComponent = () => {
@@ -205,7 +215,7 @@ class ApplicationViews
                 />
               );
             } else {
-              return <Redirect to="/login" />;
+              return <Redirect to="/" />;
             }
           }}
         />
@@ -216,6 +226,7 @@ class ApplicationViews
             return (
               <ProjectDetail
                 {...props}
+                getCastMembersInProject={this.getCastMembersInProject}
                 deleteProject={this.deleteProject}
                 editProject={this.editProject}
                 projects={this.state.projects}
@@ -253,13 +264,15 @@ class ApplicationViews
             if (this.isAuthenticated()) {
               return (
                 <CastMemberList {...props}
+                getCastMembersInProject={this.getCastMembersInProject}
                   editCastMember={this.editCastMember}
                   deleteCastMember={this.deleteCastMember}
                   castMembers={this.state.castMembers}
+                  projects={this.state.projects}
                 />
               );
             } else {
-              return <Redirect to="/login" />;
+              return <Redirect to="/" />;
             }
           }}
         />
@@ -311,12 +324,15 @@ class ApplicationViews
             if (this.isAuthenticated()) {
               return (
                 <CrewMemberList {...props}
-                  deleteCrewMember={this.deleteCrewMember}
-                  crewMembers={this.state.crewMembers}
+                getCrewMembersInProject={this.getCrewMembersInProject}
+                editCrewMember={this.editCrewMember}
+                deleteCrewMember={this.deleteCrewMember}
+                crewMembers={this.state.crewMembers}
+                projects={this.state.projects}
                 />
               );
             } else {
-              return <Redirect to="/login" />;
+              return <Redirect to="/" />;
             }
           }}
         />

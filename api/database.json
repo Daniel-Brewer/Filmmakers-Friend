@@ -65,6 +65,12 @@
       "description": "Distopian Thriller",
       "userId": 2,
       "id": 5
+    },
+    {
+      "title": "Synchronicity",
+      "description": "Thriller",
+      "userId": 1,
+      "id": 6
     }
   ],
   "castMembers": [
@@ -105,7 +111,7 @@
       "character": "P",
       "phone": "1234569874",
       "email": "ckluber@gmail.com",
-      "projectId": 1,
+      "projectId": 3,
       "id": 5
     },
     {
@@ -113,7 +119,7 @@
       "character": "LF",
       "phone": "1236547896",
       "email": "mbrantley@gmail.com",
-      "projectId": 1,
+      "projectId": 3,
       "id": 6
     }
   ],

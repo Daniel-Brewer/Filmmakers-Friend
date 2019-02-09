@@ -24,5 +24,9 @@ export default {
       },
       body: JSON.stringify(existingCrewMember)
     }).then(p => p.json())
+  },
+  getCrewMembersInProject(projectId) {
+    return fetch(`${remoteURL}/crewMembers?_expand=project&projectId=${projectId}
+    `).then(e => e.json())
   }
 }

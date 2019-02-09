@@ -1,19 +1,39 @@
 // This component renders the specific details of each Project
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
 import "./Project.css"
+import CastMemberManager from "../../modules/CastMemberManager";
+import CrewMemberManager from "../../modules/CrewMemberManager";
 
 
 
 export default class ProjectDetail extends Component {
-    render() {
+    state = {
+        castMembers: [],
+        projects: [],
+      };
+      
+      componentDidMount = () => {
+          const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
+          console.log("project.id",project.id)
+          CastMemberManager.getCastMembersInProject(project.id).then(allCastMembersInProject => {
+              this.setState({
+                  castMembers: allCastMembersInProject,
+                  projects: project
+                });
+            });
+        }
+        render() {
+            console.log("this.state in ProjectDetail", this.state)
         /*
-            Using the route parameter, find the project that the
-            user clicked on by looking at the `this.props.projects`
-            collection that was passed down from ApplicationViews
+        Using the route parameter, find the project that the
+        user clicked on by looking at the `this.props.projects`
+        collection that was passed down from ApplicationViews
         */
-        const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
-
+       
+       const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
+       // let getAllCastMembers=`/castMembers?_expand=project&projectId=2`
+       // console.log(getAllCastMembers)
+       
         return (
             <React.Fragment>
             <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
@@ -21,7 +41,7 @@ export default class ProjectDetail extends Component {
                     <button onClick={() => {
                         document.location.href = 'http://localhost:3000/projects'
                     }}
-                        className="logoutButton">Project List</button>
+                        className="logoutButton">Back to Project List</button>
                 </div>
             </nav>
             <section className="project">
@@ -30,9 +50,18 @@ export default class ProjectDetail extends Component {
                         <h4 className="card-title">
                             {project.title}
                         </h4>
-                        <Link className="nav-link" to={`/castMembers?_expand=project&projectId=${project.id}`}>CastMembers</Link>
+                        {/* <Link className="nav-link" to={`/castMembers`}>CastMembers</Link> */}
+                        <button
+                            onClick={() => CastMemberManager.getCastMembersInProject()
+                                            .then(() => this.props.history.push("/castMembers"))}
+                            className="card-link">CastMembers</button>
+
                         <br></br>
-                        <Link className="nav-link" to={`/crewMembers?_expand=project&projectId`}>CrewMembers</Link>
+                        {/* <Link className="nav-link" to={`/crewMembers?_expand=project&projectId`}>CrewMembers</Link> */}
+                        <button
+                            onClick={() => CrewMemberManager.getCrewMembersInProject()
+                                            .then(() => this.props.history.push("/crewMembers"))}
+                            className="card-link">CrewMembers</button>
                         <br></br>
                         <button
                             onClick={() => this.props.deleteProject(project.id)

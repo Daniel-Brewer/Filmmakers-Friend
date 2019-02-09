@@ -10,7 +10,7 @@ export default class CastMemberCard extends Component {
         character: "",
         phone: "",
         email: "",
-        projectId: 1
+        projectId: ""
     }
     render() {
         return (
