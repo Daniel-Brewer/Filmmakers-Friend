@@ -2,19 +2,36 @@
 import React, { Component } from "react"
 import "./CastMember.css"
 import CastMemberCard from "./CastMemberCard"
+import CastMemberManager from "../../modules/CastMemberManager"
 
 
 export default class CastMemberList extends Component {
-    render () {
+    state = {
+        castMembers: [],
+        projects: [],
+      };
+      componentDidMount = () => {
+        const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
+        CastMemberManager.getCastMembersInProject(this.props.match.params.projectId).then(allCastMembersInProject => {
+            console.log("allCastMembersInProject", allCastMembersInProject)
+            this.setState({
+                castMembers: allCastMembersInProject,
+                projects: project
+              });
+          });
+      }
+      render() {
+console.log("this.props.match.params.projectId", this.props.match.params.projectId)
+
         return (
             <React.Fragment>
             <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
                 <div className="logoutButton">
                     <button onClick={() => {
-                        // change this to th eright route eventually
+                        // change this to the right route eventually
                         document.location.href = 'http://localhost:3000/projects'
                     }}
-                        className="logoutButton">Project List</button>
+                        className="logoutButton">Back to Project</button>
                 </div>
             </nav>
                 <div className="castMemberButton">
@@ -26,7 +43,7 @@ export default class CastMemberList extends Component {
                 </div>
                 <section className="castMembers">               
                 {
-                    this.props.castMembers.map(castMember =>
+                    this.state.castMembers.map(castMember =>
                         <CastMemberCard key={castMember.id} castMember={castMember} {...this.props} />
                         )
                     }

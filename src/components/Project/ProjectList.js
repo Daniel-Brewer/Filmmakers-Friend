@@ -14,7 +14,9 @@ export default class ProjectList extends Component {
                         }}
                             className="logoutButton">Logout</button>
                     </div>
+                    <div className=""><h2>Director's Dashboard</h2></div>
                 </nav>
+
                 <div className="projectButton">
                     <button type="button"
                         onClick={() => this.props.history.push("/projects/new")}
@@ -22,6 +24,7 @@ export default class ProjectList extends Component {
                         Add Project
                     </button>
                 </div>
+                
                 <section className="projects">
                     {
                         this.props.projects.map(project =>

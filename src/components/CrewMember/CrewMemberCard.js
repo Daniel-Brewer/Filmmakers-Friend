@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
 import "./CrewMember.css"
 
 export default class CrewMemberCard extends Component {
@@ -19,7 +18,6 @@ export default class CrewMemberCard extends Component {
                         <p>Job: {this.props.crewMember.job}</p>
                         <p>Phone: {this.props.crewMember.phone}</p>
                         <p>Email: {this.props.crewMember.email}</p>
-                        <Link className="nav-link" to={`/crewMembers/${this.props.crewMember.id}`}>Details</Link>
                         <button
                             onClick={() => this.props.history.push(`/crewMembers/edit/${this.props.crewMember.id}`)}
                             className="card-link">Edit</button>

@@ -24,24 +24,20 @@ export default class LoginForm extends Component {
 
         /*
             For now, just store the username and password that
-            the customer enters into local storage.
+            the customer enters into session storage.
         */
 
         UserManager.getAll("users").then((user) => {
-            console.log(user)
             const users = user.find(user => {
-                console.log(user.id)
                 return user.username === this.state.username && user.password === this.state.password //verifies account is in DB
             })
 // if user is in database go to project list page
             if (users) {
-                console.log("test")
                 sessionStorage.setItem("credentials", JSON.stringify(users.id))
                 this.props.updateComponent()
                this.props.history.push('/projects')
                 // if not register
             } else {
-                console.log("test")
                 alert("You need to register")
                 document.location.href = 'http://localhost:3000/register'
             }
@@ -52,7 +48,9 @@ export default class LoginForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleLogin}>
-                 <h1 className="h3 mb-3 font-weight-normal">Please Sign In</h1>
+                 <h1 className="h3 mb-3 font-weight-normal">Filmmaker's Friend</h1>
+                 <br></br>
+                 <h3>Please Sign In</h3>
                  <input onChange={this.handleFieldChange} type="username"
                        id="username"
                        placeholder="Username"

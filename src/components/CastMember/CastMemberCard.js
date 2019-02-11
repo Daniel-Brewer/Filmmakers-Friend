@@ -1,6 +1,5 @@
 // This component is has the CastMember card that is displayed
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
 import "./CastMember.css"
 
 
@@ -10,7 +9,7 @@ export default class CastMemberCard extends Component {
         character: "",
         phone: "",
         email: "",
-        projectId: 1
+        projectId: ""
     }
     render() {
         return (
@@ -21,7 +20,6 @@ export default class CastMemberCard extends Component {
                         <p>Character: {this.props.castMember.character}</p>
                         <p>Phone: {this.props.castMember.phone}</p>
                         <p>Email: {this.props.castMember.email}</p>
-                        <Link className="nav-link" to={`/castMembers/${this.props.castMember.id}`}>Details</Link>
                         <button
                             onClick={() => this.props.history.push(`/castMembers/edit/${this.props.castMember.id}`)}
                             className="card-link">Edit</button>
