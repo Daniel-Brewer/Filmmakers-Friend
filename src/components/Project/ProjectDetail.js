@@ -14,8 +14,9 @@ export default class ProjectDetail extends Component {
       
       componentDidMount = () => {
           const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
-          console.log("project.id",project.id)
+          console.log("project.id", project.id)
           CastMemberManager.getCastMembersInProject(project.id).then(allCastMembersInProject => {
+              console.log("allCastMembersInProject", allCastMembersInProject)
               this.setState({
                   castMembers: allCastMembersInProject,
                   projects: project
@@ -31,11 +32,6 @@ export default class ProjectDetail extends Component {
         */
        
        const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
-       // let getAllCastMembers=`/castMembers?_expand=project&projectId=2`
-       // console.log(getAllCastMembers)
-       console.log("project.id", project.id)
-       console.log("this.state", this.state)
-       console.log("castMembers", this.state.castMembers)
 
 
         return (
@@ -54,17 +50,17 @@ export default class ProjectDetail extends Component {
                         <h4 className="card-title">
                             {project.title}
                         </h4>
-                        {/* <Link className="nav-link" to={{pathname: `/castMembers/:projectId(\d+)`, state:{castMembers:this.state.castMembers}}}>CastMembers</Link> */}
+
                         <button
                             onClick={() => CastMemberManager.getCastMembersInProject(project.id)
                                             .then(() => this.props.history.push(`/castMembers/${project.id}`))}
                             className="card-link">CastMembers</button>
 
                         <br></br>
-                        {/* <Link className="nav-link" to={`/crewMembers?_expand=project&projectId`}>CrewMembers</Link> */}
+
                         <button
-                            onClick={() => CrewMemberManager.getCrewMembersInProject()
-                                            .then(() => this.props.history.push("/crewMembers"))}
+                            onClick={() => CrewMemberManager.getCrewMembersInProject(project.id)
+                                            .then(() => this.props.history.push(`/crewMembers/${project.id}`))}
                             className="card-link">CrewMembers</button>
                         <br></br>
                         <button

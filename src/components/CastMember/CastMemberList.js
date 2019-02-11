@@ -12,8 +12,8 @@ export default class CastMemberList extends Component {
       };
       componentDidMount = () => {
         const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
-        console.log("project.id",project.id)
-        CastMemberManager.getCastMembersInProject(project.id).then(allCastMembersInProject => {
+        CastMemberManager.getCastMembersInProject(this.props.match.params.projectId).then(allCastMembersInProject => {
+            console.log("allCastMembersInProject", allCastMembersInProject)
             this.setState({
                 castMembers: allCastMembersInProject,
                 projects: project
@@ -21,19 +21,7 @@ export default class CastMemberList extends Component {
           });
       }
       render() {
-          console.log("this.state in CastMemberList", this.state)
-      /*
-      Using the route parameter, find the project that the
-      user clicked on by looking at the `this.props.projects`
-      collection that was passed down from ApplicationViews
-      */
-     
-     const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
-     // let getAllCastMembers=`/castMembers?_expand=project&projectId=2`
-     // console.log(getAllCastMembers)
-     console.log("project", project)
-     console.log("this.state", this.state)
-     console.log("castMembers", this.state.castMembers)
+console.log("this.props.match.params.projectId", this.props.match.params.projectId)
 
         return (
             <React.Fragment>
@@ -55,7 +43,7 @@ export default class CastMemberList extends Component {
                 </div>
                 <section className="castMembers">               
                 {
-                    this.props.castMembers.map(castMember =>
+                    this.state.castMembers.map(castMember =>
                         <CastMemberCard key={castMember.id} castMember={castMember} {...this.props} />
                         )
                     }

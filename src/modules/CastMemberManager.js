@@ -26,9 +26,8 @@ export default {
     }).then(p => p.json())
   },
   getCastMembersInProject(projectId) {
-    // let sessionUser = sessionStorage.getItem("credentials")
-    // let sessionUserNumber = Number(sessionUser)
-    return fetch(`${remoteURL}/castMembers?_expand=project&projectId=1
+    console.log(projectId)
+    return fetch(`${remoteURL}/castMembers?_expand=project&projectId=${projectId}
     `).then(e => e.json())
   }
 }

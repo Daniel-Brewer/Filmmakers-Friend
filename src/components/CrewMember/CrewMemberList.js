@@ -13,7 +13,7 @@ export default class CrewMemberList extends Component {
       componentDidMount = () => {
           const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
           console.log("project.id",project.id)
-          CrewMemberManager.getCrewMembersInProject(project.id).then(allCrewMembersInProject => {
+          CrewMemberManager.getCrewMembersInProject(this.props.match.params.projectId).then(allCrewMembersInProject => {
               this.setState({
                   crewMembers: allCrewMembersInProject,
                   projects: project
@@ -52,7 +52,7 @@ export default class CrewMemberList extends Component {
                 </div>
                 <section className="crewMembers">
                 {
-                    this.props.crewMembers.map(crewMember =>
+                    this.state.crewMembers.map(crewMember =>
                         <CrewMemberCard key={crewMember.id} crewMember={crewMember} {...this.props} />
                     )
                 }

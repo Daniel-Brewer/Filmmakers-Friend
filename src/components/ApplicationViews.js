@@ -7,12 +7,10 @@ import ProjectForm from "./project/ProjectForm";
 import ProjectEditForm from "./project/ProjectEditForm";
 import ProjectManager from "../modules/ProjectManager";
 import CastMemberList from "./castMember/CastMemberList";
-import CastMemberDetail from "./castMember/CastMemberDetail";
 import CastMemberForm from "./castMember/CastMemberForm";
 import CastMemberEditForm from "./castMember/CastMemberEditForm";
 import CastMemberManager from "../modules/CastMemberManager";
 import CrewMemberList from "./crewMember/CrewMemberList";
-import CrewMemberDetail from "./crewMember/CrewMemberDetail";
 import CrewMemberForm from "./crewMember/CrewMemberForm";
 import CrewMemberEditForm from "./crewMember/CrewMemberEditForm";
 import CrewMemberManager from "../modules/CrewMemberManager";
@@ -149,11 +147,6 @@ class ApplicationViews
       });
     });
 
-    // CastMemberManager.getAll().then(allCastMembers => {
-    //   this.setState({
-    //     castMembers: allCastMembers
-    //   });
-    // });
     CastMemberManager.getCastMembersInProject().then(castMembersInProject => {
       this.setState({
         castMembers: castMembersInProject
@@ -166,11 +159,6 @@ class ApplicationViews
       });
     })
 
-    // CrewMemberManager.getAll().then(allCrewMembers => {
-    //   this.setState({
-    //     crewMembers: allCrewMembers
-    //   });
-    // })
   }
 
   updateComponent = () => {
@@ -275,19 +263,6 @@ class ApplicationViews
             }
           }}
         />
-        {/* this is the detail for individual castMember */}
-        <Route
-          path="/castMembers/:castMemberId(\d+)"
-          render={props => {
-            return (
-              <CastMemberDetail
-                {...props}
-                deleteCastMember={this.deleteCastMember}
-                castMembers={this.state.castMembers}
-              />
-            );
-          }}
-        />
         {/* this is the castMember add form */}
         <Route
           path="/castMembers/new"
@@ -316,18 +291,17 @@ class ApplicationViews
             editCastMember={this.editCastMember} />
         }} />
 
-        <Route
-          exact
-          path="/crewMembers"
+<Route
+          path="/crewMembers/:projectId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
               return (
                 <CrewMemberList {...props}
                 getCrewMembersInProject={this.getCrewMembersInProject}
-                editCrewMember={this.editCrewMember}
-                deleteCrewMember={this.deleteCrewMember}
-                crewMembers={this.state.crewMembers}
-                projects={this.state.projects}
+                  editCrewMember={this.editCrewMember}
+                  deleteCrewMember={this.deleteCrewMember}
+                  crewMembers={this.state.crewMembers}
+                  projects={this.state.projects}
                 />
               );
             } else {
@@ -335,9 +309,6 @@ class ApplicationViews
             }
           }}
         />
-        <Route path="/crewMembers/:crewMemberId(\d+)" render={(props) => {
-          return <CrewMemberDetail {...props} deleteCrewMember={this.deleteCrewMember} crewMembers={this.state.crewMembers} />
-        }} />
         <Route path="/crewMembers/new" render={(props) => {
           return <CrewMemberForm {...props}
             addCrewMember={this.addCrewMember}
