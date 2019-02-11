@@ -46,7 +46,7 @@ export default class CastMemberEditForm extends Component {
               projectId: this.state.projectId
             }
             this.props.editCastMember(this.props.match.params.castMemberId, existingCastMember)
-          .then(() => this.props.history.push("/castMembers"))
+          .then(() => this.props.history.push(`/castMembers/${this.state.projectId}`))
         }
 
     render() {
