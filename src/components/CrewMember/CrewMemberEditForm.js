@@ -46,7 +46,7 @@ export default class CrewMemberEditForm extends Component {
               projectId: this.state.projectId
             }
             this.props.editCrewMember(this.props.match.params.crewMemberId, existingCrewMember)
-          .then(() => this.props.history.push("/crewMembers"))
+          .then(() => this.props.history.push(`/crewMembers/${this.state.projectId}`))
         }
 
     render() {
