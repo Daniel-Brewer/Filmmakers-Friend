@@ -2,26 +2,39 @@
 import React, { Component } from "react"
 import "./CastMember.css"
 import CastMemberCard from "./CastMemberCard"
-import CastMemberManager from "../../modules/CastMemberManager";
+import CastMemberManager from "../../modules/CastMemberManager"
+
 
 export default class CastMemberList extends Component {
     state = {
         castMembers: [],
+        projects: [],
       };
       componentDidMount = () => {
-          let userProjects = this.props.projects
-          console.log("userProjects",userProjects, "Props!", this.props.projects)
         const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
+        console.log("project.id",project.id)
         CastMemberManager.getCastMembersInProject(project.id).then(allCastMembersInProject => {
             this.setState({
-                castMembers: allCastMembersInProject
+                castMembers: allCastMembersInProject,
+                projects: project
               });
           });
       }
-    render () {
-        console.log("this.state in CastMemberList", this.state, "props?", this.props)
-        const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
-        console.log("project", project)
+      render() {
+          console.log("this.state in CastMemberList", this.state)
+      /*
+      Using the route parameter, find the project that the
+      user clicked on by looking at the `this.props.projects`
+      collection that was passed down from ApplicationViews
+      */
+     
+     const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
+     // let getAllCastMembers=`/castMembers?_expand=project&projectId=2`
+     // console.log(getAllCastMembers)
+     console.log("project", project)
+     console.log("this.state", this.state)
+     console.log("castMembers", this.state.castMembers)
+
         return (
             <React.Fragment>
             <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">

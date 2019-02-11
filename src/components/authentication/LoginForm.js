@@ -48,7 +48,9 @@ export default class LoginForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleLogin}>
-                 <h1 className="h3 mb-3 font-weight-normal">Please Sign In</h1>
+                 <h1 className="h3 mb-3 font-weight-normal">Filmmaker's Friend</h1>
+                 <br></br>
+                 <h3>Please Sign In</h3>
                  <input onChange={this.handleFieldChange} type="username"
                        id="username"
                        placeholder="Username"

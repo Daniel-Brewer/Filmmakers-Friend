@@ -258,8 +258,7 @@ class ApplicationViews
             editProject={this.editProject} />
         }} />
         <Route
-          exact
-          path="/castMembers"
+          path="/castMembers/:projectId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
               return (
