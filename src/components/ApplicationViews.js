@@ -85,12 +85,12 @@ class ApplicationViews
       method: "DELETE"
     })
       .then(response => response.json())
-      .then(() => fetch(`http://localhost:5002/castMembers`))
-      .then(response => response.json())
-      .then(castMembers => this.setState({
-        castMembers: castMembers
-      })
-      )
+      // .then(() => fetch(`http://localhost:5002/castMembers`))
+      // .then(response => response.json())
+      // .then(castMembers => this.setState({
+      //   castMembers: castMembers
+      // })
+      // )
   }
 
   editCastMember = (castMemberId, existingCastMember) =>
@@ -265,7 +265,7 @@ class ApplicationViews
         />
         {/* this is the castMember add form */}
         <Route
-          path="/castMembers/new"
+          path="/castMembers/new/:projectId(\d+)"
           render={props => {
             return (
               <CastMemberForm
@@ -309,7 +309,7 @@ class ApplicationViews
             }
           }}
         />
-        <Route path="/crewMembers/new" render={(props) => {
+        <Route path="/crewMembers/new/:projectId(\d+)" render={(props) => {
           return <CrewMemberForm {...props}
             addCrewMember={this.addCrewMember}
             name={this.state.name}

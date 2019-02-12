@@ -36,7 +36,7 @@ console.log("this.props.match.params.projectId", this.props.match.params.project
             </nav>
                 <div className="castMemberButton">
                     <button type="button"
-                            onClick={()=> this.props.history.push("/castMembers/new")}
+                            onClick={()=> this.props.history.push(`/castMembers/new/${this.props.match.params.projectId}`)}
                             className="btn btn-success">
                         Add CastMember
                     </button>
