@@ -45,7 +45,7 @@ export default class CrewMemberList extends Component {
             </nav>
                 <div className="crewMemberButton">
                     <button type="button"
-                            onClick={()=> this.props.history.push("/crewMembers/new")}
+                            onClick={()=> this.props.history.push(`/crewMembers/new/${this.props.match.params.projectId}`)}
                             className="btn btn-success">
                         Add CrewMember
                     </button>

@@ -2,6 +2,7 @@
 
 import React, { Component } from "react"
 import "./CastMember.css"
+// import CastMemberManager from "../../modules/CastMemberManager"
 
 export default class CastMemberForm extends Component {
     // Set initial state
@@ -20,6 +21,16 @@ export default class CastMemberForm extends Component {
         this.setState(stateToChange)
     }
 
+    // componentDidMount = () => {
+    //     const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
+    //     CastMemberManager.getCastMembersInProject(this.props.match.params.projectId).then(allCastMembersInProject => {
+    //         console.log("allCastMembersInProject", allCastMembersInProject)
+    //         this.setState({
+    //             castMembers: allCastMembersInProject,
+    //             projects: project
+    //           });
+    //       });
+    //     }
     /*
         Local method for validation, creating castMember object, and
         invoking the function reference passed from parent component
@@ -31,11 +42,13 @@ export default class CastMemberForm extends Component {
                 character: this.state.character,
                 phone: this.state.phone,
                 email: this.state.email,
-                projectId: this.props.projects.find(e => e.name === this.state.project).id
+                projectId: this.props.match.params.projectId
             }
 
             // Create the castMember and redirect user to castMember list
+            
             this.props.addCastMember(castMember).then(() => this.props.history.push("/castMembers"))
+            
         }
 
     render() {

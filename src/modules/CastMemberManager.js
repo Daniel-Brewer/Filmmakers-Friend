@@ -26,7 +26,6 @@ export default {
     }).then(p => p.json())
   },
   getCastMembersInProject(projectId) {
-    console.log(projectId)
     return fetch(`${remoteURL}/castMembers?_expand=project&projectId=${projectId}
     `).then(e => e.json())
   }
