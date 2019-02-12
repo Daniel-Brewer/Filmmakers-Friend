@@ -151,44 +151,36 @@
       "id": 9
     },
     {
+      "name": "Terry Francona",
+      "character": "Manager",
+      "phone": "8989745621",
+      "email": "tfrancona@gmail.com",
+      "projectId": "7",
+      "id": 15
+    },
+    {
       "name": "Steve Determen",
       "character": "Bass",
-      "phone": "1236547895",
+      "phone": "6547893214",
       "email": "sdetermen@gmail.com",
-      "projectId": 7,
-      "id": 10
+      "projectId": "8",
+      "id": 16
     },
     {
       "name": "Darrell Hicks",
       "character": "Drums",
-      "phone": "1236547896",
-      "email": "dhicks@comcast.net",
-      "projectId": 7,
-      "id": 11
-    },
-    {
-      "name": "Daniel Brewer",
-      "character": "fff",
-      "phone": "fff",
-      "email": "ff",
-      "projectId": 7,
-      "id": 12
-    },
-    {
-      "name": "Teble",
-      "character": "sss",
-      "phone": "ddd",
-      "email": "fff",
+      "phone": "4561239875",
+      "email": "dhicks@gmail.com",
       "projectId": "8",
-      "id": 13
+      "id": 17
     },
     {
-      "name": "Ryan",
-      "character": "Brewer",
-      "phone": "6547893215",
-      "email": "rbrewer@gmail.com",
+      "name": "Bryan Reynolds",
+      "character": "Keys",
+      "phone": "4569871234",
+      "email": "breynolds@gmail.com",
       "projectId": "8",
-      "id": 14
+      "id": 18
     }
   ],
   "crewMembers": [

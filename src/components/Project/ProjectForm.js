@@ -38,8 +38,7 @@ export default class ProjectForm extends Component {
         }
 
     render() {
-        // let activeUser = sessionStorage.getItem("userId")
-        // let activeUserId = Number(activeUser)
+
         return (
             <React.Fragment>
                 <form className="projectForm">

@@ -9,6 +9,12 @@ export default class ProjectCard extends Component {
         description: "",
         userId: this.props.activeUser.id
     }
+
+    // handleDelete = evt => {
+    //     evt.preventDefault()
+    //     deleteProject(this.props.history.match.params.poject.id)
+        
+    // }
     render() {
         return (
             <div key={this.props.project.id} className="card">
