@@ -5,9 +5,7 @@ import CrewMemberCard from "./CrewMemberCard"
 
 
 export default class CrewMemberList extends Component {
-    // state = {
-    //     crewMembers: [],
-    //   };
+
       componentDidMount = () => {
       this.props.updateCrewComponent(this.props.match.params.projectId)
       }

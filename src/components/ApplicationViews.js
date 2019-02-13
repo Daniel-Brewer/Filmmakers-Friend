@@ -53,8 +53,9 @@ class ApplicationViews
       method: "DELETE"
     })
       .then(response => response.json())
-      .then(() => fetch(`http://localhost:5002/projects/?user=${this.state.activeUser}`))
-      .then(response => response.json())
+      .then(() => ProjectManager.getAll(this.state.activeUser))
+      // .then(() => fetch(`http://localhost:5002/projects/?user=${this.state.activeUser}`))
+      // .then(response => response.json())
       .then(projects =>
         this.setState({
           projects: projects

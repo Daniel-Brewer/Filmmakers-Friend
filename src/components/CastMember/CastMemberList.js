@@ -6,9 +6,7 @@ import CastMemberCard from "./CastMemberCard"
 
 
 export default class CastMemberList extends Component {
-    // state = {
-    //     castMembers: [],
-    //   };
+
       componentDidMount = () => {
       this.props.updateCastComponent(this.props.match.params.projectId)
       }
