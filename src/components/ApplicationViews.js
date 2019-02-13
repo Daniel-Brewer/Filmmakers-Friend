@@ -54,8 +54,6 @@ class ApplicationViews
     })
       .then(response => response.json())
       .then(() => ProjectManager.getAll(this.state.activeUser))
-      // .then(() => fetch(`http://localhost:5002/projects/?user=${this.state.activeUser}`))
-      // .then(response => response.json())
       .then(projects =>
         this.setState({
           projects: projects
@@ -83,17 +81,21 @@ class ApplicationViews
         })
       );
 
-  deleteCastMember = id => {
+  deleteCastMember = (id,projectId) => {
     return fetch(`http://localhost:5002/castMembers/${id}`, {
       method: "DELETE"
     })
+    
       .then(response => response.json())
-      .then(() => fetch(`http://localhost:5002/castMembers`))
-      .then(response => response.json())
+      .then(()=> console.log("this.state", this.state))
+      .then(() => CastMemberManager.getCastMembersInProject(projectId))
+      // .then(() => fetch(`http://localhost:5002/castMembers`))
+      // .then(response => response.json())
       .then(castMembers => this.setState({
         castMembers: castMembers
       })
       )
+
   }
 
   editCastMember = (castMemberId, existingCastMember) =>

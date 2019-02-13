@@ -4,8 +4,8 @@ export default {
   get(id) {
     return fetch(`${remoteURL}/castMembers/${id}`).then(e => e.json())
   },
-  getAll() {
-    return fetch(`${remoteURL}/castMembers`).then(e => e.json())
+  getAll(projectId) {
+    return fetch(`${remoteURL}/castMembers?_expand=project&projectId=${projectId}`).then(e => e.json())
   },
   post(newCastMember) {
     return fetch(`${remoteURL}/castMembers`, {
