@@ -87,7 +87,7 @@
       "name": "Jet Thurmond",
       "character": "Ellie Love",
       "phone": "1234567898",
-      "email": "jethurmond@gmail.com",
+      "email": "jet@gmail.com",
       "projectId": 1,
       "id": 2
     },
@@ -164,14 +164,6 @@
       "id": 19
     },
     {
-      "name": "rrrr",
-      "character": "sss",
-      "phone": "ttt",
-      "email": "uuu",
-      "projectId": "1",
-      "id": 20
-    },
-    {
       "name": "Johnny Bench",
       "character": "C",
       "phone": "1597536842",
@@ -235,14 +227,6 @@
       "email": "ggg",
       "projectId": "8",
       "id": 11
-    },
-    {
-      "name": "Joe Morgan",
-      "job": "2b",
-      "phone": "9871236548",
-      "email": "jmorgan@gmail.com",
-      "projectId": "2",
-      "id": 12
     }
   ]
 }
