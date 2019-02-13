@@ -20,6 +20,7 @@ import RegistrationForm from "./authentication/RegistrationForm";
 
 class ApplicationViews
   extends Component {
+    // set initial state
   state = {
     users: [],
     projects: [],
@@ -31,12 +32,12 @@ class ApplicationViews
   // Check if credentials are in local storage
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
-  addUser = user => UserManager.post(user)
-    .then(() => UserManager.getAll())
-    .then(users => this.setState({
-      users: users
-    })
-    );
+  // addUser = user => UserManager.post(user)
+  //   .then(() => UserManager.getAll())
+  //   .then(users => this.setState({
+  //     users: users
+  //   })
+  //   );
 
   addProject = project =>
     ProjectManager.post(project)
@@ -52,12 +53,13 @@ class ApplicationViews
       method: "DELETE"
     })
       .then(response => response.json())
-      .then(() => fetch(`http://localhost:5002/projects`))
+      .then(() => fetch(`http://localhost:5002/projects/?user=${this.state.activeUser}`))
       .then(response => response.json())
       .then(projects =>
         this.setState({
           projects: projects
         })
+
       );
   };
 
@@ -135,10 +137,10 @@ class ApplicationViews
     const newState = {}
     let localUser = JSON.parse(sessionStorage.getItem("credentials"));
     newState.activeUser = localUser;
-    UserManager.getAll("users")
-      .then(allUsers => {
-        newState.users = allUsers
-      })
+    // UserManager.getAll("users")
+    //   .then(allUsers => {
+    //     newState.users = allUsers
+    //   })
 
 
     ProjectManager.getAll().then(allProjects => {

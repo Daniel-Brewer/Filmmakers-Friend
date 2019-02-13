@@ -44,6 +44,7 @@ export default class ProjectDetail extends Component {
                         className="logoutButton">Back to Project List</button>
                 </div>
             </nav>
+            <h2>Project Page</h2>
             <section className="project">
                 <div key={project.id} className="card">
                     <div className="card-body">

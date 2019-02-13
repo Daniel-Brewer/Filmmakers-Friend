@@ -2,7 +2,10 @@
     display: flex;
     justify-content: space-evenly;
 }
-
+h2 {
+    display: flex;
+    justify-content: center;
+}
 .card {
     width: 10rem;
 }
