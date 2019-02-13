@@ -4,10 +4,10 @@ import "./CrewMember.css"
 export default class CrewMemberCard extends Component {
     state = {
         name: "",
-        job: "",
+        character: "",
         phone: "",
         email: "",
-        projectId: 1
+        projectId: ""
     }
     render() {
         return (
@@ -22,7 +22,7 @@ export default class CrewMemberCard extends Component {
                             onClick={() => this.props.history.push(`/crewMembers/edit/${this.props.crewMember.id}`)}
                             className="card-link">Edit</button>
                         <button
-                            onClick={() => this.props.deleteCrewMember(this.props.crewMember.id)}
+                            onClick={() => this.props.deleteCrewMember(this.props.crewMember.id,this.props.crewMember.projectId)}
                             className="card-link">Delete</button>
                     </h5>
                 </div>

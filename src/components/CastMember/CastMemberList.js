@@ -11,7 +11,6 @@ export default class CastMemberList extends Component {
       this.props.updateCastComponent(this.props.match.params.projectId)
       }
       render() {
-console.log("this.props.match.params.projectId", this.props.match.params.projectId)
 
         return (
             <React.Fragment>

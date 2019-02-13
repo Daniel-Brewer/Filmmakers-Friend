@@ -14,7 +14,6 @@ import CrewMemberList from "./crewMember/CrewMemberList";
 import CrewMemberForm from "./crewMember/CrewMemberForm";
 import CrewMemberEditForm from "./crewMember/CrewMemberEditForm";
 import CrewMemberManager from "../modules/CrewMemberManager";
-import UserManager from "../modules/UserManager";
 import LoginForm from "./authentication/LoginForm";
 import RegistrationForm from "./authentication/RegistrationForm";
 
@@ -87,10 +86,7 @@ class ApplicationViews
     })
     
       .then(response => response.json())
-      .then(()=> console.log("this.state", this.state))
       .then(() => CastMemberManager.getCastMembersInProject(projectId))
-      // .then(() => fetch(`http://localhost:5002/castMembers`))
-      // .then(response => response.json())
       .then(castMembers => this.setState({
         castMembers: castMembers
       })
@@ -122,19 +118,20 @@ class ApplicationViews
           crewMembers: crewMembers
         })
       );
-  deleteCrewMember = id => {
-    return fetch(`http://localhost:5002/crewMembers/${id}`, {
-      method: "DELETE"
-    })
-      .then(response => response.json())
-      .then(() => fetch(`http://localhost:5002/crewMembers`))
-      .then(response => response.json())
-      .then(crewMembers => this.setState({
-        crewMembers: crewMembers
-      })
-      );
 
-  }
+      deleteCrewMember = (id,projectId) => {
+        return fetch(`http://localhost:5002/crewMembers/${id}`, {
+          method: "DELETE"
+        })
+        
+          .then(response => response.json())
+          .then(() => CrewMemberManager.getCrewMembersInProject(projectId))
+          .then(crewMembers => this.setState({
+            crewMembers: crewMembers
+          })
+          )
+    
+      }
 
   componentDidMount() {
     const newState = {}
