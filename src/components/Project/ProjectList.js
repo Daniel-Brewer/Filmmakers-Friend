@@ -5,6 +5,8 @@ import ProjectCard from "./ProjectCard"
 
 export default class ProjectList extends Component {
     render() {
+        console.log("props", this.props)
+        
         return (
             <React.Fragment>
                 <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
@@ -28,7 +30,7 @@ export default class ProjectList extends Component {
                 <section className="projects">
                     {
                         this.props.projects.map(project =>
-                            <ProjectCard key={project.id} project={project} {...this.props} />
+                            <ProjectCard key={project.id} project={project} deleteProject={this.props.deleteProject} {...this.props} />
                         )
                     }
                 </section>

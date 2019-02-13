@@ -11,7 +11,7 @@ export default class CastMemberList extends Component {
         projects: [],
       };
       componentDidMount = () => {
-        const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
+        const project = this.props.projects.find(cm => cm.id === parseInt(this.props.match.params.projectId)) || {}
         CastMemberManager.getCastMembersInProject(this.props.match.params.projectId).then(allCastMembersInProject => {
             console.log("allCastMembersInProject", allCastMembersInProject)
             this.setState({
@@ -34,6 +34,7 @@ console.log("this.props.match.params.projectId", this.props.match.params.project
                         className="logoutButton">Back to Project</button>
                 </div>
             </nav>
+            <h2>Cast</h2>
                 <div className="castMemberButton">
                     <button type="button"
                             onClick={()=> this.props.history.push(`/castMembers/new/${this.props.match.params.projectId}`)}

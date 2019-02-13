@@ -47,7 +47,7 @@ export default class CastMemberForm extends Component {
 
             // Create the castMember and redirect user to castMember list
             
-            this.props.addCastMember(castMember).then(() => this.props.history.push("/castMembers"))
+            this.props.addCastMember(castMember).then(() => this.props.history.push(`/castMembers/${this.props.match.params.projectId}`))
             
         }
 

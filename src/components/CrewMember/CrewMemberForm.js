@@ -35,7 +35,7 @@ export default class CrewMemberForm extends Component {
             }
 
             // Create the crewMember and redirect user to crewMember list
-            this.props.addCrewMember(crewMember).then(() => this.props.history.push("/crewMembers"))
+            this.props.addCrewMember(crewMember).then(() => this.props.history.push(`/crewMembers/${this.props.match.params.projectId}`))
         }
 
     render() {

@@ -43,6 +43,7 @@ export default class CrewMemberList extends Component {
                         className="logoutButton">Back to Project</button>
                 </div>
             </nav>
+            <h2>Crew</h2>
                 <div className="crewMemberButton">
                     <button type="button"
                             onClick={()=> this.props.history.push(`/crewMembers/new/${this.props.match.params.projectId}`)}
