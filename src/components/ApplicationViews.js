@@ -14,7 +14,6 @@ import CrewMemberList from "./crewMember/CrewMemberList";
 import CrewMemberForm from "./crewMember/CrewMemberForm";
 import CrewMemberEditForm from "./crewMember/CrewMemberEditForm";
 import CrewMemberManager from "../modules/CrewMemberManager";
-import UserManager from "../modules/UserManager";
 import LoginForm from "./authentication/LoginForm";
 import RegistrationForm from "./authentication/RegistrationForm";
 
@@ -53,8 +52,7 @@ class ApplicationViews
       method: "DELETE"
     })
       .then(response => response.json())
-      .then(() => fetch(`http://localhost:5002/projects/?user=${this.state.activeUser}`))
-      .then(response => response.json())
+      .then(() => ProjectManager.getAll(this.state.activeUser))
       .then(projects =>
         this.setState({
           projects: projects
@@ -82,17 +80,18 @@ class ApplicationViews
         })
       );
 
-  deleteCastMember = id => {
+  deleteCastMember = (id,projectId) => {
     return fetch(`http://localhost:5002/castMembers/${id}`, {
       method: "DELETE"
     })
+    
       .then(response => response.json())
-      // .then(() => fetch(`http://localhost:5002/castMembers`))
-      // .then(response => response.json())
-      // .then(castMembers => this.setState({
-      //   castMembers: castMembers
-      // })
-      // )
+      .then(() => CastMemberManager.getCastMembersInProject(projectId))
+      .then(castMembers => this.setState({
+        castMembers: castMembers
+      })
+      )
+
   }
 
   editCastMember = (castMemberId, existingCastMember) =>
@@ -119,19 +118,20 @@ class ApplicationViews
           crewMembers: crewMembers
         })
       );
-  deleteCrewMember = id => {
-    return fetch(`http://localhost:5002/crewMembers/${id}`, {
-      method: "DELETE"
-    })
-      .then(response => response.json())
-      .then(() => fetch(`http://localhost:5002/crewMembers`))
-      .then(response => response.json())
-      .then(crewMembers => this.setState({
-        crewMembers: crewMembers
-      })
-      );
 
-  }
+      deleteCrewMember = (id,projectId) => {
+        return fetch(`http://localhost:5002/crewMembers/${id}`, {
+          method: "DELETE"
+        })
+        
+          .then(response => response.json())
+          .then(() => CrewMemberManager.getCrewMembersInProject(projectId))
+          .then(crewMembers => this.setState({
+            crewMembers: crewMembers
+          })
+          )
+    
+      }
 
   componentDidMount() {
     const newState = {}
@@ -149,11 +149,12 @@ class ApplicationViews
       });
     });
 
-    CastMemberManager.getCastMembersInProject().then(castMembersInProject => {
-      this.setState({
-        castMembers: castMembersInProject
-      });
-    });
+    // CastMemberManager.getCastMembersInProject(id).then(castMembersInProject => {
+    //   this.setState({
+    //     castMembers: castMembersInProject
+    //   });
+    // });
+
 
     CrewMemberManager.getCrewMembersInProject().then(crewMembersInProject => {
       this.setState({
@@ -167,6 +168,22 @@ class ApplicationViews
     ProjectManager.getAll().then(allProjects => {
       this.setState({
         projects: allProjects
+      });
+    });
+
+  }
+  updateCastComponent = (id) => {
+    CastMemberManager.getCastMembersInProject(id).then(allCastMembers => {
+      this.setState({
+        castMembers: allCastMembers
+      });
+    });
+
+  }
+  updateCrewComponent = (id) => {
+    CrewMemberManager.getCrewMembersInProject(id).then(allCrewMembers => {
+      this.setState({
+        crewMembers: allCrewMembers
       });
     });
 
@@ -217,9 +234,12 @@ class ApplicationViews
               <ProjectDetail
                 {...props}
                 getCastMembersInProject={this.getCastMembersInProject}
+                getCrewMembersInProject={this.getCrewMembersInProject}
                 deleteProject={this.deleteProject}
                 editProject={this.editProject}
                 projects={this.state.projects}
+                castMembers={this.state.castMembers}
+                crewMembers={this.state.crewMembers}
               />
             );
           }}
@@ -253,6 +273,7 @@ class ApplicationViews
             if (this.isAuthenticated()) {
               return (
                 <CastMemberList {...props}
+                updateCastComponent= {this.updateCastComponent}
                 getCastMembersInProject={this.getCastMembersInProject}
                   editCastMember={this.editCastMember}
                   deleteCastMember={this.deleteCastMember}
@@ -299,6 +320,7 @@ class ApplicationViews
             if (this.isAuthenticated()) {
               return (
                 <CrewMemberList {...props}
+                updateCrewComponent= {this.updateCrewComponent}
                 getCrewMembersInProject={this.getCrewMembersInProject}
                   editCrewMember={this.editCrewMember}
                   deleteCrewMember={this.deleteCrewMember}

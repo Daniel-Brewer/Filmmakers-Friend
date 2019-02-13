@@ -84,7 +84,7 @@
       "id": 1
     },
     {
-      "name": "Jet Thurmond",
+      "name": "Jett Thurmond",
       "character": "Ellie Love",
       "phone": "1234567898",
       "email": "jet@gmail.com",
@@ -182,20 +182,12 @@
       "id": 2
     },
     {
-      "name": "Ryan Brewer",
+      "name": "Ryan D Brewer",
       "job": "Boom Mic",
       "phone": "4569871235",
       "email": "ryanbrewer@gmail.com",
       "projectId": 1,
       "id": 6
-    },
-    {
-      "name": "Ryan Gabriel",
-      "job": "boom mic",
-      "phone": "1234567891",
-      "email": "ryangabriel@gmail.com",
-      "projectId": 1,
-      "id": 7
     },
     {
       "name": "Carley Lancaster",

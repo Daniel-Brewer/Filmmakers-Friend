@@ -24,7 +24,7 @@ export default class CastMemberCard extends Component {
                             onClick={() => this.props.history.push(`/castMembers/edit/${this.props.castMember.id}`)}
                             className="card-link">Edit</button>
                         <button
-                            onClick={() => this.props.deleteCastMember(this.props.castMember.id)}
+                            onClick={() => this.props.deleteCastMember(this.props.castMember.id,this.props.castMember.projectId)}
                             className="card-link">Delete</button>
                     </h5>
                 </div>

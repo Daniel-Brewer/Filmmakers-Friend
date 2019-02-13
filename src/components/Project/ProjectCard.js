@@ -10,19 +10,6 @@ export default class ProjectCard extends Component {
         userId: this.props.activeUser.id
     }
 
-    // deleteThisProject = id => {
-    //     return fetch(`http://localhost:5002/projects/${id}`, {
-    //       method: "DELETE"
-    //     })
-    //       .then(() => this.props.history.push(`/projects/`))
-          
-
-    // }
-    // handleDelete = evt => {
-    //     evt.preventDefault()
-    //     deleteProject(this.props.history.match.params.poject.id)
-        
-    // }
     render() {
         return (
             <div key={this.props.project.id} className="card">
