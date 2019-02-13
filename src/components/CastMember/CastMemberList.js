@@ -2,23 +2,15 @@
 import React, { Component } from "react"
 import "./CastMember.css"
 import CastMemberCard from "./CastMemberCard"
-import CastMemberManager from "../../modules/CastMemberManager"
+
 
 
 export default class CastMemberList extends Component {
-    state = {
-        castMembers: [],
-        projects: [],
-      };
+    // state = {
+    //     castMembers: [],
+    //   };
       componentDidMount = () => {
-        const project = this.props.projects.find(cm => cm.id === parseInt(this.props.match.params.projectId)) || {}
-        CastMemberManager.getCastMembersInProject(this.props.match.params.projectId).then(allCastMembersInProject => {
-            console.log("allCastMembersInProject", allCastMembersInProject)
-            this.setState({
-                castMembers: allCastMembersInProject,
-                projects: project
-              });
-          });
+      this.props.updateCastComponent(this.props.match.params.projectId)
       }
       render() {
 console.log("this.props.match.params.projectId", this.props.match.params.projectId)
@@ -44,7 +36,7 @@ console.log("this.props.match.params.projectId", this.props.match.params.project
                 </div>
                 <section className="castMembers">               
                 {
-                    this.state.castMembers.map(castMember =>
+                    this.props.castMembers.map(castMember =>
                         <CastMemberCard key={castMember.id} castMember={castMember} {...this.props} />
                         )
                     }
