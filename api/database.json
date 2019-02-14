@@ -72,6 +72,12 @@
       "description": "Thriller",
       "userId": 1,
       "id": 9
+    },
+    {
+      "title": "The Hope",
+      "description": "Gritty Super Hero",
+      "userId": 1,
+      "id": 10
     }
   ],
   "castMembers": [
@@ -84,7 +90,7 @@
       "id": 1
     },
     {
-      "name": "Jett Thurmond",
+      "name": "Ellie Luv",
       "character": "Ellie Love",
       "phone": "1234567898",
       "email": "jet@gmail.com",
@@ -156,20 +162,60 @@
       "id": 18
     },
     {
-      "name": "qqqqqqqqqq",
-      "character": "qqqq",
-      "phone": "sss",
-      "email": "cccc",
-      "projectId": "9",
-      "id": 19
-    },
-    {
       "name": "Johnny Bench",
       "character": "C",
       "phone": "1597536842",
       "email": "jbench@gmail.com",
       "projectId": "2",
       "id": 21
+    },
+    {
+      "name": "Jeremy Nichols",
+      "character": "Paul Luv",
+      "phone": "1593572468",
+      "email": "jnichols@gmail.com",
+      "projectId": "1",
+      "id": 22
+    },
+    {
+      "name": "Chandler Guzman",
+      "character": "Eric",
+      "phone": "9517538462",
+      "email": "cguzman",
+      "projectId": "1",
+      "id": 23
+    },
+    {
+      "name": "Anna Shaw",
+      "character": "Sydney",
+      "phone": "4569873215",
+      "email": "ashaw@gmail.com",
+      "projectId": "9",
+      "id": 24
+    },
+    {
+      "name": "Clayton Oglesby",
+      "character": "Kidnapper 1",
+      "phone": "8529631475",
+      "email": "coglesby@gmail.com",
+      "projectId": "9",
+      "id": 25
+    },
+    {
+      "name": "Zachary Lehman",
+      "character": "Kidnapper 2",
+      "phone": "7412589638",
+      "email": "zlehman@gmail.com",
+      "projectId": "9",
+      "id": 26
+    },
+    {
+      "name": "Abby Case",
+      "character": "Kidnapper 3",
+      "phone": "9637412580",
+      "email": "acase@gmail.com",
+      "projectId": "9",
+      "id": 27
     }
   ],
   "crewMembers": [
@@ -182,7 +228,7 @@
       "id": 2
     },
     {
-      "name": "Ryan D Brewer",
+      "name": "Ryan Brewer",
       "job": "Boom Mic",
       "phone": "4569871235",
       "email": "ryanbrewer@gmail.com",
@@ -219,6 +265,22 @@
       "email": "ggg",
       "projectId": "8",
       "id": 11
+    },
+    {
+      "name": "Ryan Gabriel",
+      "job": "AD",
+      "phone": "1234569871",
+      "email": "rgabriel@gmail.com",
+      "projectId": "10",
+      "id": 12
+    },
+    {
+      "name": "Mason Mills",
+      "job": "Boom Mic",
+      "phone": "9517538264",
+      "email": "mmills@gmail.com",
+      "projectId": "10",
+      "id": 13
     }
   ]
 }
