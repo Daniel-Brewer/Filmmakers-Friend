@@ -8,7 +8,7 @@ export default {
   getAll() {
     let sessionUser=sessionStorage.getItem("credentials")
     let sessionUserNumber= Number(sessionUser)
-    return fetch(`${remoteURL}/projects/?userId=${sessionUserNumber}`).then(e => e.json())
+    return fetch(`${remoteURL}/projects/?userId=${sessionUserNumber}`).then(p => p.json())
   },
   post(newProject) {
     return fetch(`${remoteURL}/projects`, {

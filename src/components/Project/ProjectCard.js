@@ -4,11 +4,11 @@ import "./Project.css"
 
 export default class ProjectCard extends Component {
 
-    state = {
-        title: "",
-        description: "",
-        userId: this.props.activeUser.id
-    }
+    // state = {
+    //     title: "",
+    //     description: "",
+    //     userId: this.props.activeUser.id
+    // }
 
     render() {
         return (

@@ -5,7 +5,6 @@ import ProjectCard from "./ProjectCard"
 
 export default class ProjectList extends Component {
     render() {
-        console.log("props", this.props)
         
         return (
             <React.Fragment>

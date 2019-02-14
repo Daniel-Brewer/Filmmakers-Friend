@@ -38,8 +38,8 @@
   ],
   "projects": [
     {
-      "title": "About the Author!",
-      "description": "Heart-wrenching drama about an aspiring teenage author, dying of pancreatic cancer",
+      "title": "About the Author",
+      "description": "Teenage author dying of pancreatic cancer",
       "userId": 1,
       "id": 1
     },
@@ -66,31 +66,19 @@
       "description": "Music Documentary",
       "userId": 3,
       "id": 8
-    },
-    {
-      "title": "Synchronicity",
-      "description": "Thriller",
-      "userId": 1,
-      "id": 9
-    },
-    {
-      "title": "The Hope",
-      "description": "Gritty Super Hero",
-      "userId": 1,
-      "id": 10
     }
   ],
   "castMembers": [
     {
-      "name": "Chris Carson",
+      "name": "Kris Carson",
       "character": "Al Dunn",
-      "phone": "9876543212",
-      "email": "chriscarson@gmail.com",
+      "phone": "1596321487",
+      "email": "ccarson@gmail.com",
       "projectId": 1,
       "id": 1
     },
     {
-      "name": "Ellie Luv",
+      "name": "Jet Thurmond",
       "character": "Ellie Love",
       "phone": "1234567898",
       "email": "jet@gmail.com",
@@ -120,110 +108,14 @@
       "email": "mbrantley@gmail.com",
       "projectId": 3,
       "id": 6
-    },
-    {
-      "name": "Bill Bradley",
-      "character": "c",
-      "phone": "1234569874",
-      "email": "bbradley@gmail.com",
-      "projectId": 2,
-      "id": 7
-    },
-    {
-      "name": "Terry Francona",
-      "character": "Manager",
-      "phone": "8989745621",
-      "email": "tfrancona@gmail.com",
-      "projectId": "7",
-      "id": 15
-    },
-    {
-      "name": "Steve Determen",
-      "character": "Bass",
-      "phone": "6547893214",
-      "email": "sdetermen@gmail.com",
-      "projectId": "8",
-      "id": 16
-    },
-    {
-      "name": "Darrell Hicks",
-      "character": "Drums",
-      "phone": "4561239875",
-      "email": "dhicks@gmail.com",
-      "projectId": "8",
-      "id": 17
-    },
-    {
-      "name": "Bryan Reynolds",
-      "character": "Keys",
-      "phone": "4569871234",
-      "email": "breynolds@gmail.com",
-      "projectId": "8",
-      "id": 18
-    },
-    {
-      "name": "Johnny Bench",
-      "character": "C",
-      "phone": "1597536842",
-      "email": "jbench@gmail.com",
-      "projectId": "2",
-      "id": 21
-    },
-    {
-      "name": "Jeremy Nichols",
-      "character": "Paul Luv",
-      "phone": "1593572468",
-      "email": "jnichols@gmail.com",
-      "projectId": "1",
-      "id": 22
-    },
-    {
-      "name": "Chandler Guzman",
-      "character": "Eric",
-      "phone": "9517538462",
-      "email": "cguzman",
-      "projectId": "1",
-      "id": 23
-    },
-    {
-      "name": "Anna Shaw",
-      "character": "Sydney",
-      "phone": "4569873215",
-      "email": "ashaw@gmail.com",
-      "projectId": "9",
-      "id": 24
-    },
-    {
-      "name": "Clayton Oglesby",
-      "character": "Kidnapper 1",
-      "phone": "8529631475",
-      "email": "coglesby@gmail.com",
-      "projectId": "9",
-      "id": 25
-    },
-    {
-      "name": "Zachary Lehman",
-      "character": "Kidnapper 2",
-      "phone": "7412589638",
-      "email": "zlehman@gmail.com",
-      "projectId": "9",
-      "id": 26
-    },
-    {
-      "name": "Abby Case",
-      "character": "Kidnapper 3",
-      "phone": "9637412580",
-      "email": "acase@gmail.com",
-      "projectId": "9",
-      "id": 27
     }
   ],
   "crewMembers": [
     {
-      "name": "John Jackson",
+      "name": "Joe Jackson",
       "job": "Tarp",
       "phone": "4566544521",
-      "email": "johnjackson@gmail.com",
+      "email": "joejackson@gmail.com",
       "projectId": 1,
       "id": 2
     },
@@ -257,30 +149,6 @@
       "phone": "nnn",
       "email": "mmm",
       "id": 10
-    },
-    {
-      "name": "ggg",
-      "job": "ggg",
-      "phone": "ggg",
-      "email": "ggg",
-      "projectId": "8",
-      "id": 11
-    },
-    {
-      "name": "Ryan Gabriel",
-      "job": "AD",
-      "phone": "1234569871",
-      "email": "rgabriel@gmail.com",
-      "projectId": "10",
-      "id": 12
-    },
-    {
-      "name": "Mason Mills",
-      "job": "Boom Mic",
-      "phone": "9517538264",
-      "email": "mmills@gmail.com",
-      "projectId": "10",
-      "id": 13
     }
   ]
 }

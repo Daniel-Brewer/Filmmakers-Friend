@@ -7,10 +7,11 @@ import CrewMemberCard from "./CrewMemberCard"
 export default class CrewMemberList extends Component {
 
       componentDidMount = () => {
+          //   pass projectId to updateCrewComponent for page refreshment
       this.props.updateCrewComponent(this.props.match.params.projectId)
       }
       render() {
-console.log("this.props.match.params.projectId", this.props.match.params.projectId)
+
 
         return (
             <React.Fragment>

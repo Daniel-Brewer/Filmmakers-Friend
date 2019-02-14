@@ -7,31 +7,21 @@ import CrewMemberManager from "../../modules/CrewMemberManager";
 
 
 export default class ProjectDetail extends Component {
-    state = {
-        castMembers: [],
-        projects: [],
-      };
       
-      componentDidMount = () => {
-          const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
-          console.log("project.id", project.id)
-          CastMemberManager.getCastMembersInProject(project.id).then(allCastMembersInProject => {
-              console.log("allCastMembersInProject", allCastMembersInProject)
-              this.setState({
-                  castMembers: allCastMembersInProject,
-                  projects: project
-                });
-            });
-        }
-        render() {
-            console.log("this.state in ProjectDetail", this.state)
+    render() {
         /*
         Using the route parameter, find the project that the
         user clicked on by looking at the `this.props.projects`
         collection that was passed down from ApplicationViews
         */
        
-       const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
+       const project = this.props.projects.find(p => p.id === parseInt(this.props.match.params.projectId)) || {}
+        //    CastMemberManager.getCastMembersInProject(project.id).then(allCastMembersInProject => {
+        //        this.setState({
+        //            castMembers: allCastMembersInProject,
+        //            projects: project
+        //          });
+        //      });
 
 
         return (
