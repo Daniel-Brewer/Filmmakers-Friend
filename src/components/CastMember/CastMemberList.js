@@ -8,6 +8,7 @@ import CastMemberCard from "./CastMemberCard"
 export default class CastMemberList extends Component {
 
       componentDidMount = () => {
+        //   pass projectId to updateCastComponent for page refreshment
       this.props.updateCastComponent(this.props.match.params.projectId)
       }
       render() {

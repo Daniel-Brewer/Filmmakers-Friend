@@ -72,7 +72,7 @@ class ApplicationViews
           castMembers: castMembers
         })
       );
-
+// deletes specific castMember from database
   deleteCastMember = (id, projectId) => {
     return fetch(`http://localhost:5002/castMembers/${id}`, {
       method: "DELETE"
@@ -139,7 +139,7 @@ class ApplicationViews
     })
 
   }
-
+// functions to refresh Project List after login
   updateComponent = () => {
     ProjectManager.getAll().then(allProjects => {
       this.setState({
@@ -148,6 +148,8 @@ class ApplicationViews
     });
 
   }
+
+  // Refresh list after delete
   updateCastComponent = (id) => {
     CastMemberManager.getCastMembersInProject(id).then(allCastMembers => {
       this.setState({
@@ -156,6 +158,7 @@ class ApplicationViews
     });
 
   }
+  // Refresh list after delete
   updateCrewComponent = (id) => {
     CrewMemberManager.getCrewMembersInProject(id).then(allCrewMembers => {
       this.setState({

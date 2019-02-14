@@ -44,7 +44,7 @@ export default class ProjectForm extends Component {
                 <form className="projectForm">
                     <div className="form-group">
                         {/* <label htmlFor="title">Project Title</label> */}
-                        <input type="text" required
+                        <input type="textarea" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="title"
@@ -52,7 +52,7 @@ export default class ProjectForm extends Component {
                     </div>
                     <div className="form-group">
                         {/* <label htmlFor="description">Description</label> */}
-                        <input type="text" required
+                        <input type="textarea" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="description" placeholder="Description" />

@@ -11,7 +11,7 @@ export default class CastMemberForm extends Component {
         character: "",
         phone: "",
         email: "",
-        projectId: ""
+        projectId: Number
     }
 
     // Update state whenever an input field is edited
@@ -21,20 +21,7 @@ export default class CastMemberForm extends Component {
         this.setState(stateToChange)
     }
 
-    // componentDidMount = () => {
-    //     const project = this.props.projects.find(a => a.id === parseInt(this.props.match.params.projectId)) || {}
-    //     CastMemberManager.getCastMembersInProject(this.props.match.params.projectId).then(allCastMembersInProject => {
-    //         console.log("allCastMembersInProject", allCastMembersInProject)
-    //         this.setState({
-    //             castMembers: allCastMembersInProject,
-    //             projects: project
-    //           });
-    //       });
-    //     }
-    /*
-        Local method for validation, creating castMember object, and
-        invoking the function reference passed from parent component
-     */
+
     constructNewCastMember = evt => {
         evt.preventDefault()
             const castMember = {
@@ -42,7 +29,7 @@ export default class CastMemberForm extends Component {
                 character: this.state.character,
                 phone: this.state.phone,
                 email: this.state.email,
-                projectId: this.props.match.params.projectId
+                projectId: Number(this.props.match.params.projectId)
             }
 
             // Create the castMember and redirect user to castMember list
@@ -56,7 +43,7 @@ export default class CastMemberForm extends Component {
             <React.Fragment>
                 <form className="castMemberForm">
                     <div className="form-group">
-                        {/* <label htmlFor="name">CastMember Name</label> */}
+                        <label htmlFor="name">CastMember Name</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -64,21 +51,21 @@ export default class CastMemberForm extends Component {
                                placeholder="CastMember name" />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="character">Character</label> */}
+                        <label htmlFor="character">Character</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="character" placeholder="Character" />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="phone">Phone</label> */}
+                        <label htmlFor="phone">Phone</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="phone" placeholder="Phone" />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="email">Email</label> */}
+                        <label htmlFor="email">Email</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

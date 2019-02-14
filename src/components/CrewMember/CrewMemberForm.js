@@ -31,7 +31,7 @@ export default class CrewMemberForm extends Component {
                 job: this.state.job,
                 phone: this.state.phone,
                 email: this.state.email,
-                projectId: this.props.match.params.projectId
+                projectId: Number(this.props.match.params.projectId)
             }
 
             // Create the crewMember and redirect user to crewMember list

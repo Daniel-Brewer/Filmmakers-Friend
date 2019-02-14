@@ -43,7 +43,7 @@ export default class CrewMemberEditForm extends Component {
               job: this.state.job,
               phone: this.state.phone,
               email: this.state.email,
-              projectId: this.state.projectId
+              projectId: Number(this.state.projectId)
             }
             this.props.editCrewMember(this.props.match.params.crewMemberId, existingCrewMember)
           .then(() => this.props.history.push(`/crewMembers/${this.state.projectId}`))
@@ -54,33 +54,33 @@ export default class CrewMemberEditForm extends Component {
             <React.Fragment>
                 <form className="crewMemberForm">
                     <div className="form-group">
-                        {/* <label htmlFor="name">CrewMember Name</label> */}
+                        <label htmlFor="name">CrewMember Name</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="name"
-                               placeholder="CrewMember Name" />
+                               value={this.state.name} />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="job">job</label> */}
+                        <label htmlFor="job">job</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="job" placeholder="Job" />
+                               id="job" value={this.state.job} />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="phone">Phone</label> */}
+                        <label htmlFor="phone">Phone</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="phone" placeholder="Phone" />
+                               id="phone" value={this.state.phone} />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="email">Email</label> */}
+                        <label htmlFor="email">Email</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="email" placeholder="Email" />
+                               id="email" value={this.state.email} />
                     </div>
                     <button type="submit" onClick={this.updateExistingCrewMember} className="btn btn-primary">Update</button>
                 </form>

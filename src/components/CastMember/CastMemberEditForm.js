@@ -10,7 +10,7 @@ export default class CastMemberEditForm extends Component {
         character: "",
         phone: "",
         email: "",
-        projectId: ""
+        projectId: Number
     }
 
     // Update state whenever an input field is edited
@@ -43,7 +43,7 @@ export default class CastMemberEditForm extends Component {
               character: this.state.character,
               phone: this.state.phone,
               email: this.state.email,
-              projectId: this.state.projectId
+              projectId: Number(this.state.projectId)
             }
             this.props.editCastMember(this.props.match.params.castMemberId, existingCastMember)
           .then(() => this.props.history.push(`/castMembers/${this.state.projectId}`))
@@ -54,33 +54,33 @@ export default class CastMemberEditForm extends Component {
             <React.Fragment>
                 <form className="castMemberForm">
                     <div className="form-group">
-                        {/* <label htmlFor="name">CastMember Name</label> */}
+                        <label htmlFor="name">CastMember Name</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="name"
-                               placeholder="CastMember Name" />
+                               value={this.state.name} />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="character">Character</label> */}
+                        <label htmlFor="character">Character</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="character" placeholder="Character" />
+                               id="character" value={this.state.character} />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="phone">Phone</label> */}
+                        <label htmlFor="phone">Phone</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="phone" placeholder="Phone" />
+                               id="phone" value={this.state.phone} />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="email">Email</label> */}
+                        <label htmlFor="email">Email</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="email" placeholder="Email" />
+                               id="email" value={this.state.email} />
                     </div>
                     <button type="submit" onClick={this.updateExistingCastMember} className="btn btn-primary">Update</button>
                 </form>

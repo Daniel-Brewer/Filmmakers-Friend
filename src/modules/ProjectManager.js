@@ -3,12 +3,12 @@ const remoteURL = "http://localhost:5002"
 
 export default {
   get(id) {
-    return fetch(`${remoteURL}/projects/?user=${id}`).then(e => e.json())
+    return fetch(`${remoteURL}/projects/${id}`).then(p => p.json())
   },
   getAll() {
     let sessionUser=sessionStorage.getItem("credentials")
     let sessionUserNumber= Number(sessionUser)
-    return fetch(`${remoteURL}/projects/?userId=${sessionUserNumber}`).then(e => e.json())
+    return fetch(`${remoteURL}/projects/?userId=${sessionUserNumber}`).then(p => p.json())
   },
   post(newProject) {
     return fetch(`${remoteURL}/projects`, {
