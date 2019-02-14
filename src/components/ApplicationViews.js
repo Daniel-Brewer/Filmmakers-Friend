@@ -19,7 +19,7 @@ import RegistrationForm from "./authentication/RegistrationForm";
 
 class ApplicationViews
   extends Component {
-    // set initial state
+  // set initial state
   state = {
     users: [],
     projects: [],
@@ -30,13 +30,6 @@ class ApplicationViews
 
   // Check if credentials are in local storage
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
-
-  // addUser = user => UserManager.post(user)
-  //   .then(() => UserManager.getAll())
-  //   .then(users => this.setState({
-  //     users: users
-  //   })
-  //   );
 
   addProject = project =>
     ProjectManager.post(project)
@@ -80,11 +73,11 @@ class ApplicationViews
         })
       );
 
-  deleteCastMember = (id,projectId) => {
+  deleteCastMember = (id, projectId) => {
     return fetch(`http://localhost:5002/castMembers/${id}`, {
       method: "DELETE"
     })
-    
+
       .then(response => response.json())
       .then(() => CastMemberManager.getCastMembersInProject(projectId))
       .then(castMembers => this.setState({
@@ -102,13 +95,13 @@ class ApplicationViews
       })
       )
 
-      editCrewMember = (crewMemberId, existingCrewMember) =>
-        CrewMemberManager.put(crewMemberId, existingCrewMember)
-          .then(() => CrewMemberManager.getAll())
-          .then(crewMembers => this.setState({
-            crewMembers: crewMembers
-          })
-          )
+  editCrewMember = (crewMemberId, existingCrewMember) =>
+    CrewMemberManager.put(crewMemberId, existingCrewMember)
+      .then(() => CrewMemberManager.getAll())
+      .then(crewMembers => this.setState({
+        crewMembers: crewMembers
+      })
+      )
 
   addCrewMember = crewMember =>
     CrewMemberManager.post(crewMember)
@@ -119,46 +112,29 @@ class ApplicationViews
         })
       );
 
-      deleteCrewMember = (id,projectId) => {
-        return fetch(`http://localhost:5002/crewMembers/${id}`, {
-          method: "DELETE"
-        })
-        
-          .then(response => response.json())
-          .then(() => CrewMemberManager.getCrewMembersInProject(projectId))
-          .then(crewMembers => this.setState({
-            crewMembers: crewMembers
-          })
-          )
-    
-      }
+  deleteCrewMember = (id, projectId) => {
+    return fetch(`http://localhost:5002/crewMembers/${id}`, {
+      method: "DELETE"
+    })
+
+      .then(response => response.json())
+      .then(() => CrewMemberManager.getCrewMembersInProject(projectId))
+      .then(crewMembers => this.setState({
+        crewMembers: crewMembers
+      })
+      )
+
+  }
 
   componentDidMount() {
     const newState = {}
     let localUser = JSON.parse(sessionStorage.getItem("credentials"));
     newState.activeUser = localUser;
-    // UserManager.getAll("users")
-    //   .then(allUsers => {
-    //     newState.users = allUsers
-    //   })
 
 
     ProjectManager.getAll().then(allProjects => {
       this.setState({
         projects: allProjects
-      });
-    });
-
-    // CastMemberManager.getCastMembersInProject(id).then(castMembersInProject => {
-    //   this.setState({
-    //     castMembers: castMembersInProject
-    //   });
-    // });
-
-
-    CrewMemberManager.getCrewMembersInProject().then(crewMembersInProject => {
-      this.setState({
-        crewMembers: crewMembersInProject
       });
     })
 
@@ -193,11 +169,11 @@ class ApplicationViews
     return (
       <React.Fragment>
         <Route exact path="/" render={props => {
-              return <LoginForm {...props} 
-              activeUser={this.state.activeUser}
-              updateComponent={this.updateComponent} />
+          return <LoginForm {...props}
+            activeUser={this.state.activeUser}
+            updateComponent={this.updateComponent} />
         }}
-/>
+        />
         <Route exact path="/register" render={(props) => {
           return <RegistrationForm {...props}
             addUser={this.addUser}
@@ -259,6 +235,7 @@ class ApplicationViews
             );
           }}
         />
+        {/* This is the form presented to Edit */}
         <Route path="/projects/edit/:projectId(\d+)/" render={(props) => {
           return <ProjectEditForm
             {...props}
@@ -267,14 +244,16 @@ class ApplicationViews
             description={this.state.description}
             editProject={this.editProject} />
         }} />
+
+        {/* This is the list to be displayed when CastMembers button is clicked in Project Details */}
         <Route
           path="/castMembers/:projectId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
               return (
                 <CastMemberList {...props}
-                updateCastComponent= {this.updateCastComponent}
-                getCastMembersInProject={this.getCastMembersInProject}
+                  updateCastComponent={this.updateCastComponent}
+                  getCastMembersInProject={this.getCastMembersInProject}
                   editCastMember={this.editCastMember}
                   deleteCastMember={this.deleteCastMember}
                   castMembers={this.state.castMembers}
@@ -303,6 +282,7 @@ class ApplicationViews
             );
           }}
         />
+        {/* This the Edit form for CastMembers */}
         <Route path="/castMembers/edit/:castMemberId(\d+)/" render={(props) => {
           return <CastMemberEditForm
             {...props}
@@ -313,15 +293,15 @@ class ApplicationViews
             email={this.state.email}
             editCastMember={this.editCastMember} />
         }} />
-
-<Route
+        {/* This is the list to be dispalyed when CrewMembers button is clicked in Project Detail */}
+        <Route
           path="/crewMembers/:projectId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
               return (
                 <CrewMemberList {...props}
-                updateCrewComponent= {this.updateCrewComponent}
-                getCrewMembersInProject={this.getCrewMembersInProject}
+                  updateCrewComponent={this.updateCrewComponent}
+                  getCrewMembersInProject={this.getCrewMembersInProject}
                   editCrewMember={this.editCrewMember}
                   deleteCrewMember={this.deleteCrewMember}
                   crewMembers={this.state.crewMembers}
