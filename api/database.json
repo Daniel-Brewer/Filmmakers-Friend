@@ -66,6 +66,12 @@
       "description": "Music Documentary",
       "userId": 3,
       "id": 8
+    },
+    {
+      "title": "Synchronicity",
+      "description": "Thriller",
+      "userId": 1,
+      "id": 9
     }
   ],
   "castMembers": [
