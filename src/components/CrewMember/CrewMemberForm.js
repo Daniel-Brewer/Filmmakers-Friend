@@ -10,7 +10,7 @@ export default class CrewMemberForm extends Component {
         job: "",
         phone: "",
         email: "",
-        projectId: ""
+        projectId: 0
     }
 
     // Update state whenever an input field is edited
@@ -20,10 +20,6 @@ export default class CrewMemberForm extends Component {
         this.setState(stateToChange)
     }
 
-    /*
-        Local method for validation, creating crewMember object, and
-        invoking the function reference passed from parent component
-     */
     constructNewCrewMember = evt => {
         evt.preventDefault()
             const crewMember = {
@@ -43,7 +39,7 @@ export default class CrewMemberForm extends Component {
             <React.Fragment>
                 <form className="crewMemberForm">
                     <div className="form-group">
-                        {/* <label htmlFor="name">CrewMember Name</label> */}
+                        <label htmlFor="name">CrewMember Name</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -51,21 +47,21 @@ export default class CrewMemberForm extends Component {
                                placeholder="CrewMember Name" />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="job">job</label> */}
+                        <label htmlFor="job">job</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="job" placeholder="Job" />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="phone">Phone</label> */}
+                        <label htmlFor="phone">Phone</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="phone" placeholder="Phone" />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="email">Email</label> */}
+                        <label htmlFor="email">Email</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

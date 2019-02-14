@@ -23,11 +23,11 @@ export default class LoginForm extends Component {
         e.preventDefault()
 
         /*
-            For now, just store the username and password that
-            the customer enters into session storage.
+            Store the username and password that
+            the user enters into session storage.
         */
 
-        UserManager.getAll("users").then((user) => {
+        UserManager.getAll().then((user) => {
             const users = user.find(user => {
                 return user.username === this.state.username && user.password === this.state.password //verifies account is in DB
             })
@@ -39,7 +39,7 @@ export default class LoginForm extends Component {
                 // if not register
             } else {
                 alert("You need to register")
-                document.location.href = 'http://localhost:3000/register'
+                this.props.history.push('/register')
             }
         })
 

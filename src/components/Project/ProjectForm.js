@@ -17,10 +17,7 @@ export default class ProjectForm extends Component {
         this.setState(stateToChange)
     }
 
-    /*
-        Local method for validation, creating project object, and
-        invoking the function reference passed from parent component
-     */
+
     constructNewProject = evt => {
         evt.preventDefault()
         let currentUser = sessionStorage.getItem("credentials")
@@ -29,11 +26,10 @@ export default class ProjectForm extends Component {
             const project = {
                 title: this.state.title,
                 description: this.state.description,
-                userId: currentUserId,
-                // userId: this.props.users.find(p => p.title === this.state.user).id
+                userId: currentUserId
             }
 
-            // Create the project and redirect user to project list
+            // Add project to db and Redirect user to project list
             this.props.addProject(project).then(() => this.props.history.push("/projects"))
         }
 
@@ -43,7 +39,7 @@ export default class ProjectForm extends Component {
             <React.Fragment>
                 <form className="projectForm">
                     <div className="form-group">
-                        {/* <label htmlFor="title">Project Title</label> */}
+                        <label htmlFor="title">Project Title</label>
                         <input type="textarea" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -51,7 +47,7 @@ export default class ProjectForm extends Component {
                                placeholder="Project title" />
                     </div>
                     <div className="form-group">
-                        {/* <label htmlFor="description">Description</label> */}
+                        <label htmlFor="description">Description</label>
                         <input type="textarea" required
                                className="form-control"
                                onChange={this.handleFieldChange}

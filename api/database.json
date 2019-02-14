@@ -38,7 +38,7 @@
   ],
   "projects": [
     {
-      "title": "About the Author",
+      "title": "About the Author!",
       "description": "Teenage author dying of pancreatic cancer",
       "userId": 1,
       "id": 1
@@ -68,7 +68,7 @@
       "id": 8
     },
     {
-      "title": "Synchronicity",
+      "title": "Synchronicity!",
       "description": "Thriller",
       "userId": 1,
       "id": 9
@@ -76,7 +76,7 @@
   ],
   "castMembers": [
     {
-      "name": "Kris Carson",
+      "name": "Chris Carson",
       "character": "Al Dunn",
       "phone": "1596321487",
       "email": "ccarson@gmail.com",
@@ -118,10 +118,10 @@
   ],
   "crewMembers": [
     {
-      "name": "Joe Jackson",
+      "name": "John Jackson",
       "job": "Tarp",
       "phone": "4566544521",
-      "email": "joejackson@gmail.com",
+      "email": "johnjackson@gmail.com",
       "projectId": 1,
       "id": 2
     },
@@ -148,13 +148,6 @@
       "email": "iii",
       "projectId": 7,
       "id": 9
-    },
-    {
-      "name": "Steve Daniels",
-      "job": "lll",
-      "phone": "nnn",
-      "email": "mmm",
-      "id": 10
     }
   ]
 }

@@ -11,7 +11,7 @@ export default class ProjectList extends Component {
                 <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
                     <div className="logoutButton">
                         <button onClick={() => {
-                            document.location.href = 'http://localhost:3000'
+                            this.props.history.push(`/`)
                         }}
                             className="logoutButton">Logout</button>
                     </div>

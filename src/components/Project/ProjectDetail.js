@@ -9,27 +9,15 @@ import CrewMemberManager from "../../modules/CrewMemberManager";
 export default class ProjectDetail extends Component {
       
     render() {
-        /*
-        Using the route parameter, find the project that the
-        user clicked on by looking at the `this.props.projects`
-        collection that was passed down from ApplicationViews
-        */
        
        const project = this.props.projects.find(p => p.id === parseInt(this.props.match.params.projectId)) || {}
-        //    CastMemberManager.getCastMembersInProject(project.id).then(allCastMembersInProject => {
-        //        this.setState({
-        //            castMembers: allCastMembersInProject,
-        //            projects: project
-        //          });
-        //      });
-
 
         return (
             <React.Fragment>
             <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
                 <div className="logoutButton">
                     <button onClick={() => {
-                        document.location.href = 'http://localhost:3000/projects'
+                        this.props.history.push(`/projects`)
                     }}
                         className="logoutButton">Back to Project List</button>
                 </div>
