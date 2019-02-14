@@ -10,7 +10,7 @@ export default class CastMemberEditForm extends Component {
         character: "",
         phone: "",
         email: "",
-        projectId: Number
+        projectId: 0
     }
 
     // Update state whenever an input field is edited

@@ -10,7 +10,7 @@ export default class CrewMemberEditForm extends Component {
         job: "",
         phone: "",
         email: "",
-        projectId: ""
+        projectId: 0
     }
 
     // Update state whenever an input field is edited
@@ -20,10 +20,6 @@ export default class CrewMemberEditForm extends Component {
         this.setState(stateToChange)
     }
 
-    /*
-        Local method for validation, creating crewMember object, and
-        invoking the function reference passed from parent component
-     */
     componentDidMount(){
         CrewMemberManager.get(this.props.match.params.crewMemberId)
         .then(crewMembers => {

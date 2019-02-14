@@ -2,13 +2,7 @@ import React, { Component } from "react"
 import "./CrewMember.css"
 
 export default class CrewMemberCard extends Component {
-    // state = {
-    //     name: "",
-    //     character: "",
-    //     phone: "",
-    //     email: "",
-    //     projectId: ""
-    // }
+
     render() {
         return (
             <div key={this.props.crewMember.id} className="card">

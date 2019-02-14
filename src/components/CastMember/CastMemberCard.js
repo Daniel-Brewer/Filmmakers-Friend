@@ -4,13 +4,7 @@ import "./CastMember.css"
 
 
 export default class CastMemberCard extends Component {
-    // state = {
-    //     name: "",
-    //     character: "",
-    //     phone: "",
-    //     email: "",
-    //     projectId: ""
-    // }
+
     render() {
         return (
             <div key={this.props.castMember.id} className="card">

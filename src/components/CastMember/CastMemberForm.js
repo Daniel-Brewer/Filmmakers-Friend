@@ -11,7 +11,7 @@ export default class CastMemberForm extends Component {
         character: "",
         phone: "",
         email: "",
-        projectId: Number
+        projectId: 0
     }
 
     // Update state whenever an input field is edited
@@ -32,7 +32,7 @@ export default class CastMemberForm extends Component {
                 projectId: Number(this.props.match.params.projectId)
             }
 
-            // Create the castMember and redirect user to castMember list
+            // Add the castMember to db and redirect user to castMember list
             
             this.props.addCastMember(castMember).then(() => this.props.history.push(`/castMembers/${this.props.match.params.projectId}`))
             
