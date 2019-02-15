@@ -47,6 +47,8 @@ export default class LoginForm extends Component {
 
     render() {
         return (
+            <div className="forms">
+            <div className="loginForm">
             <form onSubmit={this.handleLogin}>
                  <h1 className="h3 mb-3 font-weight-normal">Filmmaker's Friend</h1>
                  <br></br>
@@ -65,6 +67,8 @@ export default class LoginForm extends Component {
                     Submit
                 </button>
             </form>
+            </div>
+            </div>
         )
     }
 }

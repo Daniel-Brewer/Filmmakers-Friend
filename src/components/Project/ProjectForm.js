@@ -37,6 +37,7 @@ export default class ProjectForm extends Component {
 
         return (
             <React.Fragment>
+                <div className="forms">
                 <form className="projectForm">
                     <div className="form-group">
                         <label htmlFor="title">Project Title</label>
@@ -44,7 +45,7 @@ export default class ProjectForm extends Component {
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="title"
-                               placeholder="Project title" />
+                               placeholder="Project Title" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
@@ -55,6 +56,7 @@ export default class ProjectForm extends Component {
                     </div>
                     <button type="submit" onClick={this.constructNewProject} className="btn btn-primary">Submit</button>
                 </form>
+                </div>
             </React.Fragment>
         )
     }

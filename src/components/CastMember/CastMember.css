@@ -1,3 +1,11 @@
+/* .castMemberForm {
+    display: table-caption;
+} */
+
+.forms {
+    text-align: -webkit-center;
+}
+
 .castMembers {
     display: flex;
     justify-content: space-evenly;
