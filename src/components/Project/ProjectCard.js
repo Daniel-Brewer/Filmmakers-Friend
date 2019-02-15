@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import "./Project.css"
+// import cutboard from "./cutboard.png"
 
 export default class ProjectCard extends Component {
 
@@ -8,6 +9,7 @@ export default class ProjectCard extends Component {
     render() {
         return (
             <div key={this.props.project.id} className="card">
+            {/* <img class="card-img-top" src={cutboard.png} className="icon--cutboard" alt="Cut Board" ></img> */}
                 <div className="card-body">
                     <h5 className="card-title">
                     

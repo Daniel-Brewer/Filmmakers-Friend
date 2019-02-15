@@ -23,6 +23,7 @@ export default class ProjectDetail extends Component {
                 </div>
             </nav>
             <h2>Project Page</h2>
+            <div className="forms">
             <section className="project">
                 <div key={project.id} className="card">
                     <div className="card-body">
@@ -49,6 +50,7 @@ export default class ProjectDetail extends Component {
                     </div>
                 </div>
             </section>
+            </div>
             </React.Fragment>
         )
     }

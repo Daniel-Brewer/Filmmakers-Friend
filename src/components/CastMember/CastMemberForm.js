@@ -41,6 +41,7 @@ export default class CastMemberForm extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className="forms">
                 <form className="castMemberForm">
                     <div className="form-group">
                         <label htmlFor="name">CastMember Name</label>
@@ -48,7 +49,7 @@ export default class CastMemberForm extends Component {
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="name"
-                               placeholder="CastMember name" />
+                               placeholder="CastMember Name" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="character">Character</label>
@@ -73,6 +74,7 @@ export default class CastMemberForm extends Component {
                     </div>
                     <button type="submit" onClick={this.constructNewCastMember} className="btn btn-primary">Submit</button>
                 </form>
+                </div>
             </React.Fragment>
         )
     }

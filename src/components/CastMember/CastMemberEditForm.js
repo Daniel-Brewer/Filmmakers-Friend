@@ -20,10 +20,7 @@ export default class CastMemberEditForm extends Component {
         this.setState(stateToChange)
     }
 
-    /*
-        Local method for validation, creating castMember object, and
-        invoking the function reference passed from parent component
-     */
+
     componentDidMount(){
         CastMemberManager.get(this.props.match.params.castMemberId)
         .then(castMembers => {
@@ -52,6 +49,7 @@ export default class CastMemberEditForm extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className="forms">
                 <form className="castMemberForm">
                     <div className="form-group">
                         <label htmlFor="name">CastMember Name</label>
@@ -84,6 +82,7 @@ export default class CastMemberEditForm extends Component {
                     </div>
                     <button type="submit" onClick={this.updateExistingCastMember} className="btn btn-primary">Update</button>
                 </form>
+                </div>
             </React.Fragment>
         )
     }

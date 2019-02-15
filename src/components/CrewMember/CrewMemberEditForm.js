@@ -48,6 +48,7 @@ export default class CrewMemberEditForm extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className="forms">
                 <form className="crewMemberForm">
                     <div className="form-group">
                         <label htmlFor="name">CrewMember Name</label>
@@ -80,6 +81,7 @@ export default class CrewMemberEditForm extends Component {
                     </div>
                     <button type="submit" onClick={this.updateExistingCrewMember} className="btn btn-primary">Update</button>
                 </form>
+                </div>
             </React.Fragment>
         )
     }

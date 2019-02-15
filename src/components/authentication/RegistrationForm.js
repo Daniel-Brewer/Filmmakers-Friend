@@ -27,15 +27,26 @@ export default class RegistrationForm extends Component {
         }
         console.log("user", user)
         this.props.addUser(user)
-        .then(() => this.props.history.push("/users"))
+        .then(() => this.props.history.push("/"))
+
         
-        document.location.href = 'http://localhost:3000/'
+        
+        // document.location.href = 'http://localhost:3000/'
     }
 
     render() {
 
 
         return (
+            <React.Fragment>
+            <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
+            <div className="logoutButton">
+                <button onClick={() => {
+                    this.props.history.push(`/`)
+                }}
+                    className="logoutButton">Back to Login</button>
+            </div>
+        </nav>
             <div className="forms">
                 <div className="registerForm">
                     <form onSubmit={this.handleRegister}>
@@ -54,6 +65,7 @@ export default class RegistrationForm extends Component {
                     </form>
                 </div>
             </div>
+            </React.Fragment>
         )
     }
 }

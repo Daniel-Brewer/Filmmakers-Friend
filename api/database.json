@@ -14,32 +14,12 @@
       "username": "daniel brewer",
       "password": "123",
       "id": 3
-    },
-    {
-      "username": "Calie Benke",
-      "password": "123",
-      "id": 4
-    },
-    {
-      "username": "Carly Lancaster",
-      "password": "123",
-      "id": 5
-    },
-    {
-      "username": "Steve Morse",
-      "password": "123",
-      "id": 6
-    },
-    {
-      "username": "Bob Feller",
-      "password": "123",
-      "id": 7
     }
   ],
   "projects": [
     {
-      "title": "About the Author!",
-      "description": "Teenage author dying of pancreatic cancer",
+      "title": "About the Author",
+      "description": "Aspiring teenage author dying of cancer",
       "userId": 1,
       "id": 1
     },
@@ -68,17 +48,41 @@
       "id": 8
     },
     {
-      "title": "Synchronicity!",
+      "title": "Synchronicity",
       "description": "Thriller",
       "userId": 1,
       "id": 9
+    },
+    {
+      "title": "The Hope",
+      "description": "Gritty Super Hero",
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "title": "Technotron",
+      "description": "Futuristic Super Hero",
+      "userId": 2,
+      "id": 12
+    },
+    {
+      "title": "A Call to Serve",
+      "description": "Police Drama",
+      "userId": 2,
+      "id": 13
+    },
+    {
+      "title": "The Redeemers",
+      "description": "Action Adventure",
+      "userId": 1,
+      "id": 14
     }
   ],
   "castMembers": [
     {
       "name": "Chris Carson",
       "character": "Al Dunn",
-      "phone": "1596321487",
+      "phone": "8564879321",
       "email": "ccarson@gmail.com",
       "projectId": 1,
       "id": 1
@@ -90,14 +94,6 @@
       "email": "jet@gmail.com",
       "projectId": 1,
       "id": 2
-    },
-    {
-      "name": "Frankie Lindor",
-      "character": "SS",
-      "phone": "1234567891",
-      "email": "frankielindor@gmail.com",
-      "projectId": 2,
-      "id": 3
     },
     {
       "name": "CoreyKluber",
@@ -114,17 +110,89 @@
       "email": "mbrantley@gmail.com",
       "projectId": 3,
       "id": 6
+    },
+    {
+      "name": "Anna Shaw",
+      "character": "Sydney",
+      "phone": "1234569874",
+      "email": "ashaw@gmail.com",
+      "projectId": 9,
+      "id": 7
+    },
+    {
+      "name": "Clayton Oglesby",
+      "character": "Kidnapper 1",
+      "phone": "9874563219",
+      "email": "coglesby@gmail.com",
+      "projectId": 9,
+      "id": 8
+    },
+    {
+      "name": "Abby Case",
+      "character": "Kidnapper 2",
+      "phone": "4563217894",
+      "email": "acase@gmail.com",
+      "projectId": 9,
+      "id": 9
+    },
+    {
+      "name": "Zachary Lehman",
+      "character": "Kidnapper 3",
+      "phone": "6541239876",
+      "email": "zlehman@gmail.com",
+      "projectId": 9,
+      "id": 10
+    },
+    {
+      "name": "Jeremy Nichols",
+      "character": "Paul Luv",
+      "phone": "4569871245",
+      "email": "jnichols@gmail.com",
+      "projectId": 1,
+      "id": 11
+    },
+    {
+      "name": "Chandler Guzman",
+      "character": "Erick",
+      "phone": "9517538246",
+      "email": "cguzman@gmail.com",
+      "projectId": 1,
+      "id": 12
+    },
+    {
+      "name": "Noah GeerHoldt",
+      "character": "Wilson Sentry",
+      "phone": "9874563287",
+      "email": "ngeerholdt@gmail.com",
+      "projectId": 2,
+      "id": 13
+    },
+    {
+      "name": "Terry Francona",
+      "character": "Manager",
+      "phone": "6541239876",
+      "email": "tfrancona@gmail.com",
+      "projectId": 7,
+      "id": 14
+    },
+    {
+      "name": "Frankie Lindor",
+      "character": "SS",
+      "phone": "7569841237",
+      "email": "flindor@gmail.com",
+      "projectId": 7,
+      "id": 15
+    },
+    {
+      "name": "Jose Ramirez",
+      "character": "2B",
+      "phone": "6745893124",
+      "email": "jramirez@gmail.com",
+      "projectId": 7,
+      "id": 16
     }
   ],
   "crewMembers": [
-    {
-      "name": "John Jackson",
-      "job": "Tarp",
-      "phone": "4566544521",
-      "email": "johnjackson@gmail.com",
-      "projectId": 1,
-      "id": 2
-    },
     {
       "name": "Ryan Brewer",
       "job": "Boom Mic",
@@ -142,12 +210,68 @@
       "id": 8
     },
     {
-      "name": "lll",
-      "job": "jjj",
-      "phone": "ppp",
-      "email": "iii",
+      "name": "Jeremy Roberts",
+      "job": "Boom Operator",
+      "phone": "3579512846",
+      "email": "jroberts@gmail.com",
+      "projectId": 9,
+      "id": 10
+    },
+    {
+      "name": "Fulton Simpson",
+      "job": "Gaffer",
+      "phone": "7531623485",
+      "email": "fsimpson@gmail.com",
+      "projectId": 9,
+      "id": 11
+    },
+    {
+      "name": "Phil Wendell",
+      "job": "Cinematographer",
+      "phone": "6549873215",
+      "email": "pwendell@gmail.com",
+      "projectId": 9,
+      "id": 12
+    },
+    {
+      "name": "Carly Martin",
+      "job": "Cinematographer",
+      "phone": "6549123784",
+      "email": "cmartin@gmail.com",
+      "projectId": 1,
+      "id": 13
+    },
+    {
+      "name": "Carson Jackson",
+      "job": "Gaffer",
+      "phone": "4956321785",
+      "email": "cjackson@gmail.com",
+      "projectId": 1,
+      "id": 14
+    },
+    {
+      "name": "Corey Kluber",
+      "job": "P",
+      "phone": "6789547821",
+      "email": "ckluber@gmail.com",
       "projectId": 7,
-      "id": 9
+      "id": 15
+    },
+    {
+      "name": "Trevor Bauer",
+      "job": "P",
+      "phone": "4589657431",
+      "email": "tbauer@gmail.com",
+      "projectId": 7,
+      "id": 16
+    },
+    {
+      "name": "Carlos Carrasco",
+      "job": "P",
+      "phone": "4657893124",
+      "email": "ccarrasco@gmail.com",
+      "projectId": 7,
+      "id": 17
     }
   ]
 }

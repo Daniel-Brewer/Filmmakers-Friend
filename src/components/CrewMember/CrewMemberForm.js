@@ -37,6 +37,7 @@ export default class CrewMemberForm extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className="forms">
                 <form className="crewMemberForm">
                     <div className="form-group">
                         <label htmlFor="name">CrewMember Name</label>
@@ -47,7 +48,7 @@ export default class CrewMemberForm extends Component {
                                placeholder="CrewMember Name" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="job">job</label>
+                        <label htmlFor="job">Job</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -69,6 +70,7 @@ export default class CrewMemberForm extends Component {
                     </div>
                     <button type="submit" onClick={this.constructNewCrewMember} className="btn btn-primary">Submit</button>
                 </form>
+                </div>
             </React.Fragment>
         )
     }

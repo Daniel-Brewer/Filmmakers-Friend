@@ -10,6 +10,7 @@ import CastMemberList from "./castMember/CastMemberList";
 import CastMemberForm from "./castMember/CastMemberForm";
 import CastMemberEditForm from "./castMember/CastMemberEditForm";
 import CastMemberManager from "../modules/CastMemberManager";
+import UserManager from "../modules/UserManager";
 import CrewMemberList from "./crewMember/CrewMemberList";
 import CrewMemberForm from "./crewMember/CrewMemberForm";
 import CrewMemberEditForm from "./crewMember/CrewMemberEditForm";
@@ -31,6 +32,14 @@ class ApplicationViews
   // Check if credentials are in local storage
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
+  addUser = user =>
+    UserManager.post(user)
+      .then(() => UserManager.getAll())
+      .then(users =>
+        this.setState({
+          users: users
+        })
+      );
   addProject = project =>
     ProjectManager.post(project)
       .then(() => ProjectManager.getAll())
