@@ -14,15 +14,14 @@
       "username": "daniel brewer",
       "password": "123",
       "id": 3
+    },
+    {
+      "username": "222",
+      "password": "222",
+      "id": 4
     }
   ],
   "projects": [
-    {
-      "title": "About the Author",
-      "description": "Aspiring teenage author dying of cancer",
-      "userId": 1,
-      "id": 1
-    },
     {
       "title": "Saving Grace",
       "description": "Distopian drama",
@@ -76,25 +75,15 @@
       "description": "Action Adventure",
       "userId": 1,
       "id": 14
+    },
+    {
+      "title": "29's Adventure",
+      "description": "Coding Documentary",
+      "userId": 1,
+      "id": 15
     }
   ],
   "castMembers": [
-    {
-      "name": "Chris Carson",
-      "character": "Al Dunn",
-      "phone": "8564879321",
-      "email": "ccarson@gmail.com",
-      "projectId": 1,
-      "id": 1
-    },
-    {
-      "name": "Jet Thurmond",
-      "character": "Ellie Love",
-      "phone": "1234567898",
-      "email": "jet@gmail.com",
-      "projectId": 1,
-      "id": 2
-    },
     {
       "name": "CoreyKluber",
       "character": "P",
@@ -144,22 +133,6 @@
       "id": 10
     },
     {
-      "name": "Jeremy Nichols",
-      "character": "Paul Luv",
-      "phone": "4569871245",
-      "email": "jnichols@gmail.com",
-      "projectId": 1,
-      "id": 11
-    },
-    {
-      "name": "Chandler Guzman",
-      "character": "Erick",
-      "phone": "9517538246",
-      "email": "cguzman@gmail.com",
-      "projectId": 1,
-      "id": 12
-    },
-    {
       "name": "Noah GeerHoldt",
       "character": "Wilson Sentry",
       "phone": "9874563287",
@@ -190,17 +163,17 @@
       "email": "jramirez@gmail.com",
       "projectId": 7,
       "id": 16
+    },
+    {
+      "name": "Mary Remo",
+      "character": "Mary Remo",
+      "phone": "6541239872",
+      "email": "mary@gmail.com",
+      "projectId": 15,
+      "id": 17
     }
   ],
   "crewMembers": [
-    {
-      "name": "Ryan Brewer",
-      "job": "Boom Mic",
-      "phone": "4569871235",
-      "email": "ryanbrewer@gmail.com",
-      "projectId": 1,
-      "id": 6
-    },
     {
       "name": "Carley Lancaster",
       "job": "AD",
@@ -232,22 +205,6 @@
       "email": "pwendell@gmail.com",
       "projectId": 9,
       "id": 12
-    },
-    {
-      "name": "Carly Martin",
-      "job": "Cinematographer",
-      "phone": "6549123784",
-      "email": "cmartin@gmail.com",
-      "projectId": 1,
-      "id": 13
-    },
-    {
-      "name": "Carson Jackson",
-      "job": "Gaffer",
-      "phone": "4956321785",
-      "email": "cjackson@gmail.com",
-      "projectId": 1,
-      "id": 14
     },
     {
       "name": "Corey Kluber",
