@@ -3,7 +3,7 @@ import React, { Component } from "react"
 import "./Project.css"
 import CastMemberManager from "../../modules/CastMemberManager";
 import CrewMemberManager from "../../modules/CrewMemberManager";
-
+import MovieProjector from "./movie-projector.png";
 
 
 export default class ProjectDetail extends Component {
@@ -26,6 +26,7 @@ export default class ProjectDetail extends Component {
             <div className="forms">
             <section className="project">
                 <div key={project.id} className="card">
+                <img src={MovieProjector} className="card-img-top" alt="Movie Projector" ></img>
                     <div className="card-body">
                         <h4 className="card-title">
                             {project.title}
