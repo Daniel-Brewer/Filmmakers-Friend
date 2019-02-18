@@ -59,7 +59,7 @@ export default class CrewMemberEditForm extends Component {
                                value={this.state.name} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="job">job</label>
+                        <label htmlFor="job">Job</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

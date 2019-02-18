@@ -9,8 +9,9 @@ export default class CrewMemberCard extends Component {
             <div key={this.props.crewMember.id} className="card">
                                     <img src={CrewIcon} className="card-img-top" alt="Camera Operator" ></img>
                 <div className="card-body">
-                    <h5 className="card-title">
+                    <h4 className="card-title">
                         {this.props.crewMember.name}
+                        </h4>
                         <p>Job: {this.props.crewMember.job}</p>
                         <p>Phone: {this.props.crewMember.phone}</p>
                         <p>Email: {this.props.crewMember.email}</p>
@@ -20,7 +21,7 @@ export default class CrewMemberCard extends Component {
                         <button
                             onClick={() => this.props.deleteCrewMember(this.props.crewMember.id,this.props.crewMember.projectId)}
                             className="card-link">Delete</button>
-                    </h5>
+                    {/* </h5> */}
                 </div>
             </div>
         )

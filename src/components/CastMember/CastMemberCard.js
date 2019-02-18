@@ -11,18 +11,22 @@ export default class CastMemberCard extends Component {
             <div key={this.props.castMember.id} className="card">
                         <img src={Actors} className="card-img-top" alt="Actor Masks" ></img>
                 <div className="card-body">
-                    <h5 className="card-title">
+                    <h4 className="card-title">
                         {this.props.castMember.name}
+                        </h4>
+                        
                         <p>Character: {this.props.castMember.character}</p>
                         <p>Phone: {this.props.castMember.phone}</p>
                         <p>Email: {this.props.castMember.email}</p>
+                        
                         <button
                             onClick={() => this.props.history.push(`/castMembers/edit/${this.props.castMember.id}`)}
                             className="card-link">Edit</button>
+                            <br></br>
                         <button
                             onClick={() => this.props.deleteCastMember(this.props.castMember.id,this.props.castMember.projectId)}
                             className="card-link">Delete</button>
-                    </h5>
+                    {/* </h5> */}
                 </div>
             </div>
         )

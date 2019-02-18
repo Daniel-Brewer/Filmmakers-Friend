@@ -77,8 +77,8 @@
       "id": 14
     },
     {
-      "title": "29's Adventure",
-      "description": "Coding Documentary",
+      "title": "About the Author",
+      "description": "Aspiring Teenage Author ",
       "userId": 1,
       "id": 15
     }
@@ -163,14 +163,6 @@
       "email": "jramirez@gmail.com",
       "projectId": 7,
       "id": 16
-    },
-    {
-      "name": "Mary Remo",
-      "character": "Mary Remo",
-      "phone": "6541239872",
-      "email": "mary@gmail.com",
-      "projectId": 15,
-      "id": 17
     }
   ],
   "crewMembers": [
@@ -229,6 +221,14 @@
       "email": "ccarrasco@gmail.com",
       "projectId": 7,
       "id": 17
+    }
+  ],
+  "locations": [
+    {
+      "name": "Test",
+      "address": "123",
+      "projectId": 9,
+      "id": 1
     }
   ]
 }

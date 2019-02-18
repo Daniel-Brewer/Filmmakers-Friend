@@ -15,6 +15,10 @@ import CrewMemberList from "./crewMember/CrewMemberList";
 import CrewMemberForm from "./crewMember/CrewMemberForm";
 import CrewMemberEditForm from "./crewMember/CrewMemberEditForm";
 import CrewMemberManager from "../modules/CrewMemberManager";
+import LocationList from "./location/LocationList";
+import LocationForm from "./location/LocationForm";
+import LocationEditForm from "./location/LocationEditForm";
+import LocationManager from "../modules/LocationManager";
 import LoginForm from "./authentication/LoginForm";
 import RegistrationForm from "./authentication/RegistrationForm";
 
@@ -26,6 +30,7 @@ class ApplicationViews
     projects: [],
     castMembers: [],
     crewMembers: [],
+    locations:[],
     activeUser: [],
   };
 
@@ -132,6 +137,35 @@ class ApplicationViews
         crewMembers: crewMembers
       })
       )
+    }
+  editLocation = (locationId, existingLocation) =>
+    LocationManager.put(locationId, existingLocation)
+      .then(() => LocationManager.getAll())
+      .then(locations => this.setState({
+        locations: locations
+      })
+      )
+
+  addLocation = location =>
+    LocationManager.post(location)
+      .then(() => LocationManager.getAll())
+      .then(locations =>
+        this.setState({
+          locations: locations
+        })
+      );
+
+  deleteLocation = (id, projectId) => {
+    return fetch(`http://localhost:5002/locations/${id}`, {
+      method: "DELETE"
+    })
+
+      .then(response => response.json())
+      .then(() => LocationManager.getLocationsInProject(projectId))
+      .then(locations => this.setState({
+        locations: locations
+      })
+      )
 
   }
 
@@ -172,6 +206,14 @@ class ApplicationViews
     CrewMemberManager.getCrewMembersInProject(id).then(allCrewMembers => {
       this.setState({
         crewMembers: allCrewMembers
+      });
+    });
+
+  }
+  updateLocationComponent = (id) => {
+    LocationManager.getLocationsInProject(id).then(allLocations => {
+      this.setState({
+        locations: allLocations
       });
     });
 
@@ -223,11 +265,13 @@ class ApplicationViews
                 {...props}
                 getCastMembersInProject={this.getCastMembersInProject}
                 getCrewMembersInProject={this.getCrewMembersInProject}
+                getLocationsInProject={this.getLocationsInProject}
                 deleteProject={this.deleteProject}
                 editProject={this.editProject}
                 projects={this.state.projects}
                 castMembers={this.state.castMembers}
                 crewMembers={this.state.crewMembers}
+                locations={this.state.locations}
               />
             );
           }}
@@ -344,6 +388,42 @@ class ApplicationViews
             phone={this.state.phone}
             email={this.state.email}
             editCrewMember={this.editCrewMember} />
+        }} />
+        {/* This is the list to be dispalyed when Locations button is clicked in Project Detail */}
+        <Route
+          path="/locations/:projectId(\d+)"
+          render={props => {
+            if (this.isAuthenticated()) {
+              return (
+                <LocationList {...props}
+                  updateLocationComponent={this.updateLocationComponent}
+                  getLocationsInProject={this.getLocationsInProject}
+                  editLocation={this.editLocation}
+                  deleteLocation={this.deleteLocation}
+                  locations={this.state.locations}
+                  projects={this.state.projects}
+                />
+              );
+            } else {
+              return <Redirect to="/" />;
+            }
+          }}
+        />
+        <Route path="/locations/new/:projectId(\d+)" render={(props) => {
+          return <LocationForm {...props}
+            addLocation={this.addLocation}
+            name={this.state.name}
+            address={this.state.address}
+            projects={this.state.projects}
+          />
+        }} />
+        <Route path="/locations/edit/:locationId(\d+)/" render={(props) => {
+          return <LocationEditForm
+            {...props}
+            locations={this.state.locations}
+            name={this.state.name}
+            address={this.state.address}
+            editLocation={this.editLocation} />
         }} />
       </React.Fragment>
     );

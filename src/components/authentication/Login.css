@@ -5,3 +5,12 @@
 .forms {
     text-align: -webkit-center;
 }
+h1 {
+    font-family: 'Special Elite', cursive;
+}
+h3, h5 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Special Elite', cursive;
+    font-style: italic;
+}

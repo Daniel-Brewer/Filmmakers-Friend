@@ -11,14 +11,14 @@ export default class ProjectCard extends Component {
             <div key={this.props.project.id} className="card">
             <img src={Cutboard} className="card-img-top" alt="Cut Board" ></img>
                 <div className="card-body">
-                    <h5 className="card-title">
+                    <h3 className="card-title">
                     
                         {this.props.project.title}
 
-                        <p>{this.props.project.description}</p>
-
+                        <h6>{this.props.project.description}</h6>
+                        
                         <Link className="nav-link" to={`/projects/${this.props.project.id}`}>Enter Project</Link>
-
+                        
                         <button
                             onClick={() => this.props.history.push(`/projects/edit/${this.props.project.id}`)}
                             className="card-link">Edit</button>
@@ -26,7 +26,7 @@ export default class ProjectCard extends Component {
                         <button
                             onClick={() => this.props.deleteProject(this.props.project.id)}
                             className="card-link">Delete</button>
-                    </h5>
+                    </h3>
                 </div>
             </div>
         )
