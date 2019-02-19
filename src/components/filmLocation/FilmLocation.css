@@ -1,34 +1,44 @@
-/* .locationForm {
-    display: table-caption;
-} */
-
 .forms {
     text-align: -webkit-center;
 }
 
-.locations {
+.filmLocations {
     display: flex;
     justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .card-img-top {
     width: 100%;
     height: 200px;
+    border-bottom-style: solid;
 }
 
-h2 {
+h2, p {
     display: flex;
     justify-content: center;
+    font-family: 'Special Elite', cursive;
 }
 
-.card {
-    background-color: darkgray;
-    width: 10rem;
+h4 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Special Elite', cursive;
+    background-color: burlywood;
 }
+
 
 .card-title {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divbutton {
+    display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
@@ -38,8 +48,12 @@ h2 {
     font-size: 0.7em;
 }
 
-.locationButton {
+.filmLocationButton {
     display: flex;
     justify-content: space-evenly;
     margin: 0 0 10px 0;
+}
+
+.filmLocationButton:hover {
+    color: burlywood;
 }

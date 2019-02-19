@@ -12,9 +12,12 @@ export default class CrewMemberCard extends Component {
                     <h4 className="card-title">
                         {this.props.crewMember.name}
                         </h4>
-                        <p>Job: {this.props.crewMember.job}</p>
-                        <p>Phone: {this.props.crewMember.phone}</p>
-                        <p>Email: {this.props.crewMember.email}</p>
+                        <h6>Job:</h6>
+                        <h5>{this.props.crewMember.job}</h5>
+                        <h6>Phone:</h6>
+                        <h5>{this.props.crewMember.phone}</h5>
+                        <h6>Email:</h6>
+                        <h5>{this.props.crewMember.email}</h5>
                         <div className="divbutton">
                         <button
                             onClick={() => this.props.history.push(`/crewMembers/edit/${this.props.crewMember.id}`)}

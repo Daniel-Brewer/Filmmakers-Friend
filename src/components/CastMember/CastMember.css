@@ -9,6 +9,8 @@
 .castMembers {
     display: flex;
     justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .card-img-top {
@@ -30,12 +32,11 @@ h4 {
     background-color: burlywood;
 }
 
-.card {
-    /* background-color: darkgray; */
-    width: 10rem;
+/* .card {
+    width: 50rem;
     background-image: linear-gradient(to top, rgb(75, 63, 82),whitesmoke);
     border-style: solid;
-}
+} */
 
 .card-title {
     display: flex;
@@ -60,4 +61,8 @@ h4 {
     display: flex;
     justify-content: space-evenly;
     margin: 0 0 10px 0;
+}
+
+.castMemberButton:hover {
+    color: burlywood;
 }

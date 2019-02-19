@@ -9,15 +9,16 @@
 .crewMembers {
     display: flex;
     justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 
-.card {
-    /* background-color: darkgray; */
+/* .card {
     width: 10rem;
     background-image: linear-gradient(to top, rgb(75, 63, 82),whitesmoke);
     border-style: solid;
-}
+} */
 
 h2, p {
     display: flex;
@@ -54,4 +55,11 @@ h4 {
     display: flex;
     justify-content: space-evenly;
     margin: 0 0 10px 0;
+}
+
+.logoutButton:hover {
+    color: burlywood;
+}
+.crewMemberButton:hover {
+    color: burlywood;
 }

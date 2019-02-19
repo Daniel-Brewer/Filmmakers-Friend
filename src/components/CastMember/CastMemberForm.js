@@ -2,7 +2,6 @@
 
 import React, { Component } from "react"
 import "./CastMember.css"
-// import CastMemberManager from "../../modules/CastMemberManager"
 
 export default class CastMemberForm extends Component {
     // Set initial state
@@ -14,7 +13,7 @@ export default class CastMemberForm extends Component {
         projectId: 0
     }
 
-    // Update state whenever an input field is edited
+    // Update state whenever an input field is entered
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value

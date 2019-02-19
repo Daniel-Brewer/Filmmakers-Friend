@@ -1,9 +1,9 @@
 // When edit Location is clicked this component will be rendered to the user for input
 import React, { Component } from "react"
-import "./Location.css"
-import LocationManager from "../../modules/LocationManager";
+import "./FilmLocation.css"
+import FilmLocationManager from "../../modules/FilmLocationManager";
 
-export default class LocationEditForm extends Component {
+export default class CastMemberEditForm extends Component {
     // Set initial state
     state = {
         name: "",
@@ -18,34 +18,44 @@ export default class LocationEditForm extends Component {
         this.setState(stateToChange)
     }
 
+
     componentDidMount(){
-        LocationManager.get(this.props.match.params.locationId)
-        .then(locations => {
+        FilmLocationManager.get(this.props.match.params.filmLocationId)
+        .then(filmLocations => {
           this.setState({
-            name:locations.name,
-            email: locations.email,
-            projectId: locations.projectId
+            name:filmLocations.name,
+            character: filmLocations.character,
+            phone: filmLocations.phone,
+            email: filmLocations.email,
+            projectId: filmLocations.projectId
           })
         })
       }
-      updateExistingLocation = evt => {
+      updateExistingFilmLocation = evt => {
           evt.preventDefault()
-          const existingLocation = {
+          const existingFilmLocation = {
               name:this.state.name,
-              job: this.state.job,
-              phone: this.state.phone,
-              email: this.state.email,
+              address: this.state.address,
               projectId: Number(this.state.projectId)
             }
-            this.props.editLocation(this.props.match.params.locationId, existingLocation)
-          .then(() => this.props.history.push(`/locations/${this.state.projectId}`))
+            this.props.editFilmLocation(this.props.match.params.filmLocationId, existingFilmLocation)
+          .then(() => this.props.history.push(`/filmLocations/${this.state.projectId}`))
         }
 
     render() {
         return (
             <React.Fragment>
+                <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
+                <div className="logoutButton">
+                <button type="button"
+                            onClick={()=> this.props.history.push(`/filmLocations/${this.state.projectId}`)}
+                            className="btn btn-success">
+                        Back to Cast
+                    </button>
+                </div>
+            </nav>
                 <div className="forms">
-                <form className="locationForm">
+                <form className="filmLocationForm">
                     <div className="form-group">
                         <label htmlFor="name">Location Name</label>
                         <input type="text" required
@@ -61,7 +71,7 @@ export default class LocationEditForm extends Component {
                                onChange={this.handleFieldChange}
                                id="address" value={this.state.address} />
                     </div>
-                    <button type="submit" onClick={this.updateExistingLocation} className="btn btn-primary">Update</button>
+                    <button type="submit" onClick={this.updateExistingFilmLocation} className="btn btn-primary">Update</button>
                 </form>
                 </div>
             </React.Fragment>

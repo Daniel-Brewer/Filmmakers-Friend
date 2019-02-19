@@ -15,8 +15,7 @@ export default class ProjectList extends Component {
                         }}
                             className="logoutButton">Logout</button>
                     </div>
-                    {/* <div><h1>Filmmaker's Friend</h1></div>
-                    <div><h5>A Practical Application for the Creative Mind</h5></div> */}
+
                     <div className=""><h2>Director's Dashboard</h2></div>
                 </nav>
 

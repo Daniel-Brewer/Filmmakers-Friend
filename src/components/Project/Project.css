@@ -11,6 +11,8 @@
 .projects {
     display: flex;
     justify-content: space-evenly;
+    flex-flow: row wrap;
+    flex-grow: 1;
 }
 h5 {
     display: flex;
@@ -22,17 +24,20 @@ h5 {
     width: 100%;
 }
 .card {
-    width: 50%;
+    /* width: 50%; */
     background-image: linear-gradient(to top, rgb(75, 63, 82),whitesmoke);
     border-style: solid;
+    /* flex-basis: auto; */
+    flex-grow: 1;
+    max-width: 15em;
+    min-width: 15em;
 }
 
 .card-link:hover {
     color: burlywood;
     motion-rotation: 360deg;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-
-
 
 .card-title {
     display: flex;
@@ -47,17 +52,19 @@ h4 {
     font-family: 'Special Elite', cursive;
     background-color: burlywood;
 }
+
 h1, h2 {
     display: flex;
     justify-content: center;
     font-family: 'Special Elite', cursive;
+    text-shadow: 2px 2px darkgray;
 }
 
 h3 {
     display: flex;
     justify-content: center;
     font-family: 'Special Elite', cursive;
-    font-style: italic
+    font-style: italic;
 }
 
 .nav-link {
@@ -69,10 +76,6 @@ p {
     justify-content: center;
     font-family: 'Special Elite', cursive;
     font-style: italic;
-}
-.card-link {
-    margin: 12px 0 0 0;
-    font-size: 0.7em;
 }
 
 .projectButton {

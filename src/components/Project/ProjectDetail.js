@@ -3,7 +3,7 @@ import React, { Component } from "react"
 import "./Project.css"
 import CastMemberManager from "../../modules/CastMemberManager";
 import CrewMemberManager from "../../modules/CrewMemberManager";
-import LocationManager from "../../modules/LocationManager";
+import FilmLocationManager from "../../modules/FilmLocationManager";
 import MovieProjector from "./movie-projector.png";
 
 
@@ -47,10 +47,11 @@ export default class ProjectDetail extends Component {
                         <br></br>
 
                         <button
-                            onClick={() => LocationManager.getLocationsInProject(project.id)
-                                            .then(() => this.props.history.push(`/locations/${project.id}`))}
+                            onClick={() => FilmLocationManager.getFilmLocationsInProject(project.id)
+                                            .then(() => this.props.history.push(`/filmLocations/${project.id}`))}
                             className="card-link">Locations</button>
                         <br></br>
+
                         <button
                             onClick={() => this.props.deleteProject(project.id)
                                             .then(() => this.props.history.push("/projects"))}
