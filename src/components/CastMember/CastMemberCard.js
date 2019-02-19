@@ -18,15 +18,16 @@ export default class CastMemberCard extends Component {
                         <p>Character: {this.props.castMember.character}</p>
                         <p>Phone: {this.props.castMember.phone}</p>
                         <p>Email: {this.props.castMember.email}</p>
-                        
+                       <div className="divbutton">
                         <button
                             onClick={() => this.props.history.push(`/castMembers/edit/${this.props.castMember.id}`)}
                             className="card-link">Edit</button>
-                            <br></br>
+                            </div>
+                            <div className="divbutton">
                         <button
                             onClick={() => this.props.deleteCastMember(this.props.castMember.id,this.props.castMember.projectId)}
                             className="card-link">Delete</button>
-                    {/* </h5> */}
+                    </div>
                 </div>
             </div>
         )

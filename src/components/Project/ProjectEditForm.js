@@ -42,6 +42,15 @@ export default class ProjectEditForm extends Component {
     render() {
         return (
             <React.Fragment>
+                            <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
+                <div className="logoutButton">
+                <button type="button"
+                            onClick={()=> this.props.history.push(`/projects/${this.props.match.params.projectId}`)}
+                            className="btn btn-success">
+                        Back to Project
+                    </button>
+                </div>
+            </nav>
                 <form className="projectForm">
                     <div className="form-group">
                     <label htmlFor="Title"></label>

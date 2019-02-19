@@ -15,13 +15,16 @@ export default class CrewMemberCard extends Component {
                         <p>Job: {this.props.crewMember.job}</p>
                         <p>Phone: {this.props.crewMember.phone}</p>
                         <p>Email: {this.props.crewMember.email}</p>
+                        <div className="divbutton">
                         <button
                             onClick={() => this.props.history.push(`/crewMembers/edit/${this.props.crewMember.id}`)}
                             className="card-link">Edit</button>
+                        </div>
+                        <div className="divbutton">
                         <button
                             onClick={() => this.props.deleteCrewMember(this.props.crewMember.id,this.props.crewMember.projectId)}
                             className="card-link">Delete</button>
-                    {/* </h5> */}
+                    </div>
                 </div>
             </div>
         )

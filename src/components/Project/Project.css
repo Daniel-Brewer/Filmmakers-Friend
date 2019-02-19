@@ -1,5 +1,6 @@
 .projectForm {
     display: table-caption;
+    align-items: center;
 }
 
 .forms {
@@ -21,10 +22,17 @@ h5 {
     width: 100%;
 }
 .card {
-    /* width: 10rem; */
+    width: 50%;
     background-image: linear-gradient(to top, rgb(75, 63, 82),whitesmoke);
     border-style: solid;
 }
+
+.card-link:hover {
+    color: burlywood;
+    motion-rotation: 360deg;
+}
+
+
 
 .card-title {
     display: flex;
@@ -39,10 +47,17 @@ h4 {
     font-family: 'Special Elite', cursive;
     background-color: burlywood;
 }
-h1, h2, h3 {
+h1, h2 {
     display: flex;
     justify-content: center;
     font-family: 'Special Elite', cursive;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Special Elite', cursive;
+    font-style: italic
 }
 
 .nav-link {
@@ -64,5 +79,9 @@ p {
     display: flex;
     justify-content: space-evenly;
     margin: 0 0 10px 0;
+}
+
+.logoutButton:hover {
+    color: burlywood;
 }
 

@@ -5,7 +5,6 @@ import Cutboard from "./Cutboard.png"
 
 export default class ProjectCard extends Component {
 
-
     render() {
         return (
             <div key={this.props.project.id} className="card">
@@ -15,7 +14,7 @@ export default class ProjectCard extends Component {
                     
                         {this.props.project.title}
 
-                        <h6>{this.props.project.description}</h6>
+                        <p>{this.props.project.description}</p>
                         
                         <Link className="nav-link" to={`/projects/${this.props.project.id}`}>Enter Project</Link>
                         
