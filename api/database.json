@@ -47,20 +47,14 @@
       "id": 8
     },
     {
-      "title": "Synchronicity",
+      "title": "Synchronicity!",
       "description": "Thriller",
       "userId": 1,
       "id": 9
     },
     {
-      "title": "The Hope",
-      "description": "Gritty Super Hero",
-      "userId": 1,
-      "id": 10
-    },
-    {
       "title": "Technotron",
-      "description": "Futuristic Super Hero",
+      "description": "Super Hero",
       "userId": 2,
       "id": 12
     },
@@ -71,16 +65,40 @@
       "id": 13
     },
     {
-      "title": "The Redeemers",
-      "description": "Action Adventure",
+      "title": "About the Author",
+      "description": "Drama",
       "userId": 1,
       "id": 14
     },
     {
-      "title": "29's Adventure",
-      "description": "Coding Documentary",
+      "title": "The Law of the Jungle",
+      "description": "Drama",
       "userId": 1,
       "id": 15
+    },
+    {
+      "title": "The Redeemers",
+      "description": "Action Adventure",
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "title": "The Hope",
+      "description": "Super Hero",
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "title": "11111",
+      "description": "",
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "title": "22222",
+      "description": "",
+      "userId": 1,
+      "id": 19
     }
   ],
   "castMembers": [
@@ -103,7 +121,7 @@
     {
       "name": "Anna Shaw",
       "character": "Sydney",
-      "phone": "1234569874",
+      "phone": "123-456-9874",
       "email": "ashaw@gmail.com",
       "projectId": 9,
       "id": 7
@@ -111,7 +129,7 @@
     {
       "name": "Clayton Oglesby",
       "character": "Kidnapper 1",
-      "phone": "9874563219",
+      "phone": "987-456-3219",
       "email": "coglesby@gmail.com",
       "projectId": 9,
       "id": 8
@@ -165,12 +183,28 @@
       "id": 16
     },
     {
-      "name": "Mary Remo",
-      "character": "Mary Remo",
-      "phone": "6541239872",
-      "email": "mary@gmail.com",
-      "projectId": 15,
+      "name": "Jet Thurmond",
+      "character": "Ellie Luv",
+      "phone": "654-897-4652",
+      "email": "jthurmond@gmail.com",
+      "projectId": 14,
       "id": 17
+    },
+    {
+      "name": "Chris Carson",
+      "character": "Al Dunn",
+      "phone": "465-897-6123",
+      "email": "ccarson@gmail.com",
+      "projectId": 14,
+      "id": 18
+    },
+    {
+      "name": "Jeremy Nichols",
+      "character": "Paul Luv",
+      "phone": "789-465-3124",
+      "email": "jnichols@gmail.com",
+      "projectId": 14,
+      "id": 19
     }
   ],
   "crewMembers": [
@@ -185,7 +219,7 @@
     {
       "name": "Jeremy Roberts",
       "job": "Boom Operator",
-      "phone": "3579512846",
+      "phone": "357-951-2846",
       "email": "jroberts@gmail.com",
       "projectId": 9,
       "id": 10
@@ -193,7 +227,7 @@
     {
       "name": "Fulton Simpson",
       "job": "Gaffer",
-      "phone": "7531623485",
+      "phone": "753-162-3485",
       "email": "fsimpson@gmail.com",
       "projectId": 9,
       "id": 11
@@ -201,7 +235,7 @@
     {
       "name": "Phil Wendell",
       "job": "Cinematographer",
-      "phone": "6549873215",
+      "phone": "654-987-3215",
       "email": "pwendell@gmail.com",
       "projectId": 9,
       "id": 12
@@ -229,6 +263,76 @@
       "email": "ccarrasco@gmail.com",
       "projectId": 7,
       "id": 17
+    },
+    {
+      "name": "Ryan Gabriel",
+      "job": "Boom Mic",
+      "phone": "645-798-1432",
+      "email": "rgabriel@yahoo.com",
+      "projectId": 14,
+      "id": 18
+    },
+    {
+      "name": "Ryan Brewer",
+      "job": "Assistant Director",
+      "phone": "463-251-7954",
+      "email": "rbrewer@gmail.com",
+      "projectId": 14,
+      "id": 19
+    },
+    {
+      "name": "Carly Lancaster",
+      "job": "Audio",
+      "phone": "796-845-2564",
+      "email": "clancaster@yahoo.com",
+      "projectId": 14,
+      "id": 20
+    },
+    {
+      "name": "Calie Benke",
+      "job": "Cinematographer",
+      "phone": "467-854-9317",
+      "email": "cbenke@gmail.com",
+      "projectId": 14,
+      "id": 21
+    }
+  ],
+  "filmLocations": [
+    {
+      "name": "Testing",
+      "address": "123",
+      "projectId": 9,
+      "id": 1
+    },
+    {
+      "name": "MTSU ",
+      "address": "1212 main st",
+      "projectId": 9,
+      "id": 2
+    },
+    {
+      "name": "111111",
+      "address": "111111",
+      "projectId": 9,
+      "id": 3
+    },
+    {
+      "name": "222222",
+      "address": "222222",
+      "projectId": 9,
+      "id": 4
+    },
+    {
+      "name": "333333",
+      "address": "333333",
+      "projectId": 9,
+      "id": 5
+    },
+    {
+      "name": "5555555",
+      "address": "5555555",
+      "projectId": 9,
+      "id": 6
     }
   ]
 }

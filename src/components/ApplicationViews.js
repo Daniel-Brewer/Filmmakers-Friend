@@ -15,6 +15,10 @@ import CrewMemberList from "./crewMember/CrewMemberList";
 import CrewMemberForm from "./crewMember/CrewMemberForm";
 import CrewMemberEditForm from "./crewMember/CrewMemberEditForm";
 import CrewMemberManager from "../modules/CrewMemberManager";
+import FilmLocationList from "./filmLocation/FilmLocationList";
+import FilmLocationForm from "./filmLocation/FilmLocationForm";
+import FilmLocationEditForm from "./filmLocation/FilmLocationEditForm";
+import FilmLocationManager from "../modules/FilmLocationManager";
 import LoginForm from "./authentication/LoginForm";
 import RegistrationForm from "./authentication/RegistrationForm";
 
@@ -26,6 +30,7 @@ class ApplicationViews
     projects: [],
     castMembers: [],
     crewMembers: [],
+    filmLocations:[],
     activeUser: [],
   };
 
@@ -132,6 +137,35 @@ class ApplicationViews
         crewMembers: crewMembers
       })
       )
+    }
+  editFilmLocation = (filmLocationId, existingFilmLocation) =>
+    FilmLocationManager.put(filmLocationId, existingFilmLocation)
+      .then(() => FilmLocationManager.getAll())
+      .then(filmLocations => this.setState({
+        filmLocations: filmLocations
+      })
+      )
+
+  addFilmLocation = filmLocation =>
+    FilmLocationManager.post(filmLocation)
+      .then(() => FilmLocationManager.getAll())
+      .then(filmLocations =>
+        this.setState({
+          filmLocations: filmLocations
+        })
+      );
+
+  deleteFilmLocation = (id, projectId) => {
+    return fetch(`http://localhost:5002/filmLocations/${id}`, {
+      method: "DELETE"
+    })
+
+      .then(response => response.json())
+      .then(() => FilmLocationManager.getFilmLocationsInProject(projectId))
+      .then(filmLocations => this.setState({
+        filmLocations: filmLocations
+      })
+      )
 
   }
 
@@ -172,6 +206,14 @@ class ApplicationViews
     CrewMemberManager.getCrewMembersInProject(id).then(allCrewMembers => {
       this.setState({
         crewMembers: allCrewMembers
+      });
+    });
+
+  }
+  updateFilmLocationComponent = (id) => {
+    FilmLocationManager.getFilmLocationsInProject(id).then(allFilmLocations => {
+      this.setState({
+        filmLocations: allFilmLocations
       });
     });
 
@@ -223,11 +265,13 @@ class ApplicationViews
                 {...props}
                 getCastMembersInProject={this.getCastMembersInProject}
                 getCrewMembersInProject={this.getCrewMembersInProject}
+                getLocationsInProject={this.getLocationsInProject}
                 deleteProject={this.deleteProject}
                 editProject={this.editProject}
                 projects={this.state.projects}
                 castMembers={this.state.castMembers}
                 crewMembers={this.state.crewMembers}
+                locations={this.state.locations}
               />
             );
           }}
@@ -344,6 +388,50 @@ class ApplicationViews
             phone={this.state.phone}
             email={this.state.email}
             editCrewMember={this.editCrewMember} />
+        }} />
+        {/* This is the list to be dispalyed when Locations button is clicked in Project Detail */}
+                <Route
+          path="/filmLocations/:projectId(\d+)"
+          render={props => {
+            if (this.isAuthenticated()) {
+              return (
+                <FilmLocationList {...props}
+                  updateFilmLocationComponent={this.updateFilmLocationComponent}
+                  getFilmLocationsInProject={this.getFilmLocationsInProject}
+                  editFilmLocation={this.editFilmLocation}
+                  deleteFilmLocation={this.deleteFilmLocation}
+                  filmLocations={this.state.filmLocations}
+                  projects={this.state.projects}
+                />
+              );
+            } else {
+              return <Redirect to="/" />;
+            }
+          }}
+        />
+        {/* this is the FilmLocation add form */}
+        <Route
+          path="/filmLocations/new/:projectId(\d+)"
+          render={props => {
+            return (
+              <FilmLocationForm
+                {...props}
+                addFilmLocation={this.addFilmLocation}
+                name={this.state.name}
+                address={this.state.address}
+                projects={this.state.projects}
+              />
+            );
+          }}
+        />
+        {/* This the Edit form for FilmLocations */}
+        <Route path="/filmLocations/edit/:filmLocationId(\d+)/" render={(props) => {
+          return <FilmLocationEditForm
+            {...props}
+            filmLocations={this.state.filmLocations}
+            name={this.state.name}
+            address={this.state.address}
+            editFilmLocation={this.editFilmLocation} />
         }} />
       </React.Fragment>
     );

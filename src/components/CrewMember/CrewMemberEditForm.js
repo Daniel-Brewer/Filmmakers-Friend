@@ -48,6 +48,15 @@ export default class CrewMemberEditForm extends Component {
     render() {
         return (
             <React.Fragment>
+                 <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
+                <div className="logoutButton">
+                <button type="button"
+                            onClick={()=> this.props.history.push(`/crewMembers/${this.state.projectId}`)}
+                            className="btn btn-success">
+                        Back to Crew
+                    </button>
+                </div>
+            </nav>
                 <div className="forms">
                 <form className="crewMemberForm">
                     <div className="form-group">
@@ -59,7 +68,7 @@ export default class CrewMemberEditForm extends Component {
                                value={this.state.name} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="job">job</label>
+                        <label htmlFor="job">Job</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

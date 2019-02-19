@@ -2,7 +2,6 @@
 
 import React, { Component } from "react"
 import "./CastMember.css"
-// import CastMemberManager from "../../modules/CastMemberManager"
 
 export default class CastMemberForm extends Component {
     // Set initial state
@@ -14,7 +13,7 @@ export default class CastMemberForm extends Component {
         projectId: 0
     }
 
-    // Update state whenever an input field is edited
+    // Update state whenever an input field is entered
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
@@ -41,6 +40,15 @@ export default class CastMemberForm extends Component {
     render() {
         return (
             <React.Fragment>
+                    <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
+                    <div className="logoutButton">
+                        <button type="button"
+                            onClick={() => this.props.history.push(`/castMembers/${this.props.match.params.projectId}`)}
+                            className="btn btn-success">
+                            Back to Cast
+                    </button>
+                    </div>
+                </nav>
                 <div className="forms">
                 <form className="castMemberForm">
                     <div className="form-group">
