@@ -23,7 +23,7 @@ export default class ScenePropForm extends Component {
         evt.preventDefault()
             const sceneProp = {
                 name: this.state.name,
-                address: this.state.address,
+                description: this.state.description,
                 projectId: Number(this.props.match.params.projectId)
             }
 

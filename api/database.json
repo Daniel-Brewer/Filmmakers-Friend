@@ -337,10 +337,22 @@
   ],
   "sceneProps": [
     {
-      "name": "Book",
+      "name": "Book & Pen",
       "description": "Hardback",
       "projectId": 9,
       "id": 1
+    },
+    {
+      "name": "Suitcase",
+      "description": "Aluminum",
+      "projectId": 9,
+      "id": 2
+    },
+    {
+      "name": "Gun ",
+      "description": "Pistol",
+      "projectId": 9,
+      "id": 3
     }
   ]
 }
