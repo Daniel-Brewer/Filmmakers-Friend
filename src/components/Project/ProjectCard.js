@@ -13,19 +13,23 @@ export default class ProjectCard extends Component {
                     <h3 className="card-title">
                     
                         {this.props.project.title}
-
+</h3>
                         <p>{this.props.project.description}</p>
+<h5>
                         
                         <Link className="nav-link" to={`/projects/${this.props.project.id}`}>Enter Project</Link>
-                        
+                        </h5> 
+                        <div className="button">
                         <button
                             onClick={() => this.props.history.push(`/projects/edit/${this.props.project.id}`)}
                             className="card-link">Edit</button>
-
+</div>
+<div className="button">
                         <button
                             onClick={() => this.props.deleteProject(this.props.project.id)}
                             className="card-link">Delete</button>
-                    </h3>
+                    {/* </h3> */}
+                    </div>
                 </div>
             </div>
         )

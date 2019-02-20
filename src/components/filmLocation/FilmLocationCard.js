@@ -1,13 +1,13 @@
 import React, { Component } from "react"
 import "./FilmLocation.css"
-import PushPin from "./PushPin.jpg"
+import PushPinMap from "./PushPinMap.jpg"
 
 export default class FilmLocationCard extends Component {
 
     render() {
         return (
             <div key={this.props.filmLocation.id} className="card">
-            <img src={PushPin} className="card-img-top" alt="PushPin" ></img>
+            <img src={PushPinMap} className="card-img-top" alt="PushPin" ></img>
                 <div className="card-body">
                     <h4 className="card-title">
                         {this.props.filmLocation.name}
