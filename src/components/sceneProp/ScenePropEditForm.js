@@ -1,13 +1,13 @@
 // When edit Location is clicked this component will be rendered to the user for input
 import React, { Component } from "react"
-import "./FilmLocation.css"
-import FilmLocationManager from "../../modules/FilmLocationManager";
+import "./SceneProp.css"
+import ScenePropManager from "../../modules/ScenePropManager";
 
-export default class FilmLocationEditForm extends Component {
+export default class ScenePropEditForm extends Component {
     // Set initial state
     state = {
         name: "",
-        address: "",
+        description: "",
         projectId: 0
     }
 
@@ -20,24 +20,24 @@ export default class FilmLocationEditForm extends Component {
 
 
     componentDidMount(){
-        FilmLocationManager.get(this.props.match.params.filmLocationId)
-        .then(filmLocations => {
+        ScenePropManager.get(this.props.match.params.scenePropId)
+        .then(sceneProps => {
           this.setState({
-            name:filmLocations.name,
-            address: filmLocations.address,
-            projectId: filmLocations.projectId
+            name:sceneProps.name,
+            description: sceneProps.description,
+            projectId: sceneProps.projectId
           })
         })
       }
-      updateExistingFilmLocation = evt => {
+      updateExistingSceneProp = evt => {
           evt.preventDefault()
-          const existingFilmLocation = {
+          const existingSceneProp = {
               name:this.state.name,
-              address: this.state.address,
+              description: this.state.description,
               projectId: Number(this.state.projectId)
             }
-            this.props.editFilmLocation(this.props.match.params.filmLocationId, existingFilmLocation)
-          .then(() => this.props.history.push(`/filmLocations/${this.state.projectId}`))
+            this.props.editSceneProp(this.props.match.params.scenePropId, existingSceneProp)
+          .then(() => this.props.history.push(`/sceneProps/${this.state.projectId}`))
         }
 
     render() {
@@ -46,16 +46,16 @@ export default class FilmLocationEditForm extends Component {
                 <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
                 <div className="logoutButton">
                 <button type="button"
-                            onClick={()=> this.props.history.push(`/filmLocations/${this.state.projectId}`)}
+                            onClick={()=> this.props.history.push(`/sceneProps/${this.state.projectId}`)}
                             className="btn btn-success">
-                        Back to Cast
+                        Back to Props
                     </button>
                 </div>
             </nav>
                 <div className="forms">
-                <form className="filmLocationForm">
+                <form className="scenePropForm">
                     <div className="form-group">
-                        <label htmlFor="name">Location Name</label>
+                        <label htmlFor="name">Prop Name</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -63,13 +63,13 @@ export default class FilmLocationEditForm extends Component {
                                value={this.state.name} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="address">Address</label>
+                        <label htmlFor="description">Description</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="address" value={this.state.address} />
+                               id="description" value={this.state.description} />
                     </div>
-                    <button type="submit" onClick={this.updateExistingFilmLocation} className="btn btn-primary">Update</button>
+                    <button type="submit" onClick={this.updateExistingSceneProp} className="btn btn-primary">Update</button>
                 </form>
                 </div>
             </React.Fragment>
