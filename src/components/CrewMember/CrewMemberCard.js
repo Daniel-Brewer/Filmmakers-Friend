@@ -1,13 +1,13 @@
 import React, { Component } from "react"
 import "./CrewMember.css"
-import CrewIcon from "./CrewIcon.png"
+import FilmCrew from "./FilmCrew.jpg"
 
 export default class CrewMemberCard extends Component {
 
     render() {
         return (
             <div key={this.props.crewMember.id} className="card">
-                                    <img src={CrewIcon} className="card-img-top" alt="Camera Operator" ></img>
+                                    <img src={FilmCrew} className="card-img-top" alt="Camera Operator" ></img>
                 <div className="card-body">
                     <h4 className="card-title">
                         {this.props.crewMember.name}

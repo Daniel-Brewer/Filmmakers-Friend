@@ -51,7 +51,7 @@ export default class ProjectEditForm extends Component {
                     </button>
                 </div>
             </nav>
-                <form className="projectForm">
+                <form className="forms">
                     <div className="form-group">
                     <label htmlFor="Title"></label>
                         <input type="text" required

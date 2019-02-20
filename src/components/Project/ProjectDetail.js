@@ -24,15 +24,15 @@ export default class ProjectDetail extends Component {
                         className="logoutButton">Back to Project List</button>
                 </div>
             </nav>
-            <h2>Project Page</h2>
+            <h2>Project</h2>
             <div className="forms">
             <section className="project">
                 <div key={project.id} className="card">
                 <img src={MovieProjector} className="card-img-top" alt="Movie Projector" ></img>
                     <div className="card-body">
-                        <h4 className="card-title">
+                        <h3 className="card-title">
                             {project.title}
-                        </h4>
+                        </h3>
 
                         <button
                             onClick={() => CastMemberManager.getCastMembersInProject(project.id)

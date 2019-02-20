@@ -87,18 +87,6 @@
       "description": "Super Hero",
       "userId": 1,
       "id": 17
-    },
-    {
-      "title": "11111",
-      "description": "",
-      "userId": 1,
-      "id": 18
-    },
-    {
-      "title": "22222",
-      "description": "",
-      "userId": 1,
-      "id": 19
     }
   ],
   "castMembers": [
@@ -338,21 +326,27 @@
   "sceneProps": [
     {
       "name": "Book & Pen",
-      "description": "Hardback",
+      "description": "Hardback & Ballpoint",
       "projectId": 9,
       "id": 1
     },
     {
       "name": "Suitcase",
-      "description": "Aluminum",
+      "description": "Locking Aluminum",
       "projectId": 9,
       "id": 2
     },
     {
       "name": "Gun ",
-      "description": "Pistol",
+      "description": ".45 Pistol",
       "projectId": 9,
       "id": 3
+    },
+    {
+      "name": "Sunglasses",
+      "description": "Ray-Bans",
+      "projectId": 9,
+      "id": 4
     }
   ]
 }

@@ -1,11 +1,11 @@
-.projectForm {
+/* .projectForm {
     display: table-caption;
     align-items: center;
-}
+} */
 
-.forms {
+/* .forms {
     text-align: -webkit-center;
-}
+} */
 
 
 .projects {
@@ -24,10 +24,8 @@ h5 {
     width: 100%;
 }
 .card {
-    /* width: 50%; */
     background-image: linear-gradient(to top, rgb(75, 63, 82),whitesmoke);
     border-style: solid;
-    /* flex-basis: auto; */
     flex-grow: 1;
     max-width: 15em;
     min-width: 15em;
@@ -50,7 +48,9 @@ h4 {
     display: flex;
     justify-content: center;
     font-family: 'Special Elite', cursive;
-    background-color: burlywood;
+    /* background-color: burlywood; */
+    border-style: solid;
+    border-color: rgb(44, 38, 38);
 }
 
 h1, h2 {
@@ -65,17 +65,22 @@ h3 {
     justify-content: center;
     font-family: 'Special Elite', cursive;
     font-style: italic;
+    background-color: burlywood;
+    border-style: solid;
+    border-color: rgb(44, 38, 38);
 }
 
 .nav-link {
     background-color: burlywood;
     font-family: 'Special Elite', cursive;
+    border-style: solid;
+    border-color: rgb(44, 38, 38);
 }
 p {
     display: flex;
     justify-content: center;
-    font-family: 'Special Elite', cursive;
-    font-style: italic;
+    /* font-family: 'Special Elite', cursive; */
+    /* font-style: italic; */
 }
 
 .projectButton {
@@ -84,7 +89,12 @@ p {
     margin: 0 0 10px 0;
 }
 
-.logoutButton:hover {
-    color: burlywood;
+.button {
+    display: flex;
+    justify-content: center;
 }
+
+/* .logoutButton:hover {
+    color: burlywood;
+} */
 
