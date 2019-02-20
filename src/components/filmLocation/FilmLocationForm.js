@@ -49,6 +49,7 @@ export default class FilmLocationForm extends Component {
                 <form className="filmLocationForm">
                     <div className="form-group">
                         <label htmlFor="name">Location Name</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -57,6 +58,7 @@ export default class FilmLocationForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="address">Address</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

@@ -62,6 +62,7 @@ export default class CastMemberEditForm extends Component {
                 <form className="castMemberForm">
                     <div className="form-group">
                         <label htmlFor="name">CastMember Name</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -70,6 +71,7 @@ export default class CastMemberEditForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="character">Character</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -77,6 +79,7 @@ export default class CastMemberEditForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="phone">Phone</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -84,6 +87,7 @@ export default class CastMemberEditForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

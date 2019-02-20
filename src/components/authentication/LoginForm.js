@@ -55,7 +55,7 @@ export default class LoginForm extends Component {
                         <br></br>
                         <br></br>
                         {/* <div><h5>A Practical Application for the Creative Mind</h5></div> */}
-                        <h3>Please Sign In</h3>
+                        <h5>Please Sign In</h5>
                         <input onChange={this.handleFieldChange} type="username"
                             id="username"
                             placeholder="Username"

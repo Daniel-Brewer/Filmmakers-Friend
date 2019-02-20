@@ -50,6 +50,7 @@ export default class ProjectForm extends Component {
                 <form className="projectForm">
                     <div className="form-group">
                         <label htmlFor="title">Project Title</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -58,6 +59,7 @@ export default class ProjectForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
