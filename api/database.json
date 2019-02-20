@@ -334,5 +334,13 @@
       "projectId": 9,
       "id": 6
     }
+  ],
+  "sceneProps": [
+    {
+      "name": "Book",
+      "description": "Hardback",
+      "projectId": 9,
+      "id": 1
+    }
   ]
 }

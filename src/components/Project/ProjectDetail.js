@@ -4,6 +4,7 @@ import "./Project.css"
 import CastMemberManager from "../../modules/CastMemberManager";
 import CrewMemberManager from "../../modules/CrewMemberManager";
 import FilmLocationManager from "../../modules/FilmLocationManager";
+import ScenePropManager from "../../modules/ScenePropManager";
 import MovieProjector from "./movie-projector.png";
 
 
@@ -50,6 +51,12 @@ export default class ProjectDetail extends Component {
                             onClick={() => FilmLocationManager.getFilmLocationsInProject(project.id)
                                             .then(() => this.props.history.push(`/filmLocations/${project.id}`))}
                             className="card-link">Locations</button>
+                        <br></br>
+
+                        <button
+                            onClick={() => ScenePropManager.getScenePropsInProject(project.id)
+                                            .then(() => this.props.history.push(`/sceneProps/${project.id}`))}
+                            className="card-link">Props</button>
                         <br></br>
 
                         <button
