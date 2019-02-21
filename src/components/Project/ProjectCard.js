@@ -14,7 +14,10 @@ export default class ProjectCard extends Component {
                     
                         {this.props.project.title}
 </h3>
-                        <p>{this.props.project.description}</p>
+                        <h5>Genre:</h5>
+                        <p>{this.props.project.genre}</p>
+                        <h5>Notes:</h5>
+                        <p>{this.props.project.notes}</p>
 <h5>
                         
                         <Link className="nav-link" to={`/projects/${this.props.project.id}`}>Enter Project</Link>

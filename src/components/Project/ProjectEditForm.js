@@ -6,7 +6,8 @@ export default class ProjectEditForm extends Component {
     // Set initial state
     state = {
         title: "",
-        description: "",
+        genre: "",
+        notes: "",
         userId: ""
     }
     
@@ -21,7 +22,8 @@ export default class ProjectEditForm extends Component {
         ProjectManager.get(this.props.match.params.projectId).then(project => {
           this.setState({
             title: project.title,
-            description: project.description,
+            genre: project.genre,
+            notes: project.notes,
             userId: project.userId
           })
         })
@@ -32,7 +34,8 @@ export default class ProjectEditForm extends Component {
           let currentUserId = Number(currentUser)
               const existingProject = {
                   title: this.state.title,
-                  description: this.state.description,
+                  genre: this.state.genre,
+                  notes: this.state.notes,
                   userId: currentUserId
               }
             this.props.editProject(this.props.match.params.projectId, existingProject)
@@ -63,12 +66,20 @@ export default class ProjectEditForm extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                    <label htmlFor="description">Description</label>
+                    <label htmlFor="genre">Genre</label>
                     <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="description" value={this.state.description} />
+                               id="genre" value={this.state.genre} />
+                    </div>
+                    <div className="form-group">
+                    <label htmlFor="notes">Notes</label>
+                    <br></br>
+                        <input type="text" required
+                               className="form-control"
+                               onChange={this.handleFieldChange}
+                               id="notes" value={this.state.notes} />
                     </div>
                     <button type="submit" onClick={this.updateExistingProject} className="btn btn-primary">Update</button>
                 </form>

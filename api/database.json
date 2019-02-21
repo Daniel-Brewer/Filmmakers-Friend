@@ -48,7 +48,8 @@
     },
     {
       "title": "Synchronicity",
-      "description": "Thriller",
+      "genre": "Thriller",
+      "notes": "Revisit audio in edit",
       "userId": 1,
       "id": 9
     },
@@ -66,27 +67,38 @@
     },
     {
       "title": "About the Author",
-      "description": "Drama",
+      "genre": "Drama",
+      "notes": "Seattle Film Festival Entry 5-02-2019",
       "userId": 1,
       "id": 14
     },
     {
       "title": "The Law of the Jungle",
-      "description": "Drama",
+      "genre": "Drama",
+      "notes": "Script rewrite in process",
       "userId": 1,
       "id": 15
     },
     {
       "title": "The Redeemers",
-      "description": "Action Adventure",
+      "genre": "Action Adventure",
+      "notes": "Re-shoot Scene 2",
       "userId": 1,
       "id": 16
     },
     {
       "title": "The Hope",
-      "description": "Super Hero",
+      "genre": "Super Hero",
+      "notes": "Rewrite Scene 3",
       "userId": 1,
       "id": 17
+    },
+    {
+      "title": "Called to Serve",
+      "genre": "Drama",
+      "notes": "Auditions begin 4-02-2019",
+      "userId": 1,
+      "id": 18
     }
   ],
   "castMembers": [
