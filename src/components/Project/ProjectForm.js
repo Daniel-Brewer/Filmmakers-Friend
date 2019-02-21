@@ -7,7 +7,8 @@ export default class ProjectForm extends Component {
     // Set initial state
     state = {
         title: "",
-        description: "",
+        genre: "",
+        notes: "",
     }
 
     // Update state whenever an input field is edited
@@ -25,7 +26,8 @@ export default class ProjectForm extends Component {
         let currentUserId = Number(currentUser)
             const project = {
                 title: this.state.title,
-                description: this.state.description,
+                genre: this.state.genre,
+                notes: this.state.notes,
                 userId: currentUserId
             }
 
@@ -58,12 +60,20 @@ export default class ProjectForm extends Component {
                                placeholder="Project Title" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="description">Description</label>
+                        <label htmlFor="genre">Genre</label>
                         <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="description" placeholder="Description" />
+                               id="genre" placeholder="Genre" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="notes">Notes</label>
+                        <br></br>
+                        <input type="text" required
+                               className="form-control"
+                               onChange={this.handleFieldChange}
+                               id="notes" placeholder="Notes" />
                     </div>
                     <button type="submit" onClick={this.constructNewProject} className="btn btn-primary">Submit</button>
                 </form>
