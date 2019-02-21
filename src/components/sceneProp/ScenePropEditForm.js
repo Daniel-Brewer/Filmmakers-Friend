@@ -56,6 +56,7 @@ export default class ScenePropEditForm extends Component {
                 <form className="scenePropForm">
                     <div className="form-group">
                         <label htmlFor="name">Prop Name</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -64,6 +65,7 @@ export default class ScenePropEditForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

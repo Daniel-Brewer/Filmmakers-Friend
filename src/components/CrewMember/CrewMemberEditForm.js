@@ -61,6 +61,7 @@ export default class CrewMemberEditForm extends Component {
                 <form className="crewMemberForm">
                     <div className="form-group">
                         <label htmlFor="name">CrewMember Name</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -69,6 +70,7 @@ export default class CrewMemberEditForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="job">Job</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -76,6 +78,7 @@ export default class CrewMemberEditForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="phone">Phone</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -83,6 +86,7 @@ export default class CrewMemberEditForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
+                        <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

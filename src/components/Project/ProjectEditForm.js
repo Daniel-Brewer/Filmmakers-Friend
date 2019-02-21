@@ -45,15 +45,16 @@ export default class ProjectEditForm extends Component {
                             <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
                 <div className="logoutButton">
                 <button type="button"
-                            onClick={()=> this.props.history.push(`/projects/${this.props.match.params.projectId}`)}
+                            onClick={()=> this.props.history.push(`/projects`)}
                             className="btn btn-success">
-                        Back to Project
+                        Back to Project List
                     </button>
                 </div>
             </nav>
                 <form className="forms">
                     <div className="form-group">
-                    <label htmlFor="Title"></label>
+                    <label htmlFor="title">Title</label>
+                    <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -62,7 +63,8 @@ export default class ProjectEditForm extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                    <label htmlFor="Description"></label>
+                    <label htmlFor="description">Description</label>
+                    <br></br>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

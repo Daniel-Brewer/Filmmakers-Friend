@@ -50,17 +50,17 @@ export default class LoginForm extends Component {
             <div className="forms">
                 <div className="loginForm">
                     <form onSubmit={this.handleLogin}>
-                        {/* <h1 className="h3 mb-3 font-weight-normal">Filmmaker's Friend</h1> */}
-                        <div><h1>Filmmaker's Friend</h1></div>
+                        <div><h1>Filmmaker's Friend</h1>
+                        <h5>A Practical Application for the Creative Mind</h5></div>
+                        <h5>Please Sign In</h5>
+                        <label htmlFor="username">Username</label>
                         <br></br>
-                        <br></br>
-                        {/* <div><h5>A Practical Application for the Creative Mind</h5></div> */}
-                        <h3>Please Sign In</h3>
                         <input onChange={this.handleFieldChange} type="username"
                             id="username"
                             placeholder="Username"
                             required="" autoFocus="" />
-                        <br></br>
+                         <label htmlFor="password">Password</label>
+                         <br></br>
                         <input onChange={this.handleFieldChange} type="password"
                             id="password"
                             placeholder="Password"
@@ -69,13 +69,6 @@ export default class LoginForm extends Component {
                         <button type="submit">
                             Submit
                 </button>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <div><h5>A Practical Application for the Creative Mind</h5></div>
                     </form>
                 </div>
             </div>
