@@ -68,7 +68,7 @@
     {
       "title": "About the Author",
       "genre": "Drama",
-      "notes": "Seattle Film Festival Entry 5-02-2019",
+      "notes": "Seattle FilmFest Entry 5/02",
       "userId": 1,
       "id": 14
     },
@@ -94,11 +94,18 @@
       "id": 17
     },
     {
-      "title": "Called to Serve",
+      "title": "A Call to Serve",
       "genre": "Drama",
       "notes": "Auditions begin 4-02-2019",
       "userId": 1,
       "id": 18
+    },
+    {
+      "title": "Sigma",
+      "genre": "Mystery",
+      "notes": "color correct needed in edit",
+      "userId": 1,
+      "id": 19
     }
   ],
   "castMembers": [
@@ -300,7 +307,7 @@
   "filmLocations": [
     {
       "name": "Testing",
-      "address": "123",
+      "address": "123 Main Street Nashville TN 37206",
       "projectId": 9,
       "id": 1
     },
