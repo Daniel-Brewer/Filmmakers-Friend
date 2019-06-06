@@ -41,7 +41,7 @@ class ApplicationViews
 
   // Check if credentials are in local storage
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
-
+// post call to add user to db
   addUser = user =>
     UserManager.post(user)
       .then(() => UserManager.getAll())
@@ -50,6 +50,7 @@ class ApplicationViews
           users: users
         })
       );
+// post call to add project to db
   addProject = project =>
     ProjectManager.post(project)
       .then(() => ProjectManager.getAll())
@@ -58,7 +59,7 @@ class ApplicationViews
           projects: projects
         })
       );
-
+// delete project through ProjectManager
   deleteProject = id => {
     return fetch(`http://localhost:5002/projects/${id}`, {
       method: "DELETE"
@@ -73,7 +74,7 @@ class ApplicationViews
       );
   };
 
-
+// edit project through ProjectManager
   editProject = (projectId, existingProject) =>
     ProjectManager.put(projectId, existingProject)
       .then(() => ProjectManager.getAll())
@@ -82,7 +83,7 @@ class ApplicationViews
       })
       );
 
-
+// post new castMember to db though ProjectManager
   addCastMember = castMember =>
     CastMemberManager.post(castMember)
       .then(() => CastMemberManager.getAll())
@@ -105,7 +106,7 @@ class ApplicationViews
       )
 
   };
-
+// edit castMember through ProjectManager
   editCastMember = (castMemberId, existingCastMember) =>
     CastMemberManager.put(castMemberId, existingCastMember)
       .then(() => CastMemberManager.getAll())
@@ -113,7 +114,7 @@ class ApplicationViews
         castMembers: castMembers
       })
       );
-
+// edit crewMember through ProjectManager
   editCrewMember = (crewMemberId, existingCrewMember) =>
     CrewMemberManager.put(crewMemberId, existingCrewMember)
       .then(() => CrewMemberManager.getAll())
@@ -121,7 +122,7 @@ class ApplicationViews
         crewMembers: crewMembers
       })
       );
-
+// post new crewMember through ProjectManager
   addCrewMember = crewMember =>
     CrewMemberManager.post(crewMember)
       .then(() => CrewMemberManager.getAll())
@@ -130,7 +131,7 @@ class ApplicationViews
           crewMembers: crewMembers
         })
       );
-
+// delete crewMember through ProjectManager
   deleteCrewMember = (id, projectId) => {
     return fetch(`http://localhost:5002/crewMembers/${id}`, {
       method: "DELETE"
