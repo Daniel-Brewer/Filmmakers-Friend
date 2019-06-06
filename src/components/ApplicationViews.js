@@ -41,7 +41,7 @@ class ApplicationViews
 
   // Check if credentials are in local storage
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
-
+// post call to add user to db
   addUser = user =>
     UserManager.post(user)
       .then(() => UserManager.getAll())
@@ -50,6 +50,7 @@ class ApplicationViews
           users: users
         })
       );
+// post call to add project to db
   addProject = project =>
     ProjectManager.post(project)
       .then(() => ProjectManager.getAll())
@@ -58,7 +59,7 @@ class ApplicationViews
           projects: projects
         })
       );
-
+// delete project through ProjectManager
   deleteProject = id => {
     return fetch(`http://localhost:5002/projects/${id}`, {
       method: "DELETE"
@@ -73,7 +74,7 @@ class ApplicationViews
       );
   };
 
-
+// edit project through Project Manager
   editProject = (projectId, existingProject) =>
     ProjectManager.put(projectId, existingProject)
       .then(() => ProjectManager.getAll())
