@@ -74,7 +74,7 @@ class ApplicationViews
       );
   };
 
-// edit project through Project Manager
+// edit project through ProjectManager
   editProject = (projectId, existingProject) =>
     ProjectManager.put(projectId, existingProject)
       .then(() => ProjectManager.getAll())
@@ -83,7 +83,7 @@ class ApplicationViews
       })
       );
 
-
+// post new castMember to db though ProjectManager
   addCastMember = castMember =>
     CastMemberManager.post(castMember)
       .then(() => CastMemberManager.getAll())
@@ -106,7 +106,7 @@ class ApplicationViews
       )
 
   };
-
+// edit castMember through ProjectManager
   editCastMember = (castMemberId, existingCastMember) =>
     CastMemberManager.put(castMemberId, existingCastMember)
       .then(() => CastMemberManager.getAll())
