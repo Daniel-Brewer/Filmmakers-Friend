@@ -114,7 +114,7 @@ class ApplicationViews
         castMembers: castMembers
       })
       );
-
+// edit crewMember through ProjectManager
   editCrewMember = (crewMemberId, existingCrewMember) =>
     CrewMemberManager.put(crewMemberId, existingCrewMember)
       .then(() => CrewMemberManager.getAll())
@@ -122,7 +122,7 @@ class ApplicationViews
         crewMembers: crewMembers
       })
       );
-
+// post new crewMember through ProjectManager
   addCrewMember = crewMember =>
     CrewMemberManager.post(crewMember)
       .then(() => CrewMemberManager.getAll())
@@ -131,7 +131,7 @@ class ApplicationViews
           crewMembers: crewMembers
         })
       );
-
+// delete crewMember through ProjectManager
   deleteCrewMember = (id, projectId) => {
     return fetch(`http://localhost:5002/crewMembers/${id}`, {
       method: "DELETE"
