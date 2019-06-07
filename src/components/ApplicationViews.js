@@ -144,7 +144,7 @@ class ApplicationViews
       })
       )
   };
-
+// edit FilmLocation through ProjectManager
   editFilmLocation = (filmLocationId, existingFilmLocation) =>
     FilmLocationManager.put(filmLocationId, existingFilmLocation)
       .then(() => FilmLocationManager.getAll())
@@ -152,7 +152,7 @@ class ApplicationViews
         filmLocations: filmLocations
       })
       );
-
+// add new FilmLocation through ProjectManager
   addFilmLocation = filmLocation =>
     FilmLocationManager.post(filmLocation)
       .then(() => FilmLocationManager.getAll())
@@ -161,7 +161,7 @@ class ApplicationViews
           filmLocations: filmLocations
         })
       );
-
+// delete FilmLocation through ProjectManager
   deleteFilmLocation = (id, projectId) => {
     return fetch(`http://localhost:5002/filmLocations/${id}`, {
       method: "DELETE"
